@@ -29,7 +29,7 @@ $db = null;
                             <th>Elegir</th> 
                             <th>Nombre</th>
                             <th>Activa</th>
-                            <th></th>
+                            <th>Modificar</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -439,3 +439,20 @@ function veriMod() {
   }
 }
 
+function verificarLicencia(){
+    var desde = (document.getElementById('desde').value);
+    var hasta = (document.getElementById('hasta').value);
+    fecha_actual = new Date(10,8,1999);
+ // NO HACE FALTA   fecha_actual = document.write(fecha_actual.getDate() + "/" + (fecha_actual.getMonth() +1) + "/" + fecha_actual.getFullYear());
+    if (desde > hasta) {
+        alert('El intervalo está mal definido');
+        return false;
+    }
+     else
+         if (desde <= fecha_actual){
+             alert('La fecha de inicio de la licencia es incorrecto');
+             return false;
+         }
+         else
+             return true;
+    }
