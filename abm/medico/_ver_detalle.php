@@ -10,7 +10,7 @@ $campos = $result->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
-<label style="default"><strong>Nombre: </strong><?php echo ($campos['nombre']) ?></label>
+    <label><strong>Nombre: </strong><?php echo ($campos['nombre']) ?></label>
     <br>
     <label><strong>Apellido: </strong><?php echo ($campos['apellido']) ?></label>
     <br>
