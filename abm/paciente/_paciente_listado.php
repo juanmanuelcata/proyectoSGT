@@ -16,13 +16,12 @@ if ($result->rowCount() == 0) {
             <thead>
                 <tr>
                     <th>Elegir</th>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Nuevo Turno</th>
                     <th>Modificar</th>
                     <th>Detalle</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Obra Social</th>
-                    <th>DNI</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,18 +29,23 @@ if ($result->rowCount() == 0) {
                 foreach ($result as $valor) {
                     echo '<tr>
                 <td><input type="checkbox" name="' . $valor['idpaciente'] . '" value="' . $valor['idpaciente'] . '" id="' . $valor['idpaciente'] . '"></td>
+                <td>' . $valor['dni'] . '</td>
+                <td>' . $valor['pacnombre'] . '</td>
+                <td>' . $valor['apellido'] . '</td>
                 <td><a href="./turno.php?code=a&id=' . $valor['idpaciente'] . '"><i class="icon-plus"></i></a></td>
                 <td><a href="./paciente.php?code=m&id=' . $valor['idpaciente'] . '&os=' . $valor['osnombre'] . '"><i class="icon-cog"></i></a></td>
-                <td><a href="./paciente.php?code=d&id=' . $valor['idpaciente'] . '" TARGET="_blank"><i class=" icon-list-alt"></i></a></td>
-                <td>' . $valor['pacnombre'] . '</td>
-                <td>' . $valor['apellido'] . '</td>';
-                    if ($valor['activo'] == 1)
-                        echo '<td>' . $valor['osnombre'] . '</td>';
-                    else
-                        echo '<td><p style="color: #FF0000">' . $valor['osnombre'] . '</p></td>';
-                    echo '<td>' . $valor['dni'] . '</td></tr>';
+                <td><a href="./paciente.php?code=d&id=' . $valor['idpaciente'] . '" TARGET="_blank"><i class=" icon-eye-open"></i></a></td>  
+                </tr>';
                 }
+                
+                
+// Consulta por obras sociales                
+//                if ($valor['activo'] == 1)
+//                        echo '<td>' . $valor['osnombre'] . '</td>';
+//                    else
+//                        echo '<td><p style="color: #FF0000">' . $valor['osnombre'] . '</p></td>';
                 ?>
+                
             </tbody>    
         </table>
     </div>

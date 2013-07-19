@@ -11,11 +11,11 @@ $result = $db->query($consulta);
         <tr>
             <th>Elegir</th>
             <th>User</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
+<!--            <th>Nombre</th>
+            <th>Apellido</th>-->
             <th>DNI</th>
-            <th>Mail</th>
-            <th></th>
+            <th>Modificar</th>
+            <th>Detalle</th>
         </tr>
     </thead>
     <tbody>
@@ -24,11 +24,9 @@ $result = $db->query($consulta);
             echo ('<tr>
                 <td><input type="checkbox" name="'.$valor['idusuario'].'" value="'.$valor['idusuario'].'" id="'.$valor['idusuario'].'"></td>              
                 <td>' . $valor['user'] . '</td>
-                <td>' . $valor['nombre'] . '</td>
-                <td>' . $valor['apellido'] . '</td>
                 <td>' . $valor['dni'] . '</td>
-                <td>' . $valor['mail'] . '</td>
-                <td><a href="./usuario.php?code=m&id='.$valor['idusuario'].'"><i class="icon-cog"></i></a></td></tr>');
+                <td><a href="./usuario.php?code=m&id='.$valor['idusuario'].'"><i class="icon-cog"></i></a></td>
+                <td><a href="./usuario.php?code=d&id='.$valor['idusuario'].'"><i class="icon-eye-open"></i></a></td></tr>');
         ?>
     </tbody>    
 </table>

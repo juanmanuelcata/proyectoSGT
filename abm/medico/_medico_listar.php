@@ -12,21 +12,25 @@ $result = $db->query($consulta);
             <thead>
                 <tr>
                     <th>elegir</th>
-                    <th>Modificar</th>
-                    <th>Detalle</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
+                    <th>Modificar</th>
+                    <th>Licencias</th>
+                    <th>Detalle</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach ($result as $valor)
-                    echo ('<tr>
+                foreach ($result as $valor) {
+                    echo '<tr>
                 <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
-                <td><a href="./medico.php?code=m&id=' . $valor['idmedico'] . '"><i class="icon-cog"></i></a></td>
-                <td><a href="./medico.php?code=d&id=' . $valor['idmedico'] . '" TARGET="_blank"><i class=" icon-list-alt"></i></a></td>
                 <td>' . $valor['nombre'] . '</td>
-                <td>' . $valor['apellido'] . '</td>');
+                <td>' . $valor['apellido'] . '</td>
+                <td><a href="./medico.php?code=m&id=' . $valor['idmedico'] . '"><i class="icon-cog"></i></a></td>
+                <td><a href="./medico.php?code=li&id=' . $valor['idmedico'] . '"><i class="icon-plane"></i></a></td>    
+                <td><a href="./medico.php?code=d&id=' . $valor['idmedico'] . '" TARGET="_blank"><i class=" icon-eye-open"></i></a></td>
+                </tr>';
+                }
                 ?>
             </tbody>
         </table>
