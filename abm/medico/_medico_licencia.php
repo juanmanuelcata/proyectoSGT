@@ -22,7 +22,10 @@ if (isset($_GET['ok'])) {
     $db->query($consulta);
   }
   else{
-    echo "el intervalo no es valido para la licencia.";
+        echo '<div class="alert alert-error">  
+                <a class="close" data-dismiss="alert">×</a>  
+                <strong><h4>Error!</h4> El intervalo ingresado no es válido.</strong> 
+             </div>';
   }
 } else {
   if (isset($_GET['id'])) {
