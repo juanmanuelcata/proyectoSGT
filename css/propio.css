@@ -14,13 +14,6 @@ body {
     font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-form.label:hover{
-    cursor: crosshair
-}
-
-
-
-
 a{
     color: black
 }
