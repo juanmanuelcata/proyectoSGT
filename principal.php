@@ -33,7 +33,8 @@ include_once('sesion/login.php');
           <?php include_once './fragmentos/_menu.php'; ?>
         </div>
         <div class="span9">
-          <h4 class="text-center">Pagina en construccion</h4>
+          
+   <h4 class="text-center">Pagina en construccion</h4>
           <h6>
             <?php
             $p = new DateTime( '31-01-2013' );
