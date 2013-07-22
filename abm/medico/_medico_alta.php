@@ -218,21 +218,6 @@ if (isset($_POST['nombre'])) {
                         });
                     }
 
-//                    function otro() {
-//                        var tope = 12;
-//                        $.ajax({
-//                            url: 'medico/hasta.php',
-//                            type: 'POST',
-//                            data: {
-//                                numeroHorario: numeroHorario,
-//                                numeroHasta: tope
-//                            },
-//                            success: function(data) {
-//                                $('#otroHorario').append(data);
-//                            }
-//                        });
-//                    }
-//
                     function borrarHorario(numeroDiv)
                     {
                         $('#horario_div_' + numeroDiv).remove();
@@ -243,24 +228,5 @@ if (isset($_POST['nombre'])) {
                         $('#os_div_' + numeroDiv).remove();
                     }
 
-//                    function validarMedico()
-//                    {
-//                        var res = true;
-//
-//                        alert(entro);
-//                        if (numeroHorario == 1)
-//                        {
-//                            alert("Agregue un horario por favor...");
-//                            res = false;
-//                        }
-//
-//                        return res;
-//                    }
-
-//                    function validarHorario() {
-//                        $arr = $_POST['horario'];
-//                        alert("dasdasdasd");
-//                        return false;
-//                    }
 
 </script>
