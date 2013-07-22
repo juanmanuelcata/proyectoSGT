@@ -2,7 +2,7 @@
 function conectaDb()
 {
     try {
-        $db = new PDO("mysql:host=localhost;dbname=sgt-proyecto", "root");
+        $db = new PDO("mysql:host=localhost;dbname=sgt-proyecto", "root", "1234");
         $db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, TRUE);
         return($db);
     } catch (PDOException $e) {
