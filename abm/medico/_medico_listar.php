@@ -63,7 +63,7 @@ $result = $db->query($consulta);
     }
 
     function verificarLicencia() {
-        fecha_actual = new Date('2013-07-31');
+        fecha_actual = new Date();
         // NO HACE FALTA fecha_actual = document.write(fecha_actual.getDate() + "/" + (fecha_actual.getMonth() +1) + "/" + fecha_actual.getFullYear());
         alert(fecha_actual);
     }
