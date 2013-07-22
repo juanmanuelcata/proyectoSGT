@@ -30,7 +30,6 @@ else
         $(document).ready(function() {
             $('#tabla1').dataTable({
                 "sScrollY": 200,
-                "bPaginate": false,
                 "bScrollCollapse": true,
                 "sScrollX": "100%",
                 "sScrollXInner": "110%",
@@ -71,12 +70,12 @@ else
                                 include_once('./medico/_medico_alta.php');
                             if ($_GET['code'] == 'd')
                                 include_once('./medico/_ver_detalle.php');
-                            if ($_GET['code'] == 'b')
-                                include_once('./medico/_medico_baja.php');
                             if ($_GET['code'] == 'm')
                                 include_once('./medico/_medico_modificar.php');
                             if ($_GET['code'] == 'l')
                                 include_once('./medico/_medico_listar.php');
+                            if ($_GET['code'] == 'li')
+                                include_once('./medico/_medico_licencia.php');
                         }
                         ?>
                     </div>                

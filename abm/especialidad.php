@@ -25,10 +25,9 @@ include_once('../sesion/login.php');
     $(document).ready(function() {
     $('#tabla1').dataTable({
     "sScrollY": 200,
-            "bPaginate": false,
             "bScrollCollapse": true,
-//            "sScrollX": "100%",
-//            "sScrollXInner": "110%",
+            "sScrollX": "100%",
+            "sScrollXInner": "110%",
             "bJQueryUI": true,
             "sPaginationType": "full_numbers",
             "oLanguage": {
