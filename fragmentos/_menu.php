@@ -5,10 +5,7 @@
         <article class="ac-small">
             <ul class="nav nav-pills nav-stacked">
                 <li>
-                    <a href="/abm/turno.php?code=a">Alta de Turno</a>
-                </li>
-                <li>
-                    <a href="#">Modificación de Turno</a>
+                    <a href="/abm/turno.php?code=l">Listado de turnos</a>
                 </li>
             </ul>
         </article>
