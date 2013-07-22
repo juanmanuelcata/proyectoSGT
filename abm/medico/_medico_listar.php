@@ -21,20 +21,18 @@ $result = $db->query($consulta);
             </thead>
             <tbody>
                 <?php
-                
-
-                
                 foreach ($result as $valor) {
-                      $direccion = "'./medico.php?code=d&id=" . $valor["idmedico"] . "'";
+//                      $direccion = "'./medico.php?code=d&id=" . $valor["idmedico"] . "'";
+                    $direccion = "'./medico/_ver_detalle.php?id=" . $valor["idmedico"] . "'";
                     echo '<tr>
                 <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
                 <td>' . $valor['nombre'] . '</td>
                 <td>' . $valor['apellido'] . '</td>
                 <td><a href="./medico.php?code=m&id=' . $valor['idmedico'] . '"><i class="icon-cog"></i></a></td>
                 <td><a href="./medico.php?code=li&id=' . $valor['idmedico'] . '"><i class="icon-plane"></i></a></td>    
-                <td><a href="javascript:abrir('. $direccion. ')"><i class=" icon-eye-open"></i></a></td>
+                <td><a href="javascript:abrir(' . $direccion . ')"><i class=" icon-eye-open"></i></a></td>
                 </tr>';
-                }    
+                }
                 ?>
             </tbody>
         </table>
@@ -59,15 +57,15 @@ $result = $db->query($consulta);
             if (document.form.elements[i].type == "checkbox")
                 document.form.elements[i].checked = 0
     }
-    
-    function abrir(url) { 
-        open(url,'','top=300,left=300,width=800,height=600') ; 
-    } 
-    
-    function verificarLicencia(){
-    fecha_actual = new Date('2013-07-31');
-    // NO HACE FALTA fecha_actual = document.write(fecha_actual.getDate() + "/" + (fecha_actual.getMonth() +1) + "/" + fecha_actual.getFullYear());
-    alert(fecha_actual);
-}
-    
+
+    function abrir(url) {
+        open(url, '', 'top=100,left=100,width=800,height=600');
+    }
+
+    function verificarLicencia() {
+        fecha_actual = new Date();
+        // NO HACE FALTA fecha_actual = document.write(fecha_actual.getDate() + "/" + (fecha_actual.getMonth() +1) + "/" + fecha_actual.getFullYear());
+        alert(fecha_actual);
+    }
+
 </script>
