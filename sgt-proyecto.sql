@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2013 a las 18:48:21
+-- Tiempo de generación: 22-07-2013 a las 18:53:35
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -83,7 +83,7 @@ INSERT INTO `horario` (`id`, `dia`, `desde`, `hasta`, `id_med`, `activo`) VALUES
 (34, 'lun', '12:30:00', '13:00:00', 28, 1),
 (35, 'lun', '13:00:00', '13:30:00', 28, 1),
 (36, 'lun', '13:30:00', '14:00:00', 28, 1),
-(37, 'lun', '14:00:00', '14:30:00', 28, 0),
+(37, 'lun', '14:00:00', '14:30:00', 28, 1),
 (38, 'lun', '14:30:00', '15:00:00', 28, 1),
 (39, 'lun', '15:00:00', '15:30:00', 28, 1),
 (40, 'lun', '15:30:00', '16:00:00', 28, 1),
@@ -112,11 +112,11 @@ INSERT INTO `horario` (`id`, `dia`, `desde`, `hasta`, `id_med`, `activo`) VALUES
 (63, 'lun', '18:00:00', '18:30:00', 30, 1),
 (64, 'lun', '18:30:00', '19:00:00', 30, 1),
 (65, 'lun', '10:00:00', '10:30:00', 31, 1),
-(66, 'lun', '10:30:00', '11:00:00', 31, 0),
+(66, 'lun', '10:30:00', '11:00:00', 31, 1),
 (67, 'mar', '16:00:00', '16:30:00', 31, 1),
 (68, 'mar', '16:30:00', '17:00:00', 31, 1),
 (69, 'mar', '17:00:00', '17:30:00', 31, 1),
-(70, 'mar', '17:30:00', '18:00:00', 31, 0),
+(70, 'mar', '17:30:00', '18:00:00', 31, 1),
 (71, 'mar', '18:00:00', '18:30:00', 31, 1),
 (72, 'mar', '18:30:00', '19:00:00', 31, 1),
 (73, 'lun', '11:00:00', '11:30:00', 32, 1),
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `licencia` (
   `hasta` date NOT NULL,
   `id_med` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `licencia`
@@ -164,7 +164,8 @@ INSERT INTO `licencia` (`id`, `desde`, `hasta`, `id_med`) VALUES
 (6, '2013-07-22', '2013-07-26', 31),
 (7, '2013-07-29', '2013-08-02', 31),
 (8, '2013-08-12', '2013-08-16', 31),
-(9, '2013-08-19', '2013-08-23', 31);
+(9, '2013-08-19', '2013-08-23', 31),
+(10, '2013-07-09', '2013-07-18', 28);
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `tabla` varchar(20) NOT NULL,
   `idafectado` int(11) NOT NULL,
   PRIMARY KEY (`idlog`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=175 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=176 ;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -260,7 +261,8 @@ INSERT INTO `log` (`idlog`, `fecha`, `usuario`, `detalle`, `tabla`, `idafectado`
 (171, '2013-07-17 02:12:05', 'pochilow09', 'Modificacion del mÃ©dico  "6549161"', 'medico', 0),
 (172, '2013-07-17 02:13:22', 'pochilow09', 'Modificacion del mÃ©dico  "18416545"', 'medico', 0),
 (173, '2013-07-17 02:13:59', 'pochilow09', 'Modificacion del mÃ©dico  "19156168"', 'medico', 0),
-(174, '2013-07-17 02:15:21', 'pochilow09', 'Modificacion del usuario  "pochilow09"', 'usuario', 0);
+(174, '2013-07-17 02:15:21', 'pochilow09', 'Modificacion del usuario  "pochilow09"', 'usuario', 0),
+(175, '2013-07-22 15:50:00', 'nie2', 'Alta de paciente  "39150552"', 'Paciente', 0);
 
 -- --------------------------------------------------------
 
@@ -408,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   `depto` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `dni` (`dni`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `paciente`
@@ -424,7 +426,8 @@ INSERT INTO `paciente` (`idpaciente`, `dni`, `ingreso`, `nacimiento`, `nombre`, 
 (7, '32156786', '2013-06-10 20:29:32', '1986-06-20', 'Patricio', 'GimÃ©nez', 'Brandsen', '531', '1487', 'patricio@gimenez.com', '0221486748', '3', 'f'),
 (8, '33315070', '2013-06-15 21:21:52', '1987-10-22', 'Nieves', 'Lubrano', 'berisso', '12', '4387', 'nieves_bsso@hotmail.com', '2214959016', '', ''),
 (9, '30125896', '2013-07-16 23:34:20', '1991-07-11', 'Gabriel', 'RolÃ³n', 'Berisso', '12', '3109', 'gabriel@rolon.com', '0221654878', '', ''),
-(10, '', '2013-07-18 22:40:44', '0000-00-00', 'Lautaro Silva.', '', '', '', '', '', '', '', '');
+(10, '', '2013-07-18 22:40:44', '0000-00-00', 'Lautaro Silva.', '', '', '', '', '', '', '', ''),
+(11, '39150552', '2013-07-22 18:49:59', '1995-09-03', 'Nazareno', 'Moralez', 'ensenada', '124 bis', '745', 'naza.deldique@hotmail.com', '2215935907', '', '');
 
 -- --------------------------------------------------------
 
@@ -439,7 +442,7 @@ CREATE TABLE IF NOT EXISTS `pac_os` (
   PRIMARY KEY (`idpac_os`),
   KEY `id_paciente` (`id_paciente`),
   KEY `id_os` (`id_os`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `pac_os`
@@ -454,7 +457,8 @@ INSERT INTO `pac_os` (`idpac_os`, `id_paciente`, `id_os`) VALUES
 (6, 6, 6),
 (7, 7, 8),
 (8, 8, 3),
-(9, 9, 14);
+(9, 9, 14),
+(10, 11, 4);
 
 -- --------------------------------------------------------
 
@@ -478,7 +482,18 @@ CREATE TABLE IF NOT EXISTS `turno` (
   KEY `id_med` (`id_med`),
   KEY `id_pac_2` (`id_pac`),
   KEY `responsable_2` (`responsable`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+
+--
+-- Volcado de datos para la tabla `turno`
+--
+
+INSERT INTO `turno` (`idturno`, `id_pac`, `id_med`, `fecha`, `hora`, `id_os`, `estado`, `responsable`) VALUES
+(14, 1, 32, '2013-07-24', '10:00:00', 4, 'cancelado', 9),
+(15, 2, 31, '2013-07-23', '16:30:00', 3, 'cancelado', 9),
+(16, 6, 29, '2013-07-24', '16:30:00', 6, 'cancelado', 9),
+(17, 3, 31, '2013-07-23', '18:00:00', 6, 'cancelado', 9),
+(18, 11, 29, '2013-07-24', '16:00:00', 4, 'cancelado', 9);
 
 -- --------------------------------------------------------
 
