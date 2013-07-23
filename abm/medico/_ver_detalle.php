@@ -96,7 +96,7 @@ else
                         <br>
                         <label><strong>Ingreso: </strong><?php echo ($campos['ingreso']) ?></label>
                         <br>
-                        <a href="./../medico.php?code=m&id=<?php echo ($campos['idmedico']) ?>" class="btn btn-success">Modificar</a>
+                        <a href="./medico_edit.php?id=<?php echo ($campos['idmedico']) ?>" class="btn btn-success">Modificar</a>
                     </div>                
                 </div>
             </div>
