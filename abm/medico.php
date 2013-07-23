@@ -70,6 +70,8 @@ else
                                 include_once('./medico/_medico_alta.php');
                             if ($_GET['code'] == 'm')
                                 include_once('./medico/_medico_modificar.php');
+                            if ($_GET['code'] == 'tli')
+                                include_once('./medico/_listado_turnos.php');
                             if ($_GET['code'] == 'l')
                                 include_once('./medico/_medico_listar.php');
                         }

@@ -16,6 +16,7 @@ $result = $db->query($consulta);
                     <th>Apellido</th>
                     <th>Modificar</th>
                     <th>Licencias</th>
+                    <th>Turnos</th>
                     <th>Detalle</th>
                 </tr>
             </thead>
@@ -30,8 +31,8 @@ $result = $db->query($consulta);
                 <td>' . $valor['nombre'] . '</td>
                 <td>' . $valor['apellido'] . '</td>
                 <td><a href="./medico.php?code=m&id=' . $valor['idmedico'] . '"><i class="icon-cog"></i></a></td>
-                    
                 <td><a href="javascript:abrir(' . $direccion2 . ')"><i class="icon-plane"></i></a></td>
+                <td><a href="./medico.php?code=tli&id=' . $valor['idmedico'] . '"><i class="icon-file"</i></a></td>
                 <td><a href="javascript:abrir(' . $direccion . ')"><i class=" icon-eye-open"></i></a></td>
                 </tr>';
                 }
