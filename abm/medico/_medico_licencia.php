@@ -11,6 +11,10 @@ if (isset($_GET['ok'])) {
   $consulta = "select * from licencia where '$idmedico' = id_med";
   $verif = $db->query($consulta);
   $ok = true;
+  $consulta2 = "select * from medico where '$idmedico' = idmedico";
+  $verif1 = $db->query($consulta2);
+  $seg = $verif1->fetch(PDO::FETCH_ASSOC);
+  echo '<legend>Listado de licencias del médico "' . $seg['nombre'] . '  ' . $seg['apellido'] . '"</legend>';
   foreach ($verif as $fila) {
     if (($desde >= $fila['desde'] && $desde <= $fila['hasta']) || ($hasta >= $fila['desde'] && $hasta <= $fila['hasta'])) {
       $ok = false;
@@ -22,6 +26,7 @@ if (isset($_GET['ok'])) {
     $db->query($consulta);
   }
   else{
+            
         echo '<div class="alert alert-error">  
                 <a class="close" data-dismiss="alert">×</a>  
                 <strong><h4>Error!</h4> El intervalo ingresado no es válido.</strong> 
@@ -30,16 +35,18 @@ if (isset($_GET['ok'])) {
 } else {
   if (isset($_GET['id'])) {
     $idmedico = $_GET['id'];
-    $consulta = "SELECT * from medico inner join licencia on ( $idmedico = id_med)";
+    $consulta = "SELECT * from medico inner join licencia on ( '$idmedico' = id_med)";
     $result = $db->query($consulta);
 
     if (!$result->rowCount()) {
-      $consulta2 = "select * from medico where idmedico = 31";
+      $consulta2 = "select * from medico where idmedico = $idmedico";
       $consul = $db->query($consulta2);
       $pri = $consul->fetch(PDO::FETCH_ASSOC);
+        echo '<legend>Listado de licencias del médico "' . $pri['nombre'] . '  ' . $pri['apellido'] . '"</legend>';
       echo 'El médico ' . $pri['nombre'] . '  ' . $pri['apellido'] . ' no posee licencias tomadas';
     } else {
       $pri = $result->fetch(PDO::FETCH_ASSOC);
+        echo '<legend>Listado de licencias del médico "' . $pri['nombre'] . '  ' . $pri['apellido'] . '"</legend>';
       echo 'Listado de licencias del médico ' . $pri['nombre'] . ' ' . $pri['apellido'] . '.';
     }
   } else {
