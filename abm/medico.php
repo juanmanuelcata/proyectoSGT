@@ -68,6 +68,8 @@ else
                             include_once './../fragmentos/_conectDb.php';
                             if ($_GET['code'] == 'a')
                                 include_once('./medico/_medico_alta.php');
+                            if ($_GET['code'] == 'tli')
+                                include_once('./medico/_listado_turnos.php');
                             if ($_GET['code'] == 'd')
                                 include_once('./medico/_ver_detalle.php');
                             if ($_GET['code'] == 'm')
