@@ -24,12 +24,14 @@ $result = $db->query($consulta);
                 foreach ($result as $valor) {
 //                      $direccion = "'./medico.php?code=d&id=" . $valor["idmedico"] . "'";
                     $direccion = "'./medico/_ver_detalle.php?id=" . $valor["idmedico"] . "'";
+                    $direccion2 = "'./medico/_medico_licencia.php?code=li&id=".$valor['idmedico']."'";
                     echo '<tr>
                 <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
                 <td>' . $valor['nombre'] . '</td>
                 <td>' . $valor['apellido'] . '</td>
                 <td><a href="./medico.php?code=m&id=' . $valor['idmedico'] . '"><i class="icon-cog"></i></a></td>
-                <td><a href="./medico.php?code=li&id=' . $valor['idmedico'] . '"><i class="icon-plane"></i></a></td>    
+                    
+                <td><a href="javascript:abrir(' . $direccion2 . ')"><i class="icon-plane"></i></a></td>
                 <td><a href="javascript:abrir(' . $direccion . ')"><i class=" icon-eye-open"></i></a></td>
                 </tr>';
                 }

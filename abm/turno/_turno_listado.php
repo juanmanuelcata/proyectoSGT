@@ -101,7 +101,7 @@ if ($result->rowCount() == 0) {
                $idhorario = $array1['id'];
                ?>
                     <tr>
-                    <td><input type="checkbox" name="' . $valor['idturno'] . '" value="' . $valor['idturno'] . '" id="' . $valor['idturno'] . '"></td>
+                    <td><input type="checkbox" name="<?php echo $valor['idturno'] ?>" value="' . $valor['idturno'] . '" id="' . $valor['idturno'] . '"></td>
                     <td><?php echo $valor['pnombre'] . ' ' . $valor['papellido'] ?></td>
                     <td><?php echo $valor['dni'] ?></td>
                     <td><?php echo $valor['mnombre'] . ' ' . $valor['mapellido'] ?></td>
