@@ -19,49 +19,49 @@ $arridesp = $conidesp->fetch(PDO::FETCH_ASSOC);
 $esp = $arridesp['nombre'];
 // Fin de la consulta
 if (isset($_GET['ok'])) {
-    $dni = $_GET['dni'];
-    $nombre = $_GET['nombre'];
-    $apellido = $_GET['apellido'];
-    $mail = $_GET['mail'];
-    $matricula = $_GET['matricula'];
-    $tel = $_GET['tel'];
-    $esp = $_GET['esp_selec'];
-    $consulta = 'SELECT * from medico where (dni = "' . $dni . '") and idmedico != "' . $id . '" ';
-    $result = $db->query($consulta);
-    if (($result->rowCount() == 0)) {
-        $consulta = 'UPDATE medico SET dni = "' . $dni . '", nombre="' . $nombre . '", apellido="' . $apellido . '", mail="' . $mail . '", telefono="' . $tel . '", matricula="' . $matricula . '" where idmedico = "' . $id . '"';
-        $consulta2 = 'SELECT idespecialidad FROM especialidad WHERE nombre = "' . $esp . '" ';
-        $re = $db->query($consulta2);
-        $b = $re->fetch(PDO::FETCH_ASSOC);
-        $up = 'UPDATE med_esp SET id_esp = ' . $b['idespecialidad'] . ' WHERE id_med =' . $id . '';
-        if ($db->query($consulta) && ($db->query($up))) {
-            $id2 = $db->lastInsertId("seq_name");
-            $fechita = date('Y-m-d H:i:s');
-            $detalle = 'Modificacion del médico  "' . $dni . '"';
-            $user = $_SESSION['usuario']['user'];
-            $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
+  $dni = $_GET['dni'];
+  $nombre = $_GET['nombre'];
+  $apellido = $_GET['apellido'];
+  $mail = $_GET['mail'];
+  $matricula = $_GET['matricula'];
+  $tel = $_GET['tel'];
+  $esp = $_GET['esp_selec'];
+  $consulta = 'SELECT * from medico where (dni = "' . $dni . '") and idmedico != "' . $id . '" ';
+  $result = $db->query($consulta);
+  if (($result->rowCount() == 0)) {
+    $consulta = 'UPDATE medico SET dni = "' . $dni . '", nombre="' . $nombre . '", apellido="' . $apellido . '", mail="' . $mail . '", telefono="' . $tel . '", matricula="' . $matricula . '" where idmedico = "' . $id . '"';
+    $consulta2 = 'SELECT idespecialidad FROM especialidad WHERE nombre = "' . $esp . '" ';
+    $re = $db->query($consulta2);
+    $b = $re->fetch(PDO::FETCH_ASSOC);
+    $up = 'UPDATE med_esp SET id_esp = ' . $b['idespecialidad'] . ' WHERE id_med =' . $id . '';
+    if ($db->query($consulta) && ($db->query($up))) {
+      $id2 = $db->lastInsertId("seq_name");
+      $fechita = date('Y-m-d H:i:s');
+      $detalle = 'Modificacion del médico  "' . $dni . '"';
+      $user = $_SESSION['usuario']['user'];
+      $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
               VALUES ('$fechita', '$user', '$detalle', 'medico', '$id2' )";
-            $db->query($log);
-            echo '<div class="alert alert-success">  
+      $db->query($log);
+      echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <strong><h4>Muy Bien! Se modifico correctamente el medico: ' . $nombre . '</h4>.</strong>  
             </div>';
-            //repetimos consulta para actualizar los cambios en el formulario
-            $id = $_GET['id'];
-            $consulta = 'SELECT * from medico where (idmedico = "' . $id . '") ';
-            $result = $db->query($consulta);
-            $a = $result->fetch(PDO::FETCH_ASSOC);
+      //repetimos consulta para actualizar los cambios en el formulario
+      $id = $_GET['id'];
+      $consulta = 'SELECT * from medico where (idmedico = "' . $id . '") ';
+      $result = $db->query($consulta);
+      $a = $result->fetch(PDO::FETCH_ASSOC);
 
 // Consulta para conocer la especialidad del medico
 
-            $consulta = 'SELECT especialidad.nombre FROM medico INNER JOIN med_esp ON idmedico = id_med
+      $consulta = 'SELECT especialidad.nombre FROM medico INNER JOIN med_esp ON idmedico = id_med
 INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idmedico'] . '';
-            $conidesp = $db->query($consulta);
+      $conidesp = $db->query($consulta);
       $arridesp = $conidesp->fetch(PDO::FETCH_ASSOC);
       $esp = $arridesp['nombre'];
 // Fin de la consulta
-        } else {
-            echo '<div class="alert alert-error">  
+    } else {
+      echo '<div class="alert alert-error">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <strong><h4>Ocurrio un error al conectarse con la base de datos.</h4>Por favor comuniquese con su administrador.</strong>  
                  </div>';
@@ -124,12 +124,39 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
         <fieldset>
 
           <div id="obrasSociales">
+            <?php
+            $consulta = "SELECT * FROM os where activo = 1";
+            $result = $db->query($consulta);
+            if (!$result)
+              print ("<p>error en la consulta<p>");
             
-            
-            
-            
-            
-            
+            $i = 1;
+            $consulos = "SELECT dia, MIN(desde) desde, MAX(hasta) hasta, id_med
+                              FROM horario
+                              INNER JOIN medico ON ( id_med = '$id' )
+                              group by id_med, dia ";
+            $pdoos = $db->query($consulos);
+            foreach ($pdoos as $filaos):
+            ?>
+
+            <select tabindex="12" class="select-xlarge" name="os_select[<?php echo $i; ?>][nombre]" >
+              <?php foreach ($result as $valor):
+                if ($valor['nombre'] == $esp):
+                  ?>
+
+                  <option Selected="Selected"><?php echo $valor['nombre'] ?></option>
+
+                  <?php else: ?>
+
+                  <option><?php echo $valor['nombre'] ?></option>
+
+                <?php endif;
+              endforeach;
+              ?>
+            </select> 
+
+
+
           </div>
 
           <button class="btn btn-success" onClick="agregarObraSocial();
@@ -140,65 +167,65 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
         <legend>Horarios del medico</legend>
 
         <fieldset>
-          
+
           <div id="grillahoraria">
-           <?php 
-          $i=1;
-          $consulhorarios = "SELECT dia, MIN(desde) desde, MAX(hasta) hasta, id_med
+            <?php
+            $i = 1;
+            $consulhorarios = "SELECT dia, MIN(desde) desde, MAX(hasta) hasta, id_med
                               FROM horario
                               INNER JOIN medico ON ( id_med = '$id' )
                               group by id_med, dia ";
-          $pdoHorario = $db->query($consulhorarios);
-          foreach ($pdoHorario as $filaHorario):
-          ?>
+            $pdoHorario = $db->query($consulhorarios);
+              ?>
 
-            <div id="horario_div_<?php echo $i; ?>">
-              <legend><button onClick="borrarHorario(<?php echo $i; ?>);
-            return false;"><i class="icon-remove"></i></button>Horario numero <?php echo $i; ?></legend>
-              <fieldset>
-                <?php 
-                  $n = $i ;
+              <div id="horario_div_<?php echo $i; ?>">
+                <legend><button onClick="borrarHorario(<?php echo $i; ?>);
+              return false;"><i class="icon-remove"></i></button>Horario numero <?php echo $i; ?></legend>
+                <fieldset>
+                  <?php
+                  $n = $i;
                   $semana = array("lun", "mar", "mie", "jue", "vie");
                   ?>
-                <label>Día</label>
-                <select class="span5" name="horario[<?php echo $i; ?>][dia]" id="dia<?php echo $n; ?>" >
-                  <?php foreach ($semana as $k):?>
+                  <label>Día</label>
+                  <select class="span5" name="horario[<?php echo $i; ?>][dia]" id="dia<?php echo $n; ?>" >
+                    <?php foreach ($semana as $k): ?>
                       <?php if ($k == $filaHorario["dia"]): ?>
-                              <option value="<?php echo $k?>" selected="selected"><?php echo $k?></option>
+                        <option value="<?php echo $k ?>" selected="selected"><?php echo $k ?></option>
                       <?php else: ?>
-                              <option value="<?php echo $k?>" ><?php echo $k?></option>
-                      <?php endif;?>
-                  <?php endforeach;?>
-                </select>
+                        <option value="<?php echo $k ?>" ><?php echo $k ?></option>
+    <?php endif; ?>
+  <?php endforeach; ?>
+                  </select>
 
-                <label>Desde</label>
-                <select class="span5" name="horario[<?php echo $i; ?>][desde]" id="horarios<?php echo $n; ?>">
-                  <?php for ($p = 8; $p < 20; $p++):?>
-                      <?php if ($p.':00:00' == $filaHorario['desde']):?>
-                        <option value="<?php echo $p?>:00:00" selected="selected"><?php echo $p?>:00</option>
+                  <label>Desde</label>
+                  <select class="span5" name="horario[<?php echo $i; ?>][desde]" id="horarios<?php echo $n; ?>">
+                    <?php for ($p = 8; $p < 20; $p++): ?>
+                      <?php if ($p . ':00:00' == $filaHorario['desde']): ?>
+                        <option value="<?php echo $p ?>:00:00" selected="selected"><?php echo $p ?>:00</option>
                       <?php else: ?>
-                        <option value="<?php echo $p?>:00:00" ><?php echo $p?>:00</option>
-                      <?php endif; ?>                        
-                  <?php endfor; ?>
-                </select>
+                        <option value="<?php echo $p ?>:00:00" ><?php echo $p ?>:00</option>
+    <?php endif; ?>                        
+  <?php endfor; ?>
+                  </select>
 
-                <label>Hasta</label>
-                <select class="span5" name="horario[<?php echo $i; ?>][hasta]" id="horariosHasta<?php echo $n; ?>" onchange="verificarHorario(numeroHorario - 1)">
-                  <?php for ($p = 8; $p < 20; $p++):?>
-                      <?php if ($p.':00:00' == $filaHorario['hasta']):?>
-                        <option value="<?php echo $p?>:00:00" selected="selected"><?php echo $p?>:00</option>
+                  <label>Hasta</label>
+                  <select class="span5" name="horario[<?php echo $i; ?>][hasta]" id="horariosHasta<?php echo $n; ?>" onchange="verificarHorario(numeroHorario - 1)">
+                    <?php for ($p = 8; $p < 20; $p++): ?>
+                      <?php if ($p . ':00:00' == $filaHorario['hasta']): ?>
+                        <option value="<?php echo $p ?>:00:00" selected="selected"><?php echo $p ?>:00</option>
                       <?php else: ?>
-                        <option value="<?php echo $p?>:00:00" ><?php echo $p?>:00</option>
-                      <?php endif; ?>                        
-                  <?php endfor; ?>
-                </select>
+                        <option value="<?php echo $p ?>:00:00" ><?php echo $p ?>:00</option>
+    <?php endif; ?>                        
+  <?php endfor; ?>
+                  </select>
 
-              </fieldset>
-              <br>
-            </div>
-            <?php 
-            $i++;
-            endforeach; ?>
+                </fieldset>
+                <br>
+              </div>
+              <?php
+              $i++;
+            endforeach;
+            ?>
           </div>
 
           <button class="btn btn-success" onClick="agregarHorarioMedico();
@@ -210,16 +237,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
 
         </fieldset>
 
-
-
         <!--fin del codigo para os y horarios modif-->
-
-
-
-
-
-
-
 
         <div class="form-actions">
           <input type="hidden" name="code" value="m"/>

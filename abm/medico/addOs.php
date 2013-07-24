@@ -22,8 +22,6 @@
           echo '<option>' . $valor['nombre'] . '</option>';
       ?>
     </select>
-    <div id="otraOs">
-    </div> 
 
   </fieldset>
   <br>
