@@ -71,9 +71,6 @@ else
                         if ($_GET['code'] == 'm')
                             include_once('./usuario/_usuario_modificar.php');
                         else
-                        if ($_GET['code'] == 'd')
-                            include_once('./usuario/_ver_detalle.php');
-                        else
                         if ($_GET['code'] == 'l')
                             include_once('./usuario/_usuario_listar.php');
                     }

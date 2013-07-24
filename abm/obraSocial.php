@@ -70,6 +70,9 @@ $(document).ready(function() {
                         else
                             if ($_GET['code'] == 'c'){
                             include_once ('./obrasocial/_obra_social_modificar.php');
+                        }else
+                            if ($_GET['code'] == 'r'){
+                            include_once ('./obrasocial/_os_reportes.php');
                         }
                         else
                             include_once('fragmentos/abm/_obra_social_baja.php');

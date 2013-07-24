@@ -48,8 +48,12 @@
                     <a href="/abm/obraSocial.php?code=a">Alta de Obra Social</a>
                 </li>
                 <li>
+                    <a href="/abm/obraSocial.php?code=r&orden=ASC">Reportes</a>
+                </li>
+                <li>
                     <a href="/abm/obraSocial.php?code=l&orden=ASC">Listar Obras Sociales</a>
                 </li>
+                
             </ul>
         </article>
     </div>
