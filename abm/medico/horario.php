@@ -32,8 +32,6 @@
       }
       ?>
     </select>
-    <div id="otroHorario">
-    </div> 
      
   </fieldset>
   <br>

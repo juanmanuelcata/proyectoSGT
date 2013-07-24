@@ -1,4 +1,6 @@
 <?php
+//detalle de medico
+
 include_once('../../sesion/login.php');
 include_once('../../fragmentos/_conectDb.php');
 if ($_SESSION['usuario']['admin'] == '1') {
@@ -27,30 +29,6 @@ else
         <script type="text/javascript" src="./../../datatables/js/jquery.dataTables.js"></script>   
         <script type="text/javascript" src="./../../js/bootstrap-alert.js"></script>
     </head>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#tabla1').dataTable({
-                "sScrollY": 200,
-                "bPaginate": false,
-                "bScrollCollapse": true,
-                "sScrollX": "100%",
-                "sScrollXInner": "110%",
-                "bJQueryUI": true,
-                "sPaginationType": "full_numbers",
-                "oLanguage": {
-                    "sLengthMenu": 'Display <select>' +
-                            '<option value="10">10</option>' +
-                            '<option value="20">20</option>' +
-                            '<option value="30">30</option>' +
-                            '<option value="40">40</option>' +
-                            '<option value="50">50</option>' +
-                            '<option value="-1">Todo</option>' +
-                            '</select> records'
-                }
-            });
-        });
-    </script>
-
     <body>
         <div class="row-fluid">
             <div class="span12">

@@ -152,7 +152,7 @@ if (isset($_POST['nombre'])) {
 
     <!-- Bitácora del gordo: Acá comienza la exploración por el fantástico mundo de insertar obras sociales al médico -->
 
-
+<legend>Obras Sociales del medico</legend>
     <fieldset>
 
         <div id="obrasSociales">
