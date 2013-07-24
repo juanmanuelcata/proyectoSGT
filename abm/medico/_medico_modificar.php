@@ -57,67 +57,179 @@ if (isset($_GET['ok'])) {
             $consulta = 'SELECT especialidad.nombre FROM medico INNER JOIN med_esp ON idmedico = id_med
 INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idmedico'] . '';
             $conidesp = $db->query($consulta);
+      $arridesp = $conidesp->fetch(PDO::FETCH_ASSOC);
+      $esp = $arridesp['nombre'];
+// Fin de la consulta
         } else {
             echo '<div class="alert alert-error">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <strong><h4>Ocurrio un error al conectarse con la base de datos.</h4>Por favor comuniquese con su administrador.</strong>  
                  </div>';
-        }
-    } else {
-        echo '<div class="alert alert-error">  
+    }
+  } else {
+    echo '<div class="alert alert-error">  
                 <a class="close" data-dismiss="alert">×</a>  
                 <strong><h4>Error!</h4> Ya existe un medico con este DNI</strong>.  
              </div>';
-    }
+  }
 }
 ?>
 <form class="form-horizontal" name="formi" action="./medico.php" method="GET">
-    <fieldset>
-        <legend>Modificación de médico</legend>
-        <div class="control-group">
-            <div class="controls">
-                <label>Nuevo nombre</label>
-                <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
-                <label>Nuevo apellido</label>
-                <input value="<?php echo $a['apellido'] ?>" type="text" class="input-xlarge" id="apellido" name="apellido" onkeypress="return soloLetras(event);">
-                <label>Nuevo DNI</label>
-                <input value="<?php echo $a['dni'] ?>" type="text" class="input-xlarge" id="dni" name="dni" maxlength="8" onkeypress="return justNumbers(event);">
-                <label>Nueva matrícula</label>
-                <input value="<?php echo $a['matricula'] ?>" type="text" class="input-xlarge" id="matricula" name="matricula" maxlength="8" onkeypress="return justNumbers(event);">
-                <label>Nuevo mail</label>
-                <input value="<?php echo $a['mail'] ?>" type="text" class="input-xlarge" id="mail" name="mail">
-                <label>Nuevo teléfono</label>
-                <input value="<?php echo $a['telefono'] ?>" type="text" class="input-xlarge" id="tel" name="tel" maxlength="10" onkeypress="return justNumbers(event);">
-                <label>Nueva especialidad</label>
-                <?php
-                $datab = conectaDb();
-                $consulta = "SELECT * FROM especialidad where activa = 1";
-                $result = $datab->query($consulta);
-                if (!$result)
-                    print ("<p>error en la consulta<p>");
-                else
-                    
-                    ?>
-                <select class="select-xlarge" id="esp_selec" name="esp_selec" >
-                    <?php
-                    foreach ($result as $valor)
-                        if ($valor['nombre'] == $esp) {
-                            echo '<option selected="selected">' . $valor['nombre'] . '</option>';
-                        } else {
-                            echo '<option>' . $valor['nombre'] . '</option>';
-                        }
-                    ?>
+  <fieldset>
+    <legend>Modificación de médico</legend>
+    <div class="control-group">
+      <div class="controls">
+        <label>Nuevo nombre</label>
+        <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
+        <label>Nuevo apellido</label>
+        <input value="<?php echo $a['apellido'] ?>" type="text" class="input-xlarge" id="apellido" name="apellido" onkeypress="return soloLetras(event);">
+        <label>Nuevo DNI</label>
+        <input value="<?php echo $a['dni'] ?>" type="text" class="input-xlarge" id="dni" name="dni" maxlength="8" onkeypress="return justNumbers(event);">
+        <label>Nueva matrícula</label>
+        <input value="<?php echo $a['matricula'] ?>" type="text" class="input-xlarge" id="matricula" name="matricula" maxlength="8" onkeypress="return justNumbers(event);">
+        <label>Nuevo mail</label>
+        <input value="<?php echo $a['mail'] ?>" type="text" class="input-xlarge" id="mail" name="mail">
+        <label>Nuevo teléfono</label>
+        <input value="<?php echo $a['telefono'] ?>" type="text" class="input-xlarge" id="tel" name="tel" maxlength="10" onkeypress="return justNumbers(event);">
+        <label>Nueva especialidad</label>
+        <?php
+        $datab = conectaDb();
+        $consulta = "SELECT * FROM especialidad where activa = 1";
+        $result = $datab->query($consulta);
+        if (!$result)
+          print ("<p>error en la consulta<p>");
+        else
+          
+          ?>
+        <select class="select-xlarge" id="esp_selec" name="esp_selec" >
+          <?php
+          foreach ($result as $valor)
+            if ($valor['nombre'] == $esp) {
+              echo '<option selected="selected">' . $valor['nombre'] . '</option>';
+            } else {
+              echo '<option>' . $valor['nombre'] . '</option>';
+            }
+          ?>
+        </select>
+
+
+
+
+
+        <!--comienzo del codigo para os y horarios modif-->
+
+
+        <legend>Obras socialies del medico</legend>
+
+        <fieldset>
+
+          <div id="obrasSociales">
+            
+            
+            
+            
+            
+            
+          </div>
+
+          <button class="btn btn-success" onClick="agregarObraSocial();
+            return false;">Agregar Obra Social </button>
+
+        </fieldset>
+
+        <legend>Horarios del medico</legend>
+
+        <fieldset>
+          
+          <div id="grillahoraria">
+           <?php 
+          $i=1;
+          $consulhorarios = "SELECT dia, MIN(desde) desde, MAX(hasta) hasta, id_med
+                              FROM horario
+                              INNER JOIN medico ON ( id_med = '$id' )
+                              group by id_med, dia ";
+          $pdoHorario = $db->query($consulhorarios);
+          foreach ($pdoHorario as $filaHorario):
+          ?>
+
+            <div id="horario_div_<?php echo $i; ?>">
+              <legend><button onClick="borrarHorario(<?php echo $i; ?>);
+            return false;"><i class="icon-remove"></i></button>Horario numero <?php echo $i; ?></legend>
+              <fieldset>
+                <?php 
+                  $n = $i ;
+                  $semana = array("lun", "mar", "mie", "jue", "vie");
+                  ?>
+                <label>Día</label>
+                <select class="span5" name="horario[<?php echo $i; ?>][dia]" id="dia<?php echo $n; ?>" >
+                  <?php foreach ($semana as $k):?>
+                      <?php if ($k == $filaHorario["dia"]): ?>
+                              <option value="<?php echo $k?>" selected="selected"><?php echo $k?></option>
+                      <?php else: ?>
+                              <option value="<?php echo $k?>" ><?php echo $k?></option>
+                      <?php endif;?>
+                  <?php endforeach;?>
                 </select>
 
-                <div class="form-actions">
-                    <input type="hidden" name="code" value="m"/>
-                    <input type="hidden" name="ok" value="1"/>
-                    <input type="hidden" name="id" value="<?php echo $id ?>"/>
-                    <button type="submit"  class="btn btn-success">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
-                    <button type="reset" class="btn btn-success">Reiniciar</button>
+                <label>Desde</label>
+                <select class="span5" name="horario[<?php echo $i; ?>][desde]" id="horarios<?php echo $n; ?>">
+                  <?php for ($p = 8; $p < 20; $p++):?>
+                      <?php if ($p.':00:00' == $filaHorario['desde']):?>
+                        <option value="<?php echo $p?>:00:00" selected="selected"><?php echo $p?>:00</option>
+                      <?php else: ?>
+                        <option value="<?php echo $p?>:00:00" ><?php echo $p?>:00</option>
+                      <?php endif; ?>                        
+                  <?php endfor; ?>
+                </select>
 
-                </div>
+                <label>Hasta</label>
+                <select class="span5" name="horario[<?php echo $i; ?>][hasta]" id="horariosHasta<?php echo $n; ?>" onchange="verificarHorario(numeroHorario - 1)">
+                  <?php for ($p = 8; $p < 20; $p++):?>
+                      <?php if ($p.':00:00' == $filaHorario['hasta']):?>
+                        <option value="<?php echo $p?>:00:00" selected="selected"><?php echo $p?>:00</option>
+                      <?php else: ?>
+                        <option value="<?php echo $p?>:00:00" ><?php echo $p?>:00</option>
+                      <?php endif; ?>                        
+                  <?php endfor; ?>
+                </select>
+
+              </fieldset>
+              <br>
             </div>
+            <?php 
+            $i++;
+            endforeach; ?>
+          </div>
+
+          <button class="btn btn-success" onClick="agregarHorarioMedico();
+
+
+            return false;">Agregar Horario </button>
+
+          <input type="submit" class="btn btn-success"  onClick="return veriformuMed();" value="Guardar Medico ">
+
+        </fieldset>
+
+
+
+        <!--fin del codigo para os y horarios modif-->
+
+
+
+
+
+
+
+
+        <div class="form-actions">
+          <input type="hidden" name="code" value="m"/>
+          <input type="hidden" name="ok" value="1"/>
+          <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
+          <button type="submit"  class="btn btn-success">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
+          <button type="reset" class="btn btn-success">Reiniciar</button>
+
         </div>
-    </fieldset>
+      </div>
+    </div>
+  </fieldset>
 </form>

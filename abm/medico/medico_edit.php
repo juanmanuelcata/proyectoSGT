@@ -71,17 +71,30 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                 $b = $re->fetch(PDO::FETCH_ASSOC);
                 $up = 'UPDATE med_esp SET id_esp = ' . $b['idespecialidad'] . ' WHERE id_med =' . $id . '';
                 if ($db->query($consulta) && ($db->query($up))) {
-                  $id = $db->lastInsertId("seq_name");
+                  $id2 = $db->lastInsertId("seq_name");
                   $fechita = date('Y-m-d H:i:s');
                   $detalle = 'Modificacion del médico  "' . $dni . '"';
                   $user = $_SESSION['usuario']['user'];
                   $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
-              VALUES ('$fechita', '$user', '$detalle', 'medico', '$id' )";
+              VALUES ('$fechita', '$user', '$detalle', 'medico', '$id2' )";
                   $db->query($log);
                   echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <strong><h4>Muy Bien! Se modifico correctamente el medico: ' . $nombre . '</h4>.</strong>  
             </div>';
+                  $id = $_GET['id'];
+                  $consulta = 'SELECT * from medico where (idmedico = "' . $id . '") ';
+                  $result = $db->query($consulta);
+                  $a = $result->fetch(PDO::FETCH_ASSOC);
+
+// Consulta para conocer la especialidad del medico
+
+                  $consulta = 'SELECT especialidad.nombre FROM medico INNER JOIN med_esp ON idmedico = id_med
+INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idmedico'] . '';
+                  $conidesp = $db->query($consulta);
+                  $arridesp = $conidesp->fetch(PDO::FETCH_ASSOC);
+                  $esp = $arridesp['nombre'];
+// Fin de la consulta
                 } else {
                   echo '<div class="alert alert-error">  
                     <a class="close" data-dismiss="alert">×</a>  
@@ -140,7 +153,20 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                       <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
                       <button type="submit"  class="btn btn-success">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
                       <button type="reset" class="btn btn-success">Reiniciar</button>
-
+                      <a  class="btn btn-success" href="javascript:window.opener.document.location.reload();self.close()"> Cerrar </a>
+                      <script language='javascript'>
+                    ClosingVar = true
+                    window.onbeforeunload = ExitCheck;
+                    function ExitCheck()
+                    {
+///control de cerrar la ventana///
+                      if (ClosingVar == true)
+                      {
+                        ExitCheck = false
+                        return "Por favor, asegurese de haber guardado los cambios realizados. De lo conrtario podrian perdese para toooooda la eternidad... (?)";
+                      }
+                    }
+                      </script> 
                     </div>
                   </div>
                 </div>

@@ -25,26 +25,18 @@ if ($result->rowCount() == 0) {
                 </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($result as $valor) {
-                    echo '<tr>
-                <td><input type="checkbox" name="' . $valor['idpaciente'] . '" value="' . $valor['idpaciente'] . '" id="' . $valor['idpaciente'] . '"></td>
-                <td>' . $valor['dni'] . '</td>
-                <td>' . $valor['pacnombre'] . '</td>
-                <td>' . $valor['apellido'] . '</td>
-                <td><a href="./turno.php?code=a&id=' . $valor['idpaciente'] . '"><i class="icon-plus"></i></a></td>
-                <td><a href="./paciente.php?code=m&id=' . $valor['idpaciente'] . '&os=' . $valor['osnombre'] . '"><i class="icon-cog"></i></a></td>
-                <td><a href="./paciente.php?code=d&id=' . $valor['idpaciente'] . '" TARGET="_blank"><i class=" icon-eye-open"></i></a></td>  
-                </tr>';
-                }
+                <?php foreach ($result as $valor): ?>         
+               <tr>
+                <td><input type="checkbox" name="<?php echo $valor['idpaciente'] ?>" value="<?php echo $valor['idpaciente'] ?>" id="<?php echo $valor['idpaciente'] ?>"></td>
+                <td><?php echo $valor['dni'] ?></td>
+                <td><?php echo $valor['pacnombre'] ?></td>
+                <td><?php echo $valor['apellido'] ?></td>
+                <td><a href="./turno.php?code=a&id=<?php echo $valor['idpaciente'] ?>"><i class="icon-plus"></i></a></td>
+                <td><a href="./paciente.php?code=m&id=<?php echo $valor['idpaciente'] ?>&os=<?php echo $valor['osnombre'] ?>"><i class="icon-cog"></i></a></td>
+                <td><a href="javascript:abrir('./paciente/_ver_detalle.php?id=<?php echo $valor['idpaciente']?>&os=<?php echo $valor['osnombre']?>')"><i class=" icon-eye-open"></i></a></td> 
+                </tr>
                 
-                
-// Consulta por obras sociales                
-//                if ($valor['activo'] == 1)
-//                        echo '<td>' . $valor['osnombre'] . '</td>';
-//                    else
-//                        echo '<td><p style="color: #FF0000">' . $valor['osnombre'] . '</p></td>';
-                ?>
+                <?php endforeach;?>
                 
             </tbody>    
         </table>
@@ -59,12 +51,15 @@ if ($result->rowCount() == 0) {
     function seleccionar_todo() {
         for (i = 0; i < document.form.elements.length; i++)
             if (document.form.elements[i].type == "checkbox")
-                document.form.elements[i].checked = 1
+                document.form.elements[i].checked = 1;
     }
 
     function deseleccionar_todo() {
         for (i = 0; i < document.form.elements.length; i++)
             if (document.form.elements[i].type == "checkbox")
-                document.form.elements[i].checked = 0
+                document.form.elements[i].checked = 0;
+    }
+        function abrir(url) {
+        open(url, '', 'top=100,left=100,width=800,height=600');
     }
 </script>

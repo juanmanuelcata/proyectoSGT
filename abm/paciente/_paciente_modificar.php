@@ -27,12 +27,12 @@ if (isset($_GET['ok'])) {
         $b = $re->fetch(PDO::FETCH_ASSOC);
         $up = 'update pac_os set id_os = ' . $b['idos'] . ' where id_paciente =' . $id . '';
         if ($db->query($up) && $db->query($consulta)) {
-            $id = $db->lastInsertId("seq_name");
+            $id2 = $db->lastInsertId("seq_name");
             $fechita = date('Y-m-d H:i:s');
             $detalle = 'Modificacion del paciente  "' . $dni . '"';
             $user = $_SESSION['usuario']['user'];
             $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
-              VALUES ('$fechita', '$user', '$detalle', 'Paciente', '$id' )";
+              VALUES ('$fechita', '$user', '$detalle', 'Paciente', '$id2' )";
             $db->query($log);
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
@@ -109,7 +109,7 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
                 <div class="form-actions">
                     <input type="hidden" name="code" value="m"/>
                     <input type="hidden" name="ok" value="1"/>
-                    <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
+                    <input type="hidden" name="id" value="<?php echo $id ?>"/>
                     <button type="submit" onclick="return veriformuPacienteMod()" class="btn btn-success">Guardar cambios</button>
                     <button type="reset" class="btn btn-success">Reiniciar</button>
 

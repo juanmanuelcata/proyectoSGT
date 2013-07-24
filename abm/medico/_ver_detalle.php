@@ -1,5 +1,5 @@
 <?php
-//DETALLE DEL MEDICO
+//detalle de medico
 
 include_once('../../sesion/login.php');
 include_once('../../fragmentos/_conectDb.php');
