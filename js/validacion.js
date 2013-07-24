@@ -66,9 +66,10 @@ function veriformuUsr() {
       if (pass1 === pass2)
         if (le.test(nom))
           if (le.test(ap))
+              
             if ((dni.length == 8) || (dni.length == 7))
               if (re.test(mail)) {
-                var res = confirm("¿Seguro de agregar este usuario?");
+                var res = confirm('¿Seguro de agregar este usuario?');
                 return res;
               }
               else

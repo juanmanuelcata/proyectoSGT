@@ -67,11 +67,8 @@ include_once('../sesion/login.php');
                                 } else {
                                     if ($_GET['code'] == 'm') {
                                         include_once('./paciente/_paciente_modificar.php');
-                                    } else {
-                                        if ($_GET['code'] == 'd') {
-                                            include_once('./paciente/_ver_detalle.php');
-                                        }
                                     }
+                                    
                                 }
                             }
                         }

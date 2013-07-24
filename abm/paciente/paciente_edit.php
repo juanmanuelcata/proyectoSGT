@@ -65,12 +65,12 @@ if (isset($_GET['ok'])) {
         $b = $re->fetch(PDO::FETCH_ASSOC);
         $up = 'update pac_os set id_os = ' . $b['idos'] . ' where id_paciente =' . $id . '';
         if ($db->query($up) && $db->query($consulta)) {
-            $id = $db->lastInsertId("seq_name");
+            $id2 = $db->lastInsertId("seq_name");
             $fechita = date('Y-m-d H:i:s');
             $detalle = 'Modificacion del paciente  "' . $dni . '"';
             $user = $_SESSION['usuario']['user'];
             $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
-              VALUES ('$fechita', '$user', '$detalle', 'Paciente', '$id' )";
+              VALUES ('$fechita', '$user', '$detalle', 'Paciente', '$id2' )";
             $db->query($log);
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
@@ -97,7 +97,7 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
 
 
 
-<form class="form-horizontal" name="formi" action="./paciente.php" method="GET">
+<form class="form-horizontal" name="formi" action="./paciente_edit.php" method="GET">
     <fieldset>
         <legend>Modificación de paciente</legend>
         <div class="control-group">

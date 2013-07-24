@@ -77,7 +77,7 @@ else
             <br>
             <label><strong>Ingreso: </strong><?php echo ($campos['ingreso']) ?></label>
             <br>
-            <a href="./paciente_edit.php?id=<?php echo $campos['idpaciente'] ?>&os=<?php echo $valor['osnombre']?>" class="btn btn-success">Modificar</a>
+            <a href="./paciente_edit.php?id=<?php echo $campos['idpaciente'] ?>&os=<?php echo $campos['osnombre']?>" class="btn btn-success">Modificar</a>
           </div>                
         </div>
       </div>

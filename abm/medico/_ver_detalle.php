@@ -74,6 +74,38 @@ else
                         <br>
                         <label><strong>Ingreso: </strong><?php echo ($campos['ingreso']) ?></label>
                         <br>
+
+
+                        <!--Tabla de horarios-->
+                        <?php
+                        
+                        $conhorarios = "select dia, min(desde) desde, max(hasta) hasta, id_med from horario inner join medico on (id_med = '$id') group by id_med, dia";
+                        $result2 = $db->query($conhorarios);
+                                
+                        ?>;
+                        
+                        <legend>Horarios</legend>
+                        <table id="tabla1" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Dia</th>
+                                    <th>Desde</th>
+                                    <th>Hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($result2 as $valor2) {
+                                    echo '<tr>
+                                        <td>' . $valor2['dia'] . '</td>
+                                        <td>' . $valor2['desde'] . '</td>
+                                        <td>' . $valor2['hasta'] . '</td>    
+                </tr>';
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <br><br>
                         <a href="./medico_edit.php?id=<?php echo ($campos['idmedico']) ?>" class="btn btn-success">Modificar</a>
                     </div>                
                 </div>
