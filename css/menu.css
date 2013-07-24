@@ -104,7 +104,7 @@
 	height: 70px;
 }
 .ac-container input:checked ~ article.ac-medium{
-	height: 180px;
+	height: 105px;
 }
 .ac-container input:checked ~ article.ac-large{
 	height: 230px;

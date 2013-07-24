@@ -42,7 +42,7 @@
         <div>
         <input id="ac-9" name="accordion-1" type="radio"  />
         <label for="ac-9">Obra Social</label>
-        <article class="ac-small">
+        <article class="ac-medium">
             <ul class="nav nav-pills nav-stacked">
                 <li>
                     <a href="/abm/obraSocial.php?code=a">Alta de Obra Social</a>

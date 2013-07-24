@@ -46,7 +46,6 @@ $result = $db->query($consulta);
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
 </form>
 
-<button class="btn btn-danger" onclick="javascript:verificarLicencia();">Fecha Actual!!!</button> 
 
 <script>
     function seleccionar_todo() {
