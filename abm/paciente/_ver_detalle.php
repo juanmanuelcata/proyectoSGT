@@ -1,4 +1,7 @@
 <?php
+
+//DETALLE PACIENTE
+
 $db = conectaDb();
 $id = $_GET['id'];
 

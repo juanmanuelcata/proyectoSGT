@@ -3,7 +3,7 @@ $db = conectaDb();
 
 $idmedico = $_GET['id'];
 
-$consulta = "select * from turno inner join paciente on ( paciente.idpaciente = turno.id_pac) where turno.id_med = '$idmedico'";
+$consulta = "select * from turno inner join paciente on ( paciente.idpaciente = turno.id_pac) where turno.id_med = '$idmedico' and turno.estado != 'cancelado'";
 $aux = $db->query($consulta);
 ?>
 

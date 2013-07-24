@@ -1,4 +1,6 @@
 <?php
+//DETALLE DEL MEDICO
+
 include_once('../../sesion/login.php');
 include_once('../../fragmentos/_conectDb.php');
 if ($_SESSION['usuario']['admin'] == '1') {
@@ -27,30 +29,6 @@ else
         <script type="text/javascript" src="./../../datatables/js/jquery.dataTables.js"></script>   
         <script type="text/javascript" src="./../../js/bootstrap-alert.js"></script>
     </head>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#tabla1').dataTable({
-                "sScrollY": 200,
-                "bPaginate": false,
-                "bScrollCollapse": true,
-                "sScrollX": "100%",
-                "sScrollXInner": "110%",
-                "bJQueryUI": true,
-                "sPaginationType": "full_numbers",
-                "oLanguage": {
-                    "sLengthMenu": 'Display <select>' +
-                            '<option value="10">10</option>' +
-                            '<option value="20">20</option>' +
-                            '<option value="30">30</option>' +
-                            '<option value="40">40</option>' +
-                            '<option value="50">50</option>' +
-                            '<option value="-1">Todo</option>' +
-                            '</select> records'
-                }
-            });
-        });
-    </script>
-
     <body>
         <div class="row-fluid">
             <div class="span12">
@@ -96,6 +74,38 @@ else
                         <br>
                         <label><strong>Ingreso: </strong><?php echo ($campos['ingreso']) ?></label>
                         <br>
+
+
+                        <!--Tabla de horarios-->
+                        <?php
+                        
+                        $conhorarios = "select dia, min(desde) desde, max(hasta) hasta, id_med from horario inner join medico on (id_med = '$id') group by id_med, dia";
+                        $result2 = $db->query($conhorarios);
+                                
+                        ?>;
+                        
+                        <legend>Horarios</legend>
+                        <table id="tabla1" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Dia</th>
+                                    <th>Desde</th>
+                                    <th>Hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($result2 as $valor2) {
+                                    echo '<tr>
+                                        <td>' . $valor2['dia'] . '</td>
+                                        <td>' . $valor2['desde'] . '</td>
+                                        <td>' . $valor2['hasta'] . '</td>    
+                </tr>';
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <br><br>
                         <a href="./medico_edit.php?id=<?php echo ($campos['idmedico']) ?>" class="btn btn-success">Modificar</a>
                     </div>                
                 </div>
