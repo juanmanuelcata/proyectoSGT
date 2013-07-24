@@ -201,6 +201,7 @@ function verificarHorario(numHorario) {
 
 
 function veriformuMed() {
+  
   var nom = (document.getElementById('nombre').value);
   var ap = (document.getElementById('apellido').value);
   var dni = (document.getElementById('dni').value);
@@ -217,7 +218,7 @@ function veriformuMed() {
         if (nu.test(matricula))
           if (re.test(mail))
             if (nu.test(telefono) && (telefono.length == 10))
-              if (numeroHorario != 1) {
+              if (cantHorarios != 0) {
                 if (verificarHorario(numeroHorario)) {
                   var res = confirm("¿Seguro de agregar este medico?");
                   if (res == true)

@@ -12,12 +12,10 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
 $consulta = 'SELECT especialidad.nombre FROM medico INNER JOIN med_esp ON idmedico = id_med
 INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idmedico'] . '';
 $conidesp = $db->query($consulta);
-//echo "echo de a";
-//print_r($a);
-//die();
 $arridesp = $conidesp->fetch(PDO::FETCH_ASSOC);
 $esp = $arridesp['nombre'];
 // Fin de la consulta
+
 if (isset($_GET['ok'])) {
   $dni = $_GET['dni'];
   $nombre = $_GET['nombre'];
@@ -35,18 +33,18 @@ if (isset($_GET['ok'])) {
     $b = $re->fetch(PDO::FETCH_ASSOC);
     $up = 'UPDATE med_esp SET id_esp = ' . $b['idespecialidad'] . ' WHERE id_med =' . $id . '';
     if ($db->query($consulta) && ($db->query($up))) {
-      $id2 = $db->lastInsertId("seq_name");
+      $id = $db->lastInsertId("seq_name");
       $fechita = date('Y-m-d H:i:s');
       $detalle = 'Modificacion del médico  "' . $dni . '"';
       $user = $_SESSION['usuario']['user'];
       $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
-              VALUES ('$fechita', '$user', '$detalle', 'medico', '$id2' )";
+              VALUES ('$fechita', '$user', '$detalle', 'medico', '$id' )";
       $db->query($log);
       echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <strong><h4>Muy Bien! Se modifico correctamente el medico: ' . $nombre . '</h4>.</strong>  
             </div>';
-      //repetimos consulta para actualizar los cambios en el formulario
+      //reconsulta para actualizar los valores del formulario al modificar algo
       $id = $_GET['id'];
       $consulta = 'SELECT * from medico where (idmedico = "' . $id . '") ';
       $result = $db->query($consulta);
@@ -124,39 +122,61 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
         <fieldset>
 
           <div id="obrasSociales">
+
             <?php
-            $consulta = "SELECT * FROM os where activo = 1";
-            $result = $db->query($consulta);
-            if (!$result)
-              print ("<p>error en la consulta<p>");
-            
-            $i = 1;
-            $consulos = "SELECT dia, MIN(desde) desde, MAX(hasta) hasta, id_med
-                              FROM horario
-                              INNER JOIN medico ON ( id_med = '$id' )
-                              group by id_med, dia ";
+            $r = 1;
+            $consulos = "SELECT os.nombre nombre 
+                          FROM os
+                          INNER JOIN med_os ON ( id_os = idos ) 
+                          INNER JOIN medico ON ( idmedico = id_med
+                          AND idmedico =31 ) ";
             $pdoos = $db->query($consulos);
-            foreach ($pdoos as $filaos):
-            ?>
+            if (!$pdoos)
+              echo "algo malo paso";
+            else
+              foreach ($pdoos as $filaos):
+                ?>
+                <div id="os_div_<?php echo $r; ?>">
+                  <legend><button onClick="borrarOs(<?php echo $r; ?>);
+                return false;"><i class="icon-remove"></i></button>Obra social numero <?php echo $r ?></legend>
+                  <fieldset>
+                    <?php
+                    $db = conectaDb();
+                    $consulta = "SELECT * FROM os where activo = 1";
+                    $result = $db->query($consulta);
+                    if (!$result)
+                      print ("<p>error en la consulta<p>");
+                    else
+                      
+                      ?>
+                    <select tabindex="12" class="select-xlarge" name="os_select[<?php echo $r; ?>][nombre]" >
+                      <?php
+                      $consulta = "SELECT * FROM os where activo = 1";
+                      $result = $db->query($consulta);
+                      if (!$result)
+                        print ("<p>error en la consulta<p>");
+                      foreach ($result as $valor):
+                        if ($valor['nombre'] == $filaos['nombre']):
+                          ?>
 
-            <select tabindex="12" class="select-xlarge" name="os_select[<?php echo $i; ?>][nombre]" >
-              <?php foreach ($result as $valor):
-                if ($valor['nombre'] == $esp):
-                  ?>
+                          <option Selected="Selected"><?php echo $valor['nombre'] ?></option>
 
-                  <option Selected="Selected"><?php echo $valor['nombre'] ?></option>
+                        <?php else: ?>
 
-                  <?php else: ?>
+                          <option><?php echo $valor['nombre'] ?></option>
 
-                  <option><?php echo $valor['nombre'] ?></option>
+                        <?php
+                        endif;
+                      endforeach;
+                      ?>
+                    </select>
 
-                <?php endif;
-              endforeach;
-              ?>
-            </select> 
-
-
-
+                  </fieldset>
+                  <br>
+                </div>
+              <?php 
+              $r++;
+               endforeach; ?>
           </div>
 
           <button class="btn btn-success" onClick="agregarObraSocial();
@@ -176,6 +196,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                               INNER JOIN medico ON ( id_med = '$id' )
                               group by id_med, dia ";
             $pdoHorario = $db->query($consulhorarios);
+            foreach ($pdoHorario as $filaHorario):
               ?>
 
               <div id="horario_div_<?php echo $i; ?>">
@@ -193,8 +214,8 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                         <option value="<?php echo $k ?>" selected="selected"><?php echo $k ?></option>
                       <?php else: ?>
                         <option value="<?php echo $k ?>" ><?php echo $k ?></option>
-    <?php endif; ?>
-  <?php endforeach; ?>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
                   </select>
 
                   <label>Desde</label>
@@ -204,8 +225,8 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                         <option value="<?php echo $p ?>:00:00" selected="selected"><?php echo $p ?>:00</option>
                       <?php else: ?>
                         <option value="<?php echo $p ?>:00:00" ><?php echo $p ?>:00</option>
-    <?php endif; ?>                        
-  <?php endfor; ?>
+                      <?php endif; ?>                        
+                    <?php endfor; ?>
                   </select>
 
                   <label>Hasta</label>
@@ -215,8 +236,8 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                         <option value="<?php echo $p ?>:00:00" selected="selected"><?php echo $p ?>:00</option>
                       <?php else: ?>
                         <option value="<?php echo $p ?>:00:00" ><?php echo $p ?>:00</option>
-    <?php endif; ?>                        
-  <?php endfor; ?>
+                      <?php endif; ?>                        
+                    <?php endfor; ?>
                   </select>
 
                 </fieldset>
@@ -237,7 +258,6 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
 
         </fieldset>
 
-        <!--fin del codigo para os y horarios modif-->
 
         <div class="form-actions">
           <input type="hidden" name="code" value="m"/>
@@ -251,3 +271,49 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
     </div>
   </fieldset>
 </form>
+<script>
+                      var numeroHorario = <?php echo $i?>;
+                    var numeroOs = <?php echo $r?>;
+
+                    function agregarHorarioMedico()
+                    {
+                        $.ajax({
+                            url: 'medico/horario.php',
+                            type: 'POST',
+                            data: {
+                                numeroHorario: numeroHorario++
+                            },
+                            success: function(data) {
+                              console.warn(numeroHorario);
+                                $('#grillahoraria').append(data);
+                            }
+                        });
+                    }
+
+                    function agregarObraSocial()
+                    {
+                        $.ajax({
+                            url: 'medico/addOs.php',
+                            type: 'POST',
+                            data: {
+                                numeroOs: numeroOs++
+                            },
+                            success: function(data) {
+                                $('#obrasSociales').append(data);
+                            }
+                        });
+                    }
+                    function borrarOs(numeroDiv)
+                    {
+                        $('#os_div_' + numeroDiv).remove();
+                          var hidden = '<input type="hidden" name="horario'+numeroDiv+'" value="'+numeroDiv+'"/>';
+                        $('#obrasSociales').append(hidden);
+                    }
+                    function borrarHorario(numeroDiv)
+                    {
+                        $('#horario_div_' + numeroDiv).remove();
+                        var hidden = '<input type="hidden" name="horario'+numeroDiv+'" value="'+numeroDiv+'"/>';
+                        $('#grillahoraria').append(hidden);
+                    }
+
+</script>

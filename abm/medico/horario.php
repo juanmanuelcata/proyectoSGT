@@ -1,5 +1,5 @@
-<div id="horario_div_<?php echo $_POST['numeroHorario']; ?>">
-  <legend><button onClick="borrarHorario(<?php echo $_POST['numeroHorario']; ?>); return false;"><i class="icon-remove"></i></button>Horario numero <?php echo $_POST['numeroHorario']; ?></legend>
+<div id="horario_div_<?php echo $_POST['numeroHorario']; ?>" class="nuevoHorario">
+  <legend><button onClick="borrarHorario(<?php echo $_POST['numeroHorario']; ?>); return false;return false;"><i class="icon-remove"></i></button>Horario numero <?php echo $_POST['numeroHorario']; ?></legend>
   <fieldset>
       <?php $n = $_POST['numeroHorario']?>
     <label>Día</label>
