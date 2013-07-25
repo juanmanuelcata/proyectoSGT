@@ -4,12 +4,14 @@ function veriFormuEspecialidad() {
   if (le.test(nom)) {
     var res = confirm("¿Seguro de agregar esta especialidad?");
     if (res == true)
-      return true
+      return true;
     else
-      return false
+      return false;
   }
-  else
+  else{
     alert('El campo especialidad no puede estar vacio');
+    return false;
+  }
 }
 
 function soloLetras(e) {// 1

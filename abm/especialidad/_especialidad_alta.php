@@ -45,12 +45,15 @@ if (isset($_GET['esp_nue'])) {
         <div class="control-group">
             <div class="controls">
                 <input class="span3" type="text" id="input01" name="esp_nue" onkeypress="return soloLetras(event);" placeholder="Especialidad">
+                <button class="btn"  id="ayuda" onclick="return false;" data-original-title="Titulo de la ayuda" data-content="TEXTO DE AYUDA">
+                <i class="icon-question-sign"></i>
+                </button>
             </div>                                                 
         </div>
         <div class="form-actions">
             <input type="hidden" name="activa" value="1"/>
             <input type="hidden" name="code" value="a"/>
-            <button type="submit" onclick="return veriFormuEspecialidad()"class="btn btn-success">Guardar</button>
+            <button type="submit" onclick="return veriFormuEspecialidad();" class="btn btn-success">Guardar</button>
             <button type="reset"  class="btn btn-success">Borrar</button>
         </div>
     </fieldset>
