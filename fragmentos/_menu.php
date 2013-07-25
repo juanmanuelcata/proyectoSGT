@@ -19,6 +19,9 @@
                     <a href="/abm/paciente.php?code=a">Alta de Paciente</a>
                 </li>
                 <li>
+                    <a href="/abm/paciente.php?code=r">Reportes</a>
+                </li>
+                <li>
                     <a href="/abm/paciente.php?code=l">Listar Pacientes</a>
                 </li>
             </ul>
@@ -32,6 +35,9 @@
             <ul class="nav nav-pills nav-stacked">
                 <li>
                     <a href="/abm/especialidad.php?code=a">Alta de Especialidad</a>
+                </li>
+                <li>
+                    <a href="/abm/especialidad.php?code=r">Reportes</a>
                 </li>
                 <li>
                     <a href="/abm/especialidad.php?code=l">Listar Especialidades</a>
@@ -48,12 +54,11 @@
                     <a href="/abm/obraSocial.php?code=a">Alta de Obra Social</a>
                 </li>
                 <li>
-                    <a href="/abm/obraSocial.php?code=r&orden=ASC">Reportes</a>
-                </li>
-                <li>
                     <a href="/abm/obraSocial.php?code=l&orden=ASC">Listar Obras Sociales</a>
                 </li>
-                
+                <li>
+                    <a href="/abm/obraSocial.php?code=r&orden=ASC">Reportes</a>
+                </li>
             </ul>
         </article>
     </div>
