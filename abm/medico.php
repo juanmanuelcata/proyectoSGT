@@ -25,6 +25,10 @@ else
         <script type="text/javascript" src="./../datatables/js/jquery.js"></script>
         <script type="text/javascript" src="./../datatables/js/jquery.dataTables.js"></script>   
         <script type="text/javascript" src="./../js/bootstrap-alert.js"></script>
+
+        <script type="text/javascript" src="./../js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="./../js/bootstrap-popover.js"></script>
+        
     </head>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -80,6 +84,10 @@ else
                 </div>
             </div>
         </div>
+        <script>
+            //            ESTA ES LA LIÑITA MAGICA
+            $(".btn").popover({trigger: "hover"});
+        </script>
     </body>
 </html>
 
