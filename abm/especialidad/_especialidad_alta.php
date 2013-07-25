@@ -50,7 +50,7 @@ if (isset($_GET['esp_nue'])) {
         <div class="form-actions">
             <input type="hidden" name="activa" value="1"/>
             <input type="hidden" name="code" value="a"/>
-            <button type="submit" onclick="return veriFormuEspecialidad()"class="btn btn-success">Guardar</button>
+            <button type="submit" onclick="return veriFormuEspecialidad();" class="btn btn-success">Guardar</button>
             <button type="reset"  class="btn btn-success">Borrar</button>
         </div>
     </fieldset>
