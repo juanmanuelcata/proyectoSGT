@@ -253,51 +253,6 @@ function veriformuMed() {
   return continuo;
 }
 
-
-//function veriformuMed() {
-//    var nom = (document.getElementById('nombre').value);
-//    var ap = (document.getElementById('apellido').value);
-//    var dni = (document.getElementById('dni').value);
-//    var matricula = (document.getElementById('matricula').value);
-//    var mail = (document.getElementById('mail').value);
-//    var telefono = (document.getElementById('tel').value);
-//    var le = /([a-z]|[A-Z]\s?)/;
-//    var nu = /^(?:\+|-)?\d+$/;
-//    var re = /^((\w|\.){2,}@)\w{3,}\.\w{2,4}((\.(\w{2}))?)?$/;
-//    var continuo = false;
-//    if (le.test(nom))
-//        if (le.test(ap))
-//            if (nu.test(dni) && (dni.length == 8))
-//                if (nu.test(matricula))
-//                    if (re.test(mail))
-//                        if (nu.test(telefono) && (telefono.length == 10))
-//                             if (numeroHorario != 1){
-//                                var res = confirm("¿Seguro de agregar este medico?");
-//                                return res;
-//                             }
-//                             else
-//                                alert('Ingrese al menos un horario.');
-//                        else
-//                        if (nu.test(telefono))
-//                            alert('El campo "Teléfono" debe tener 10 dígitos');
-//                        else
-//                            alert('El campo "Teléfono" no puede estar vacío');
-//                    else
-//                        alert('El campo "Correo electrónico" es incorrecto');
-//                else
-//                    alert('La Matrícula es incorrecta');
-//            else
-//            if (nu.test(dni))
-//                alert('El campo "DNI" debe tener 8 dígitos');
-//            else
-//                alert('El campo "DNI" no puede estar vacío');
-//        else
-//            alert('El campo "Apellido" no puede estar vacío.');
-//    else
-//        alert('El campo "Nombre" no puede estar vacío');
-//    return continuo;
-//}
-
 function veriformuPaciente() {
   var nom = (document.getElementById('nombre').value);
   var ap = (document.getElementById('apellido').value);

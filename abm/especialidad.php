@@ -14,7 +14,7 @@ include_once('../sesion/login.php');
   <link href="./../css/propio.css" rel="stylesheet" media="screen">
   <link rel="stylesheet" type="text/css" href="./../css/menu.css" />
   <link rel="shortcut icon" href="./../img/favicon.ico" type="image/x-icon"/> 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />       
   <script type="text/javascript" src="./../js/validacion.js"></script>
   <script type="text/javascript" src="./../datatables/js/jquery.js"></script>
   <script type="text/javascript" src="./../datatables/js/jquery.dataTables.js"></script>
