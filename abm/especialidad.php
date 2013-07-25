@@ -80,7 +80,7 @@ include_once('../sesion/login.php');
   </div>
     <script>
     //            ESTA ES LA LIÑITA MAGICA
-            $("#ayuda").popover({ trigger: "hover" });
+            $(".btn").popover({ trigger: "hover" });
     </script>
 </body>
 </html>
