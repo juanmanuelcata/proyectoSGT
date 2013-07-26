@@ -18,7 +18,7 @@
       <option selected="selected">Elija un horario</option>
       <?php
       for ($i = 8; $i < 20; $i++) {
-        echo "<option value=\"$i:00\">$i:00</option>";
+        echo "<option value=\"$i:00:00\">$i:00</option>";
       }
       ?>
     </select>
@@ -28,7 +28,7 @@
       <option selected="selected">Elija un horario</option>
       <?php
       for ($i = 8; $i < 20; $i++) {
-        echo "<option value=\"$i:00\">$i:00</option>";
+        echo "<option value=\"$i:00:00\">$i:00</option>";
       }
       ?>
     </select>

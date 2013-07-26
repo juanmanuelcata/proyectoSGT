@@ -121,90 +121,52 @@ function include(arr, obj) {
   return false;
 }
 
-function horariosSuperpuestos(intervalos) {
-  intervalos.sort(compare); //los ordena por dia
-  var ok = true;
-  var iGeneral = 0;
-  var anterior;
-  var arregloHorarios;
-  var n;
-  while ((iGeneral < intervalos.length) && ok) {
+function superpocicion(arregloDiv, n) {
+  for (var l = 0; l < n; l++){
+    var dia = arregloDiv[l][0];
+    var desde = arregloDiv[l][1];
+    var hasta = arregloDiv[l][2];
+    var a = desde.split(':');
+    var b = hasta.split(':');
+    var sd = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+    var sh = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
+    for (var k = l; k < n; k++){
+      var dia2 = arregloDiv[k][0];
+      if (dia == dia2){
+        var desde2 = arregloDiv[k][1];
+        var hasta2 = arregloDiv[k][2];
+        var c = desde2.split(':'); // split it at the colons
+        var d = hasta2.split(':'); // split it at the colons
+        var sd2 = (+c[0]) * 60 * 60 + (+c[1]) * 60 + (+c[2]);
+        var sh2 = (+d[0]) * 60 * 60 + (+d[1]) * 60 + (+d[2]);
+        if (((( sd < sd2 ) && ( sd2 < sh )) || (( sd < sh2 ) && ( sh2 < sh ))) || ((( sd2 < sd ) && ( sd < sh2)) || (( sd2 < sh ) && ( sh < sh2 )))){
+            alert("el horario "+(l+1)+" y el horario "+(k+1)+" estan superpuestos")
+            return false;
+        }
+      }
+    }   
+  }
+  return true;
+}
+
+function verificarHorario() {
+  var n = $('#grillahoraria').find('div').length;
+  var arregloDiv = new Array(n);
+  for (var k = 0; k < n; k++)
+    arregloDiv[k] = new Array(3);
+  var p = 0;
+  $('#grillahoraria').find('div').each(function() {
     var i = 0;
-    anterior = intervalos[iGeneral].dia;
-    arregloHorarios = new Array();
-    while ((intervalos[i + iGeneral].dia == anterior) && (i + iGeneral < intervalos.length) && ok) {
-      n = intervalos[i + iGeneral].desde;
-      while ((n < intervalos[i + iGeneral].hasta) && ok) {
-        if (!(include(arregloHorarios, n))) {
-          arregloHorarios[arregloHorarios.length] = n; //en la ultima posicion coloca el horario "n"
-          arregloHorarios.sort();
-          n++;
-        } else { //si la hora está incluida significa que ese horario ya esta, es decir esta mal definido
-          ok = false;
-          alert('En el horario ' + intervalos[i + iGeneral].num + ' el médico ya se encuentra ocupado. Corrija los horarios');
-        }
-      }
-      if (i + iGeneral + 1 >= intervalos.length) {
-        return ok;
-      }
-      anterior = intervalos[i + iGeneral].dia;
+    $(this).find('select').each(function() {
+      arregloDiv[p][i] = $(this).val();
       i++;
-    }
-    if (iGeneral < intervalos.length) {
-      iGeneral = iGeneral + i
-    }
-    ;
-  }
-  return ok;
+    });
+    p++;
+  });
+  return superpocicion(arregloDiv, n);
 }
-
-function verificarHorario(numHorario) {
-  var dia;
-  var desde;
-  var hasta;
-  var i = 0;
-  var ok = true;
-  var intervalos = new Array();
-  while ((i < numHorario) && (ok)) {
-    var txt ="document.horario_div_"+i;
-    if(!txt == null){
-      i++;
-    } else{
-    i++;
-    dia = (document.getElementById('dia' + i).value);
-    desde = (document.getElementById('horarios' + i).value);
-    hasta = (document.getElementById('horariosHasta' + i).value);
-    if (dia != "Elija un dia") {
-      if (desde != "Elija un horario") {
-        if (hasta != "Elija un horario") {
-          if ((parseInt(desde, 10)) >= (parseInt(hasta, 10))) {
-            alert('El intervalo del horario ' + i + ' está mal definido');
-            ok = false;
-          } else {
-            intervalos[i - 1] = new Intervalo(i, dia, parseInt(desde, 10), parseInt(hasta, 10));
-          }
-        } else {
-          alert('El campo "hasta" del intervalo del horario ' + i + ' está vacio');
-          ok = false;
-        }
-      } else {
-        alert('El campo "desde" del intervalo del horario ' + i + ' está vacio');
-        ok = false;
-      }
-    } else {
-      alert('Seleccione un "día" en el horario ' + i);
-      ok = false;
-    }
-  }}
-  if (ok) {
-    ok = horariosSuperpuestos(intervalos);
-  }
-  return ok;
-}
-
 
 function veriformuMed() {
-  
   var nom = (document.getElementById('nombre').value);
   var ap = (document.getElementById('apellido').value);
   var dni = (document.getElementById('dni').value);
@@ -222,7 +184,7 @@ function veriformuMed() {
           if (re.test(mail))
             if (nu.test(telefono) && (telefono.length == 10))
               if (cantHorarios != 0) {
-                if (verificarHorario(numeroHorario)) {
+                if (verificarHorario()) {
                   var res = confirm("¿Seguro de agregar este medico?");
                   if (res == true)
                     return true

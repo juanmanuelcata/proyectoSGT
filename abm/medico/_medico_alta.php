@@ -180,7 +180,7 @@ if (isset($_POST['nombre'])) {
             return false;">Agregar Horario </button>
 
 
-    <input type="submit" class="btn btn-success" id="guardar" onClick="return veriformuMed();" value="Guardar Medico ">
+    <input type="submit" class="btn btn-success" id="guardar" onClick="return veriformuMed();" value="Guardar">
   </fieldset>
 
 </form>
