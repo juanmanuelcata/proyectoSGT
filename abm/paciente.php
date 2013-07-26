@@ -88,4 +88,5 @@ include_once('../sesion/login.php');
             //            ESTA ES LA LIÑITA MAGICA
             $(".btn").popover({trigger: "hover"});
         </script>
+    </body>
 </html>

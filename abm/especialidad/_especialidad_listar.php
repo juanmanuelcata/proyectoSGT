@@ -35,7 +35,7 @@ $db = null;
                     <th>Activa <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Activa" data-content="Oprima sobre este campo para ordenar la lista por el atributo Activa. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el engranaje correspondiente de la especialidad que desee modificar.">
+                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente a la especialidad que desee modificar.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                 </tr>

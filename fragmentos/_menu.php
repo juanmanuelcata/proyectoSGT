@@ -13,7 +13,7 @@
     <div>
         <input id="ac-2" name="accordion-1" type="radio"  />
         <label for="ac-2">Pacientes</label>
-        <article class="ac-small">
+        <article class="ac-medium">
             <ul class="nav nav-pills nav-stacked">
                 <li>
                     <a href="/abm/paciente.php?code=a">Alta de Paciente</a>
@@ -31,7 +31,7 @@
     <div>
         <input id="ac-4" name="accordion-1" type="radio"  />
         <label for="ac-4">Especialidades</label>
-        <article class="ac-small">
+        <article class="ac-medium">
             <ul class="nav nav-pills nav-stacked">
                 <li>
                     <a href="/abm/especialidad.php?code=a">Alta de Especialidad</a>
