@@ -1,15 +1,15 @@
 <?php
 $db = conectaDb();
-$consulta = "select * from paciente";
+$consulta = "select * from medico";
 $result = $db->query($consulta);
 ?>
-<legend>Turnos por paciente</legend>
+<legend>Turnos por médico</legend>
 <form class="form-horizontal" name="form" action="#" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Paciente</th>
+                    <th>Médico</th>
                     <th>Cantidad de turnos</th>
                     <th>% de turnos</th>
                 </tr>
@@ -17,7 +17,7 @@ $result = $db->query($consulta);
             <tbody>
                 <?php foreach ($result as $valor): ?>
                     <?php
-                    $con = 'select * from paciente inner join turno on (paciente.idpaciente = turno.id_pac) where idpaciente = ' . $valor['idpaciente'] . '';
+                    $con = 'select * from medico inner join turno on (medico.idmedico = turno.id_med) where idmedico = ' . $valor['idmedico'] . '';
                     $result2 = $db->query($con);
                     $cant = $result2->rowCount();
 
@@ -28,10 +28,10 @@ $result = $db->query($consulta);
                     $porcentaje = ($cant * 100) / $cantAux;
                     $porcentaje = round($porcentaje * 100) / 100; //esto es para redondear a 2 decimales
                     
-                    $paciente = $valor['nombre'].' '.$valor['apellido'];
+                    $medico = $valor['nombre'].' '.$valor['apellido'];
                     ?>
                     <tr>
-                        <td><?php echo $paciente ?></td>
+                        <td><?php echo $medico ?></td>
                         <td><?php echo $cant ?></td>
                         <td><?php echo $porcentaje ?></td>
                     </tr>

@@ -78,6 +78,8 @@ else
                                 include_once('./medico/_listado_turnos.php');
                             if ($_GET['code'] == 'l')
                                 include_once('./medico/_medico_listar.php');
+                            if ($_GET['code'] == 'r')
+                                include_once('./medico/_medico_reportes.php');
                         }
                         ?>
                     </div>                

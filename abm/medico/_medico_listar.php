@@ -35,22 +35,21 @@ $result = $db->query($consulta);
                 </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($result as $valor) {
-//                      $direccion = "'./medico.php?code=d&id=" . $valor["idmedico"] . "'";
-                    $direccion = "'./medico/_ver_detalle.php?id=" . $valor["idmedico"] . "'";
+                <?php foreach ($result as $valor) : ?>
+                    <!--$direccion = "'./medico.php?code=d&id=" . $valor["idmedico"] . "'";-->
+                    <?php $direccion = "'./medico/_ver_detalle.php?id=" . $valor["idmedico"] . "'";
                     $direccion2 = "'./medico/_medico_licencia.php?code=li&id=" . $valor['idmedico'] . "'";
-                    echo '<tr>
-                <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
-                <td>' . $valor['nombre'] . '</td>
-                <td>' . $valor['apellido'] . '</td>
-                <td><a href="./medico.php?code=m&id=' . $valor['idmedico'] . '"><i class="icon-cog"></i></a></td>
-                <td><a href="javascript:abrir(' . $direccion2 . ')"><i class="icon-plane"></i></a></td>
-                <td><a href="./medico.php?code=tli&id=' . $valor['idmedico'] . '"><i class="icon-file"</i></a></td>
-                <td><a href="javascript:abrir(' . $direccion . ')"><i class=" icon-eye-open"></i></a></td>
-                </tr>';
-                }
-                ?>
+                    ?>
+                    <tr>
+                        <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
+                        <td><?php echo $valor['nombre'] ?></td>
+                        <td><?php echo $valor['apellido'] ?></td>
+                        <td><a href="./medico.php?code=m&id=<?php echo $valor['idmedico'] ?>"><i class="icon-cog"></i></a></td>
+                        <td><a href="javascript:abrir(<?php echo $direccion2 ?>)"><i class="icon-plane"></i></a></td>
+                        <td><a href="./medico.php?code=tli&id=<?php echo $valor['idmedico'] ?>"><i class="icon-file"</i></a></td>
+                        <td><a href="javascript:abrir(<?php echo $direccion ?>)"><i class=" icon-eye-open"></i></a></td>
+                    </tr>
+<?php endforeach; ?>
             </tbody>
         </table>
     </div>
