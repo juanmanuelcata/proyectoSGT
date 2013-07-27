@@ -25,6 +25,10 @@ else
         <script type="text/javascript" src="./../datatables/js/jquery.js"></script>
         <script type="text/javascript" src="./../datatables/js/jquery.dataTables.js"></script>   
         <script type="text/javascript" src="./../js/bootstrap-alert.js"></script>
+
+        <script type="text/javascript" src="./../js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="./../js/bootstrap-popover.js"></script>
+        
     </head>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -74,12 +78,18 @@ else
                                 include_once('./medico/_listado_turnos.php');
                             if ($_GET['code'] == 'l')
                                 include_once('./medico/_medico_listar.php');
+                            if ($_GET['code'] == 'r')
+                                include_once('./medico/_medico_reportes.php');
                         }
                         ?>
                     </div>                
                 </div>
             </div>
         </div>
+        <script>
+            //            ESTA ES LA LIÑITA MAGICA
+            $(".btn").popover({trigger: "hover"});
+        </script>
     </body>
 </html>
 

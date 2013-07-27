@@ -111,7 +111,9 @@ function individual(id) {//resive el id del div y un boolean s (true si viene de
   var b = hasta.split(':');//separa el tring del horario hh:mm:ss por el caracter ":"
   var sd = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); //pasa el hroario a segundos
   var sh = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]); //pasa el hroario a segundos
+ //alert(sd +' '+sh);
   if (sd >= sh) { //si desde es mayor o igual a hasta
+   //   alert("debugg 1 deberia retornar falso");
     return false; //retorna false y corta
   }
   //si ese horario es valido entonces
@@ -181,14 +183,14 @@ function verificarHorario() {
     }
     else{
         if (!individual(oID)) {//si individual da falso es que este horario esta mal definido
-          alert("el horario " + (p + 1) + " esta mal definido a");
+          alert("el horario " + (p + 1) + " esta mal definido.");
           control = false;
           return false;//devuelvo false y corta
         }
         else{
           //si aparece el valor 'Elija un día' o 'Elija un horario' es que aun no se termino de elegir el horario.
           if (arregloDiv[p][0] === 'Elija un día' || arregloDiv[p][1] === 'Elija un horario' || arregloDiv[p][2] === 'Elija un horario') {
-            alert("el horario " + (p + 1) + " no esta definido. a");
+            alert("el horario " + (p + 1) + " no esta definido.");
             control = false;
             return false; // devuleve falso y corta
           }
@@ -204,6 +206,7 @@ function verificarHorario() {
 }
 //se llama siempre que cambia un select horario
 function propio(id) {//recive el id de quien lo llama
+
   array = new Array(3);//creo arreglo de 3
   l = 0;//indice 0
   var n = id.split('_'); //separa el tring del id div_horario_X por el caracter "_"
@@ -285,9 +288,16 @@ function veriformuPaciente() {
   var re = /^((\w|\.){2,}@)\w{3,}\.\w{2,4}((\.(\w{2}))?)?$/; //para mails
   var fe = /^((?:19|20)\d\d)\-((?:0?[1-9])|(?:1[0-2]))\-((?:0?[1-9])|(?:[12]\d)|(?:3[01]))$/; // fechas
   var continuo = false;
+//  Pruebas Tratando de mejorar el validar de fecha de nacimiento. No está hecho, estas son solo pruebas
+//  var dia = new Date();
+//  alert(dia.getFullYear());
+//  var diaAct = (dia.getFullYear() + '-' + dia.getMonth() + '-' + dia.getDay());
+//  alert (diaAct);
+//  alert(fechaNac <= diaAct);
+//  Hasta aca es el validar fecha de nacimiento a probar. Tengo problemas con la fecha
   if (le.test(nom))
     if (le.test(ap))
-      if ((dni.length == 8) || (dni.length = 7))
+      if ((dni.length == 8) || (dni.length == 7))
         if (fe.test(fechaNac))
           if (le.test(localidad))
             if (calle != "")
