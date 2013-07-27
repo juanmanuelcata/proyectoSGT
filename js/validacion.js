@@ -14,6 +14,7 @@ function veriFormuEspecialidad() {
   }
 }
 
+
 function soloLetras(e) {// 1
   tecla = (document.all) ? e.keyCode : e.which; // 2
   if (tecla == 8)
@@ -271,6 +272,19 @@ function veriformuMed() {
   return continuo;
 }
 
+
+function fechaNacimiento(){
+        var fecha;
+        var input = $('#fechaNac');
+        fecha = input.prop('valueAsDate');
+        hoy = new Date();
+        if (fecha <= hoy) {
+          return true;
+        }
+        else {
+          return false;
+        }
+}
 function veriformuPaciente() {
   var nom = (document.getElementById('nombre').value);
   var ap = (document.getElementById('apellido').value);
@@ -286,17 +300,10 @@ function veriformuPaciente() {
   var re = /^((\w|\.){2,}@)\w{3,}\.\w{2,4}((\.(\w{2}))?)?$/; //para mails
   var fe = /^((?:19|20)\d\d)\-((?:0?[1-9])|(?:1[0-2]))\-((?:0?[1-9])|(?:[12]\d)|(?:3[01]))$/; // fechas
   var continuo = false;
-//  Pruebas Tratando de mejorar el validar de fecha de nacimiento. No está hecho, estas son solo pruebas
-//  var dia = new Date();
-//  alert(dia.getFullYear());
-//  var diaAct = (dia.getFullYear() + '-' + dia.getMonth() + '-' + dia.getDay());
-//  alert (diaAct);
-//  alert(fechaNac <= diaAct);
-//  Hasta aca es el validar fecha de nacimiento a probar. Tengo problemas con la fecha
   if (le.test(nom))
     if (le.test(ap))
       if ((dni.length == 8) || (dni.length == 7))
-        if (fe.test(fechaNac))
+        if (fe.test(fechaNac) && fechaNacimiento())
           if (le.test(localidad))
             if (calle != "")
               if (altura != "")
