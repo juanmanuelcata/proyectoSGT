@@ -35,40 +35,40 @@ include_once('sesion/login.php');
         <div class="span9">
           
    <h4 class="text-center">Pagina en construccion</h4>
-          Falta asignar: 
-editar el formato a botones para simplificar la vista
-	superpocicion de licencias
+<dl>
+<dt>Falta asignar: </dt>
+<dd>editar el formato a botones para simplificar la vista
+	<dd>superpocicion de licencias</dd>
 
-Lautaro:
-	Definir el alcance de los permisos de secretaria…
-agregar "quienes somos" y "agradecimientos" a la pagina
-Turno_alta, si no hay medico ponerlo en el select (o alert), lo mismo en días y horarios.
+<dt>Lautaro:</dt>
+	<dd>Definir el alcance de los permisos de secretaria…</dd>
+  <dd>agregar "quienes somos" y "agradecimientos" a la pagina</dd>
+  <dd>Turno_alta, si no hay medico ponerlo en el select (o alert), lo mismo en días y horarios.</dd>
 
-Pato:
-	Ayudas:
-		listado de turnos(todo)
-		faltan ayudas en paciente_alta, paciente_listado(todo)
-		listado_especialidad (boton imprimir)
-		alta_OS
-		listado_OS(todo)
-		todos los reportes
-		alta_medico(boton agregar horario)
-		listar_medico(boton imprimir)
-		alta_Usuario(todo)
-		listar_usuario(todo)
-		logs(todo)
+<dt>Pato:</dt>
+		<dd>listado de turnos(todo)</dd>
+		<dd>faltan ayudas en paciente_alta, paciente_listado(todo)</dd>
+		<dd>listado_especialidad (boton imprimir)</dd>
+    <dd>alta_OS</dd>
+    <dd>listado_OS(todo)</dd>
+		<dd>todos los reportes</dd>
+		<dd>alta_medico(boton agregar horario)</dd>
+		<dd>listar_medico(boton imprimir)</dd>
+		<dd>alta_Usuario(todo)</dd>
+		<dd>listar_usuario(todo)</dd>
+		<dd>logs(todo)</dd>
 		
-Juancho:
-	imprimir los reportes(todos)
-	imprimir logs
-poner un imprimir individual en detalle de paciente o medico con todos los datos 
-Nestor:	
-Manual(mas te vale que este genial)
-
+<dt>Juancho:</dt>
+	<dd>imprimir los reportes(todos)</dd>
+	<dd>imprimir logs</dd>
+  <dd>poner un imprimir individual en detalle de paciente o medico con todos los datos </dd>
+  <dt>Nestor:	</dt>
+  <dd>Manual(mas te vale que este genial)</dd>
+</dl>        
+   <br>
 
 
 Por el momento esto es lo que se me ocurre que falta, cualquier cosa agreguen a la lista de “falta asignar”
-              
         </div>
       </div>
     </div>
