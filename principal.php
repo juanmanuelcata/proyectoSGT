@@ -35,91 +35,40 @@ include_once('sesion/login.php');
         <div class="span9">
           
    <h4 class="text-center">Pagina en construccion</h4>
-          <h6>
-            <?php
-            $p = new DateTime( '31-01-2013' );
-            $d = $p->format('Y-m-d');
-            echo $d;
-            die();
-            
-            
-            include_once './fragmentos/_conectDb.php';
-            $db = conectaDb();
-            $consulta = 'SELECT * FROM medico where idmedico = 32';
-            $tmp = $db->query($consulta);
-            $r = $tmp->fetch(PDO::FETCH_ASSOC);
-            echo 'Dia de hoy: ' . date("d-m-Y");
-            echo '<br>';
-            echo '<br>';
-            echo '
-              <p>nombre: ' . $r['nombre'] . '</p>
-              <p>telefono: ' . $r['apellido'] . '</p>
-              <p>dni: ' . $r['dni'] . '</p>
-              <p>id: ' . $r['idmedico'] . '</p>
-              ';
-            ?>
-            <?php
-            echo '1----------------------------------<br>';
-            require_once('/fragmentos/Dia.php');
-            
-            echo 'creamos objeto1 dia sin parametros: ';
-            $objetoDia1 = new Dia();
-            echo '<br>';
-            echo 'dia del objeto1: ' . $objetoDia1->getDia();
-            echo '<br>';
-            echo 'nombre del objeto1: ' . $objetoDia1->getNombre();
-            echo '<br>';
-            
-            echo '2----------------------------------<br>';
-           echo '<br>';
-            echo 'calculando proximo dia desde el objeto1 y retorna objeto 2: ';
-            $objetoDia2 = $objetoDia1->calcProxDia("mie");
-            echo '<br>';
-            echo 'dia del objeto2: ' . $objetoDia2->getDia();
-            echo '<br>';
-            echo 'nombre del objeto2: ' . $objetoDia2->getNombre();
-            echo '<br>';
-            
-            echo '3----------------------------------<br>';
-            
-            echo '<br>';
-            echo 'creo objeto3 con nombre "lun" ';
-            $h = "lun";
-            $objetoDia3 = new Dia($h);
-            echo '<br>';
-            echo 'dia del objeto3: ' . $objetoDia3->getDia();
-            echo '<br>';
-            echo 'nombre del objeto3: ' . $objetoDia3->getNombre();
-            echo '<br>';
-            
-            echo '4----------------------------------<br>';
-            
-            echo '<br>';
-            echo 'creo objeto4 con fecha "20-07-2013" ';
-            $h = "20-07-2013";
-            $objetoDia4 = new Dia($h);
-            echo '<br>';
-            echo 'dia del objeto4: ' . $objetoDia4->getDia();
-            echo '<br>';
-            echo 'nombre del objeto4: ' . $objetoDia4->getNombre();
-            echo '<br>';
-            echo '----------------------------------<br>';
-            ?>
-            <select id="select_medicos">
-              <option value="          }
+          Falta asignar: 
+editar el formato a botones para simplificar la vista
+	superpocicion de licencias
 
-                      ?>-1">Seleccione una especialidad</option>
-                      <?php
-                      $idmed = $_POST['idMedico'];
-                      $consulta2 = 'select dia from horario where (id_med  = 32) and (activo = 1) group by dia';
-                      $tmp = $db->query($consulta2);
-                      foreach ($tmp as $valor) {
-                        $aux = new Dia($valor['dia']);
-                        echo '<option class="option2" value="' . $valor['dia'] . '">' . $valor['dia'] .'    '.$aux->getDia(). '</option>';
-                      }
-                      ?>
-            </select>
-          </h6>                
+Lautaro:
+	Definir el alcance de los permisos de secretaria…
+agregar "quienes somos" y "agradecimientos" a la pagina
+Turno_alta, si no hay medico ponerlo en el select (o alert), lo mismo en días y horarios.
+
+Pato:
+	Ayudas:
+		listado de turnos(todo)
+		faltan ayudas en paciente_alta, paciente_listado(todo)
+		listado_especialidad (boton imprimir)
+		alta_OS
+		listado_OS(todo)
+		todos los reportes
+		alta_medico(boton agregar horario)
+		listar_medico(boton imprimir)
+		alta_Usuario(todo)
+		listar_usuario(todo)
+		logs(todo)
+		
+Juancho:
+	imprimir los reportes(todos)
+	imprimir logs
+poner un imprimir individual en detalle de paciente o medico con todos los datos 
+Nestor:	
+Manual(mas te vale que este genial)
+
+
+
+Por el momento esto es lo que se me ocurre que falta, cualquier cosa agreguen a la lista de “falta asignar”
+              
         </div>
       </div>
     </div>
