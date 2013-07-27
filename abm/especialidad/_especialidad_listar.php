@@ -26,7 +26,7 @@ $db = null;
         <table id="tabla1"class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada especialidad para seleccionarla, o utilice los botones de Marcar o Desmarcar todos.">
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada especialidad para seleccionarla, o utilice los botones de Marcar/Desmarcar todos.">
                             <i class="icon-question-sign"></i>
                         </button></th> 
                     <th>Nombre <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nombre" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre. Cada vez que se oprime cambiará entre forma ascendente y descendente.">

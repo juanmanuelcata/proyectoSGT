@@ -15,13 +15,24 @@ if ($result->rowCount() == 0) {
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>DNI</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Nuevo Turno</th>
-                    <th>Modificar</th>
-                    <th>Detalle</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada paciente para seleccionarlo, o utilice los botones de Marcar/Desmarcar todos.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>DNI <button class="btn btn-mini" onclick="return false;" data-original-title="Campo DNI" data-content="Oprima sobre este campo para ordenar la lista por el atributo DNI. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></th>
+                    <th>Nombre <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nombre" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></th>
+                    <th>Apellido <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Apellido" data-content="Oprima sobre este campo para ordenar la lista por el atributo Apellido. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></th>
+                    <th>Nuevo Turno <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nuevo Turno" data-content="Oprima sobre el ícono de la cruz correspondiente al paciente al que desee agregar un turno.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente al paciente para ver y modificar la información del mismo.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Detalle <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Detalle" data-content="Oprima sobre el ícono del ojo correspondiente al paciente que desee ver toda la información del mismo. Se abrirá en una pequeña ventana.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +54,10 @@ if ($result->rowCount() == 0) {
     </div>
     <br>
     <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
-    <a href="javascript:deseleccionar_todo()">Desmarcar todos</a> 
+    <a href="javascript:deseleccionar_todo()">Desmarcar todos</a>
+        <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todas las especialidades visualizadas u oprima 'Desmarcar todos' para desmarcar todas las especialidades que estén visualizadas.">
+        <i class="icon-question-sign"></i>
+    </button>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
 </form>
 
