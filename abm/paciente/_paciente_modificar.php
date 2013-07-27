@@ -71,7 +71,7 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
                 <label>Nuevo DNI</label>
                 <input value="<?php echo $a['dni'] ?>" type="text" class="input-xlarge" id="dni" name="dni" maxlength="8" onkeypress="return justNumbers(event);">
                 <label>Nueva Fecha de nacimiento</label>
-                <input  value="<?php echo $a['nacimiento'] ?>"type="text" class="input-xlarge" id="fechaNac" name="fecha" onkeypress="return justFecha(event);">
+                <input  value="<?php echo $a['nacimiento'] ?>"type="date" class="input-xlarge" id="fechaNac" name="fecha" onkeypress="return justFecha(event);">
                 <label>Nueva localidad</label>
                 <input value="<?php echo $a['localidad'] ?>" type="text" class="input-xlarge" id="localidad" name="localidad">
                 <label>Nueva calle</label>

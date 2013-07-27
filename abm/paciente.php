@@ -34,14 +34,14 @@ include_once('../sesion/login.php');
                 "sScrollXInner": "110%",
                 "sPaginationType": "full_numbers",
                 "oLanguage": {
-                    "sLengthMenu": 'Display <select>' +
+                    "sLengthMenu": 'Mostrar de: <select>' +
                             '<option value="10">10</option>' +
                             '<option value="20">20</option>' +
                             '<option value="30">30</option>' +
                             '<option value="40">40</option>' +
                             '<option value="50">50</option>' +
                             '<option value="-1">Todo</option>' +
-                            '</select> records'
+                            '</select> filas'
                 }
             });
         });

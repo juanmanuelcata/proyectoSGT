@@ -28,7 +28,7 @@ include_once('../sesion/login.php');
           "bJQueryUI": true,
           "sPaginationType": "full_numbers",
           "oLanguage": {
-            "sLengthMenu": 'Mostrar de:  <select>' +
+        "sLengthMenu": 'Mostrar de:  <select>' +
                     '<option value="10">10</option>' +
                     '<option value="20">20</option>' +
                     '<option value="30">30</option>' +

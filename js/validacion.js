@@ -358,7 +358,7 @@ function veriformuPacienteMod() {
   if (le.test(nom))
     if (le.test(ap))
       if (nu.test(dni) && dni.length == 8)
-        if (fe.test(fechaNac))
+        if (fe.test(fechaNac) && fechaNacimiento())
           if (le.test(localidad))
             if (calle != "")
               if (altura != "")

@@ -29,12 +29,41 @@ if ((isset($_SESSION['usuario']['logueado'])) && ($_SESSION['usuario']['logueado
             <div class="content">
                 <div class="row">
                     <div class="login-form">
-                        <h2>Bienvenido a SGT Manga de Gatos</h2>
-                        <form name="entrar" action="./sesion/paso.php" method="POST">
-                            <?php
-                            include_once './fragmentos/login_logfail.php';
-                            ?>         
-                        </form>
+                        <h2>Bienvenido a SGT</h2>
+                        Falta asignar: 
+editar el formato a botones para simplificar la vista
+	superpocicion de licencias
+
+Lautaro:
+	Definir el alcance de los permisos de secretaria…
+agregar "quienes somos" y "agradecimientos" a la pagina
+Turno_alta, si no hay medico ponerlo en el select (o alert), lo mismo en días y horarios.
+
+Pato:
+	Ayudas:
+		listado de turnos(todo)
+		faltan ayudas en paciente_alta, paciente_listado(todo)
+		listado_especialidad (boton imprimir)
+		alta_OS
+		listado_OS(todo)
+		todos los reportes
+		alta_medico(boton agregar horario)
+		listar_medico(boton imprimir)
+		alta_Usuario(todo)
+		listar_usuario(todo)
+		logs(todo)
+		
+Juancho:
+	imprimir los reportes(todos)
+	imprimir logs
+poner un imprimir individual en detalle de paciente o medico con todos los datos 
+Nestor:	
+Manual(mas te vale que este genial)
+
+
+
+Por el momento esto es lo que se me ocurre que falta, cualquier cosa agreguen a la lista de “falta asignar”
+
                     </div>
                 </div>
             </div>
