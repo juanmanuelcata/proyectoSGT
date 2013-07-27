@@ -3,7 +3,7 @@
   <fieldset>
       <?php $n = $_POST['numeroHorario']?>
     <label>Día</label>
-    <select class="span5" name="horario[<?php echo $_POST['numeroHorario']; ?>][dia]" id="dia<?php echo $n;?>" >
+    <select class="span5" name="horario[<?php echo $_POST['numeroHorario']; ?>][dia]" onchange="propio('horario_div_<?php echo $_POST['numeroHorario']; ?>');" id="dia<?php echo $n;?>" >
       <option selected="selected">Elija un día</option>
       <option value="lun">Lunes</option>
       <option value="mar">Martes</option>
@@ -14,7 +14,7 @@
     </select>
     
     <label>Desde</label>
-    <select class="span5" name="horario[<?php echo $_POST['numeroHorario']; ?>][desde]" id="horarios<?php echo $n;?>">
+    <select class="span5" name="horario[<?php echo $_POST['numeroHorario']; ?>][desde]" onchange="propio('horario_div_<?php echo $_POST['numeroHorario']; ?>');" id="horarios<?php echo $n;?>">
       <option selected="selected">Elija un horario</option>
       <?php
       for ($i = 8; $i < 20; $i++) {
@@ -24,7 +24,7 @@
     </select>
     
      <label>Hasta</label>
-    <select class="span5" name="horario[<?php echo $_POST['numeroHorario']; ?>][hasta]" id="horariosHasta<?php echo $n;?>" onchange="verificarHorario(numeroHorario-1)">
+    <select class="span5" name="horario[<?php echo $_POST['numeroHorario']; ?>][hasta]" onchange="propio('horario_div_<?php echo $_POST['numeroHorario']; ?>');" id="horariosHasta<?php echo $n;?>" onchange="verificarHorario(numeroHorario-1)">
       <option selected="selected">Elija un horario</option>
       <?php
       for ($i = 8; $i < 20; $i++) {

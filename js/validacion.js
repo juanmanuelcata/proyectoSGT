@@ -8,7 +8,7 @@ function veriFormuEspecialidad() {
     else
       return false;
   }
-  else{
+  else {
     alert('El campo especialidad no puede estar vacio');
     return false;
   }
@@ -68,7 +68,6 @@ function veriformuUsr() {
       if (pass1 === pass2)
         if (le.test(nom))
           if (le.test(ap))
-              
             if ((dni.length == 8) || (dni.length == 7))
               if (re.test(mail)) {
                 var res = confirm('¿Seguro de agregar este usuario?');
@@ -97,73 +96,130 @@ function veriformuUsr() {
   return continuo;
 }
 
-function Intervalo(num, dia, desde, hasta) {
-  this.num = num;
-  this.dia = dia;
-  this.desde = desde;
-  this.hasta = hasta;
-}
 
-function compare(a, b) {
-  if (a.dia < b.dia)
-    return -1;
-  if (a.dia > b.dia)
-    return 1;
-  return 0;
-}
-
-function include(arr, obj) {
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] == obj) {
-      return true;
-    }
+var control = true;
+function individual(id) {//resive el id del div y un boolean s (true si viene desde otra fucnion y false si viene del select html)
+  var horario = new Array(3);//crea un arreglo de 3 para dia desde y hasta
+  var i = 0; //variable indice
+  $('#' + id).find('select').each(function() {//le pido al div que encuentre sus select y para cada uno ejecuto la funcion
+    horario[i] = $(this).val();//arreglo enla poicion toma el valor del select actual(quedaria "dia" "desde" "hasta")
+    i++;//incremento i
+  });
+  var desde = horario[1];     //horario en formato "hh:mm:ss"
+  var hasta = horario[2];     //horario en formato "hh:mm:ss"
+  var a = desde.split(':');   //separa el tring del horario hh:mm:ss por el caracter ":"
+  var b = hasta.split(':');//separa el tring del horario hh:mm:ss por el caracter ":"
+  var sd = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); //pasa el hroario a segundos
+  var sh = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]); //pasa el hroario a segundos
+  if (sd >= sh) { //si desde es mayor o igual a hasta
+    return false; //retorna false y corta
   }
-  return false;
-}
-
-function superpocicion(arregloDiv, n) {
-  for (var l = 0; l < n; l++){
-    var dia = arregloDiv[l][0];
-    var desde = arregloDiv[l][1];
-    var hasta = arregloDiv[l][2];
-    var a = desde.split(':');
-    var b = hasta.split(':');
-    var sd = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
-    var sh = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
-    for (var k = l; k < n; k++){
-      var dia2 = arregloDiv[k][0];
-      if (dia == dia2){
-        var desde2 = arregloDiv[k][1];
-        var hasta2 = arregloDiv[k][2];
-        var c = desde2.split(':'); // split it at the colons
-        var d = hasta2.split(':'); // split it at the colons
-        var sd2 = (+c[0]) * 60 * 60 + (+c[1]) * 60 + (+c[2]);
-        var sh2 = (+d[0]) * 60 * 60 + (+d[1]) * 60 + (+d[2]);
-        if (((( sd < sd2 ) && ( sd2 < sh )) || (( sd < sh2 ) && ( sh2 < sh ))) || ((( sd2 < sd ) && ( sd < sh2)) || (( sd2 < sh ) && ( sh < sh2 )))){
-            alert("el horario "+(l+1)+" y el horario "+(k+1)+" estan superpuestos")
-            return false;
-        }
-      }
-    }   
-  }
+  //si ese horario es valido entonces
   return true;
 }
 
+//revisar si alguno de los horarios ingresados se superpone con otro
+function superpocicion(arregloDiv, n) {//resive un arreglo de divs que cada uno contiene otro arreglo de 3 con "dia" "desde" y "hasta" respectivamente
+  for (var l = 0; l < n; l++) {//for que itera sobre el arreglo de divs
+    var dia = arregloDiv[l][0];       //asignacion del dia "lunes" martes, etc
+    var desde = arregloDiv[l][1];     //horario en formato "hh:mm:ss"
+    var hasta = arregloDiv[l][2];     //horario en formato "hh:mm:ss"
+    var a = desde.split(':');   //separa el tring del horario hh:mm:ss por el caracter ":"
+    var b = hasta.split(':');//separa el tring del horario hh:mm:ss por el caracter ":"
+    var sd = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); //pasa el hroario a segundos
+    var sh = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]); //pasa el hroario a segundos
+    for (var k = l; k < n; k++) {//for que itera sobre arreglo de dia desde y hasta dentro de cada div...
+      var dia2 = arregloDiv[k][0];//asignacion del dia "lunes" martes, etc
+      if (dia == dia2) { //si los dias son iguales entonces podria darse una superpocicion
+        var desde2 = arregloDiv[k][1];//horario en formato "hh:mm:ss"
+        var hasta2 = arregloDiv[k][2];//horario en formato "hh:mm:ss"
+        var c = desde2.split(':'); //separa el tring del horario hh:mm:ss por el caracter ":"
+        var d = hasta2.split(':'); //separa el tring del horario hh:mm:ss por el caracter ":"
+        var sd2 = (+c[0]) * 60 * 60 + (+c[1]) * 60 + (+c[2]); //pasa el hroario a segundos
+        var sh2 = (+d[0]) * 60 * 60 + (+d[1]) * 60 + (+d[2]); //pasa el hroario a segundos
+        //este if es algo bardero pero no es complicado... solo verifica las posible superpociciones
+        //si  (desde2 esta entre desde1 y hasta1)
+        // O (hasta2 esta entre desde1 y hasta1)
+        //  O (desde1 esta entre deade2 y hasta2)
+        //   O (hasta1 esta entre desde2 y hasta2)
+        if ((((sd < sd2) && (sd2 < sh)) || ((sd < sh2) && (sh2 < sh))) || (((sd2 < sd) && (sd < sh2)) || ((sd2 < sh) && (sh < sh2)))) {
+          alert("el horario " + (l + 1) + " y el horario " + (k + 1) + " estan superpuestos");
+         // control = false;
+          return false;//devuelve falso y corta
+        }
+      }
+    }
+  }//si no se detecta ninguna superpocicion entonces esta todo bien
+  return true;//devuelve true y corta
+}
+
+//funcion que se llama al presionar "enviar"
 function verificarHorario() {
-  var n = $('#grillahoraria').find('div').length;
-  var arregloDiv = new Array(n);
-  for (var k = 0; k < n; k++)
-    arregloDiv[k] = new Array(3);
-  var p = 0;
-  $('#grillahoraria').find('div').each(function() {
-    var i = 0;
-    $(this).find('select').each(function() {
-      arregloDiv[p][i] = $(this).val();
-      i++;
+  var n = $('#grillahoraria').find('div').length;//obtener la cantidad de "div_horarios"
+  if (n == 0) {
+    control = false;
+    alert("Por favor defina al menos un horario, sino no, no tiene sentido dar de alta un medico que no atiende nunca, chanta!!!! ñoqui!!!");
+  }
+  else{
+  var arregloDiv = new Array(n); //creo arreglo del largo de los divs
+  for (var k = 0; k < n; k++) //para cada posicion del arreglo de divs creo un 
+    arregloDiv[k] = new Array(3);//arreglo de 3 para el dia, desde y hasta
+  var p = 0;//indice del arreglo divs_horaio
+  $('#grillahoraria').find('div').each(function() { //le pido al div general que encuentre todos sus divs y para cada uno hago la funcion
+    var i = 0; //indive para el arreglo interno dia desde hasta
+    $(this).find('select').each(function() {//a cada div dentro del general le pido que encuentre sus select y pra cada uno hago la funcion
+      arregloDiv[p][i] = $(this).val(); //simplemente armo la matriz utilizando los indices p , i, que declare anteriormente     
+      i++;//incremento indice i
     });
-    p++;
+    var oID = $(this).attr("id");//obtengo el id del div en el que estoy actualmente
+    if (n == 1) { //si solo hay un horario verifico que sea valido
+      if (!individual(oID)) { //si desde > hasta
+        alert("Solo ingreso un horario y lo hizo mal... por favor... puede hacerlo mejor ¬¬ inutil!!! >.<")
+        control = false;
+        return false;//devuelve false y corta
+      }
+    }
+    else{
+        if (!individual(oID)) {//si individual da falso es que este horario esta mal definido
+          alert("el horario " + (p + 1) + " esta mal definido a");
+          control = false;
+          return false;//devuelvo false y corta
+        }
+        else{
+          //si aparece el valor 'Elija un día' o 'Elija un horario' es que aun no se termino de elegir el horario.
+          if (arregloDiv[p][0] === 'Elija un día' || arregloDiv[p][1] === 'Elija un horario' || arregloDiv[p][2] === 'Elija un horario') {
+            alert("el horario " + (p + 1) + " no esta definido. a");
+            control = false;
+            return false; // devuleve falso y corta
+          }
+        }
+    }
+    p++;//incremento indice j
   });
-  return superpocicion(arregloDiv, n);
+  if (control) {
+    //si hay mas de un horario
+    return superpocicion(arregloDiv, n);//retorno lo que devuelva la funcion superpocicion
+  }}
+  return control;
+}
+//se llama siempre que cambia un select horario
+function propio(id) {//recive el id de quien lo llama
+  array = new Array(3);//creo arreglo de 3
+  l = 0;//indice 0
+  var n = id.split('_'); //separa el tring del id div_horario_X por el caracter "_"
+  $('#horario_div_' + n[2]).find('select').each(function() {//al div con id (ese) le pido sus select y para cada uno hago
+    array[l] = $(this).val();//asigno en la posicion l
+    l++;//incremento l
+  });
+  //si se cumple alguno de esas condiciones es que falta definir el horario
+  if (array[0] == 'Elija un día' || array[1] == 'Elija un horario' || array[2] == 'Elija un horario') {
+    return false; // devuleve falso y corta
+  }
+  //si eso esta bien entonces que verifique si hay superposicion
+  if (!individual('horario_div_' + n[2])) {
+    alert("este horario esta mal definido");
+  }
+
 }
 
 function veriformuMed() {
@@ -183,17 +239,16 @@ function veriformuMed() {
         if (nu.test(matricula))
           if (re.test(mail))
             if (nu.test(telefono) && (telefono.length == 10))
-              if (cantHorarios != 0) {
-                if (verificarHorario()) {
-                  var res = confirm("¿Seguro de agregar este medico?");
-                  if (res == true)
-                    return true
-                  else
-                    return false
-                }
+              if (verificarHorario()) {
+                var res = confirm("¿Seguro de agregar este medico?");
+                if (res == true)
+                  return true
+                else
+                  return false
               }
-              else
-                alert('Ingrese al menos un horario.');
+              else {
+                control = true;
+              }
             else
             if (nu.test(telefono))
               alert('El campo "Teléfono" debe tener 10 dígitos');
@@ -360,20 +415,20 @@ function veriMod() {
   }
 }
 
-function verificarLicencia(){
-    var desde = (document.getElementById('desde').value);
-    var hasta = (document.getElementById('hasta').value);
-    fecha_actual = new Date(10,8,1999);
- // NO HACE FALTA   fecha_actual = document.write(fecha_actual.getDate() + "/" + (fecha_actual.getMonth() +1) + "/" + fecha_actual.getFullYear());
-    if (desde > hasta) {
-        alert('El intervalo está mal definido');
-        return false;
-    }
-     else
-         if (desde <= fecha_actual){
-             alert('La fecha de inicio de la licencia es incorrecto');
-             return false;
-         }
-         else
-             return true;
-    }
+function verificarLicencia() {
+  var desde = (document.getElementById('desde').value);
+  var hasta = (document.getElementById('hasta').value);
+  fecha_actual = new Date(10, 8, 1999);
+  // NO HACE FALTA   fecha_actual = document.write(fecha_actual.getDate() + "/" + (fecha_actual.getMonth() +1) + "/" + fecha_actual.getFullYear());
+  if (desde > hasta) {
+    alert('El intervalo está mal definido');
+    return false;
+  }
+  else
+  if (desde <= fecha_actual) {
+    alert('La fecha de inicio de la licencia es incorrecto');
+    return false;
+  }
+  else
+    return true;
+}
