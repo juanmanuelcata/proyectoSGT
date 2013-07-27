@@ -21,7 +21,7 @@ include_once('../sesion/login.php');
     <script type="text/javascript" src="./../js/bootstrap-alert.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#tabla1').dataTable({
+        $('.table').dataTable({
           "sScrollY": 200,
           "sScrollX": "100%",
           "sScrollXInner": "110%",

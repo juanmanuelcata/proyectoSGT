@@ -32,7 +32,7 @@ else
     </head>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#tabla1').dataTable({
+            $('.table').dataTable({
                 "sScrollY": 200,
                 "bScrollCollapse": true,
                 "sScrollX": "100%",

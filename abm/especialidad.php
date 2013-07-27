@@ -24,7 +24,7 @@ include_once('../sesion/login.php');
     <script type="text/javascript">
 
         $(document).ready(function() {
-            $('#tabla1').dataTable({
+            $('.table').dataTable({
                 "sScrollY": 200,
                 "bScrollCollapse": true,
                 "sScrollX": "100%",
@@ -43,26 +43,7 @@ include_once('../sesion/login.php');
                 }
             });
         });
-        $(document).ready(function() {
-            $('#tabla2').dataTable({
-                "sScrollY": 200,
-                "bScrollCollapse": true,
-                "sScrollX": "100%",
-                "sScrollXInner": "110%",
-                "bJQueryUI": true,
-                "sPaginationType": "full_numbers",
-                "oLanguage": {
-                    "sLengthMenu": 'Display <select>' +
-                            '<option value="10">10</option>' +
-                            '<option value="20">20</option>' +
-                            '<option value="30">30</option>' +
-                            '<option value="40">40</option>' +
-                            '<option value="50">50</option>' +
-                            '<option value="-1">Todo</option>' +
-                            '</select> records'
-                }
-            });
-        });
+        
     </script>
 </head>
 <body>      
