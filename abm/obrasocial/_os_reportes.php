@@ -55,7 +55,7 @@ $result = $db->query($consulta);
 <legend>Médicos por obra social</legend>
 <form class="form-horizontal" name="form" action="#" method="GET" target="_blank">
     <div class="control-group">
-        <table id="tabla1" class="table table-striped">
+        <table id="tabla2" class="table table-striped">
             <thead>
                 <tr>
                     <th>OS</th>
@@ -103,7 +103,7 @@ $result = $db->query($consulta);
 <legend>Turnos por obra social</legend>
 <form class="form-horizontal" name="form" action="#" method="GET" target="_blank">
     <div class="control-group">
-        <table id="tabla1" class="table table-striped">
+        <table id="tabla3" class="table table-striped">
             <thead>
                 <tr>
                     <th>Obra Social</th>
