@@ -181,21 +181,19 @@ function verificarHorario() {
         return false;//devuelve false y corta
       }
     }
-    else{
         if (!individual(oID)) {//si individual da falso es que este horario esta mal definido
           alert("el horario " + (p + 1) + " esta mal definido.");
           control = false;
           return false;//devuelvo false y corta
         }
-        else{
           //si aparece el valor 'Elija un día' o 'Elija un horario' es que aun no se termino de elegir el horario.
           if (arregloDiv[p][0] === 'Elija un día' || arregloDiv[p][1] === 'Elija un horario' || arregloDiv[p][2] === 'Elija un horario') {
             alert("el horario " + (p + 1) + " no esta definido.");
             control = false;
             return false; // devuleve falso y corta
           }
-        }
-    }
+        
+    
     p++;//incremento indice j
   });
   if (control) {
