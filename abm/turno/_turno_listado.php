@@ -183,12 +183,6 @@ if ($result->rowCount() == 0) {
                               case 4:
                                 alert('Falla en la cancelacion.');
                                 break;
-                              case 5:
-                                alert('reseteo bien.');
-                                break;
-                              case 6:
-                                alert('no reseteo.');
-                                break;
                             }
                           }
                         });
