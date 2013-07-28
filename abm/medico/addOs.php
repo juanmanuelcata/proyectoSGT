@@ -1,5 +1,8 @@
 <?php include_once ("./../../fragmentos/_conectDb.php"); ?>
-
+ <script>
+        //ESTA ES LA LIÑITA MAGICA
+        $(".btn").popover({trigger: "hover"});
+        </script>
 <div id="os_div_<?php echo $_POST['numeroOs']; ?>">
   <legend><button onClick="borrarOs(<?php echo $_POST['numeroOs']; ?>);
       return false;"><i class="icon-remove"></i></button>Obra social numero <?php echo $_POST['numeroOs']; ?></legend>
@@ -22,6 +25,10 @@
           echo '<option>' . $valor['nombre'] . '</option>';
       ?>
     </select>
+      <button class="btn btn-mini" onclick="return false;" data-original-title="Obra social del médico" data-content="Seleccione el nombre de la lista de obra sociales haciendo click sobre el campo o sobre la flecha hacia abajo y luego sobre el nombre.">
+            <i class="icon-question-sign"></i>
+        </button>
+    
 
   </fieldset>
   <br>

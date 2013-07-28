@@ -19,11 +19,14 @@ if ($result->rowCount() == 0) {
                             <i class="icon-question-sign"></i>
                         </button></th>
                     <th>DNI <button class="btn btn-mini" onclick="return false;" data-original-title="Campo DNI" data-content="Oprima sobre este campo para ordenar la lista por el atributo DNI. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
-                            <i class="icon-question-sign"></th>
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                     <th>Nombre <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nombre" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
-                            <i class="icon-question-sign"></th>
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                     <th>Apellido <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Apellido" data-content="Oprima sobre este campo para ordenar la lista por el atributo Apellido. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
-                            <i class="icon-question-sign"></th>
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                     <th>Nuevo Turno <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nuevo Turno" data-content="Oprima sobre el ícono de la cruz correspondiente al paciente al que desee agregar un turno.">
                             <i class="icon-question-sign"></i>
                         </button></th>
@@ -55,7 +58,7 @@ if ($result->rowCount() == 0) {
     <br>
     <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo()">Desmarcar todos</a>
-        <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todas las especialidades visualizadas u oprima 'Desmarcar todos' para desmarcar todas las especialidades que estén visualizadas.">
+        <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los pacientes visualizados u oprima 'Desmarcar todos' para desmarcar todos los pacientes que estén visualizados.">
         <i class="icon-question-sign"></i>
     </button>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>

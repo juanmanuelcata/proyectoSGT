@@ -25,6 +25,8 @@ else
         <script type="text/javascript" src="./../datatables/js/jquery.js"></script>
         <script type="text/javascript" src="./../datatables/js/jquery.dataTables.js"></script>   
         <script type="text/javascript" src="./../js/bootstrap-alert.js"></script>   
+        <script type="text/javascript" src="./../js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="./../js/bootstrap-popover.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('.table').dataTable({
@@ -59,7 +61,7 @@ else
         <div class="span12">
             <div class="row-fluid">
                 <div class="span2">
-<?php include_once '../fragmentos/_menu.php'; ?>
+                    <?php include_once '../fragmentos/_menu.php'; ?>
                 </div>
                 <div class="span9">
                     <?php
@@ -79,6 +81,10 @@ else
             </div>
         </div>
     </div>
+    <script>
+        //            ESTA ES LA LIÑITA MAGICA
+        $(".btn").popover({trigger: "hover"});
+    </script>
 </body>
 </html>
 

@@ -54,7 +54,7 @@ $esp_vie = $a['nombre'];
             <br><br>
             <?php
             echo '<input value="' . $esp_vie . '" type="text" class="input-xlarge" id="nombre" name="esp_nue" onkeypress="return soloLetras(event);">';
-            echo '<button class="btn" onclick="return false;" data-original-title="Modificación del nombre de la especialidad" data-content="Ingrese el nuevo nombre de la especialidad para modificarlo. No se permiten números.">
+            echo '<button class="btn btn-mini" onclick="return false;" data-original-title="Modificación del nombre de la especialidad" data-content="Ingrese el nuevo nombre de la especialidad para modificarlo. No se permiten números.">
                                         <i class="icon-question-sign"></i>
              </button>';
             if ($a['activa'] == 1)
@@ -76,7 +76,7 @@ $esp_vie = $a['nombre'];
             </label>  
         </div>';
             ?>
-            <button class="btn" onclick="return false;" data-original-title="Estado de la especialidad" data-content="Oprima sobre alguno de los campos para modificar el estado de la especialidad.">
+            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la especialidad" data-content="Oprima sobre alguno de los campos para modificar el estado de la especialidad.">
                 <i class="icon-question-sign"></i>
             </button>      
             <div class="form-actions">

@@ -62,18 +62,39 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
             <div class="controls">
                 <label>Nuevo usuario</label>
                 <input value="<?php echo $a['user'] ?>" type="text" class="input-xlarge" id="user" name="user" maxlength="20">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre de usuario" data-content="Ingrese el nuevo nombre de usuario para modificarlo.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Nuevo nombre</label>
                 <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre de pila del usuario" data-content="Ingrese el nuevo nombre de pila del usuario para modificarlo. Solo se permiten caracteres numéricos ni símolos.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Nuevo apellido</label>
                 <input value="<?php echo $a['apellido'] ?>" type="text" class="input-xlarge" id="apellido" name="apellido" onkeypress="return soloLetras(event);">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre de usuario" data-content="Ingrese el nuevo apellido de usuario para modificarlo. No se permiten caracteres numéricos ni símpolos.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Nuevo DNI</label>
                 <input value="<?php echo $a['dni'] ?>" type="text" class="input-xlarge" id="dni" name="dni" maxlength="8" onkeypress="return justNumbers(event);">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el DNI del usuario" data-content="Ingrese el nuevo DNI del usuario para modificarlo. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Nuevo correo electrónico</label>
                 <input value="<?php echo $a['mail'] ?>" type="text" class="input-xlarge" id="mail" name="mail">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el E-mail del usuario" data-content="Ingrese el nuevo e-mail del usuario para modificarlo. Por ejemplo: 'cuenta@gmail.com'.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Nueva contraseña</label>
                 <input value="<?php echo $a['clave'] ?>" type="password" class="input-xlarge" id="pass" name="clave_nue">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el contraseña del usuario" data-content="Ingrese la nueva contraseña del usuario para modificarla.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Repita nueva contraseña</label>
                 <input value="<?php echo $a['clave'] ?>" type="password" class="input-xlarge" id="pass2" name="clave_nue2">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Repita la contraseña del usuario" data-content="Repita nuevamente la contraseña del usuario, deben coincidir ambas.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <?php
                 if ($a['admin'] == 1)
                     echo '<label class="radio">
@@ -83,6 +104,9 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
                 <input type="radio" name="activa" id="option2" value="0">
                 <p>Usuario</p>
             </label>  
+            <button class="btn btn-mini" onclick="return false;" data-original-title="Tipo de usuario" data-content="Oprima sobre el tipo de usuario para seleccionar que tipo de permisos tendrá.">
+                    <i class="icon-question-sign"></i>
+                </button>
         </div>';
                 else
                     echo '<label class="radio">
@@ -92,8 +116,12 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
                 <input type="radio" name="activa" id="option2" value="0" checked>
                 <p>Usuario</p>
             </label>  
+            <button class="btn btn-mini" onclick="return false;" data-original-title="Tipo de usuario" data-content="Oprima sobre el tipo de usuario para seleccionar que tipo de permisos tendrá.">
+                    <i class="icon-question-sign"></i>
+                </button>
         </div>';
                 ?>
+                <br>
                 <input type="hidden" name="ok" value="1"/>
                 <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
                 <button type="submit" onclick="return veriformuUsr()" class="btn btn-success">Guardar cambios</button>

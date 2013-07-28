@@ -57,7 +57,7 @@ $os_vie = $a['nombre'];
             <br><br>
             <?php
             echo '<input value="' . $os_vie . '" type="text" class="input-xlarge" id="nombre" name="os_nue" onkeypress="return soloLetras(event);">';
-            echo '<button class="btn" onclick="return false;" data-original-title="Modificación del nombre de la especialidad" data-content="Ingrese el nuevo nombre de la especialidad para modificarlo. No se permiten números.">
+            echo '<button class="btn btn-mini" onclick="return false;" data-original-title="Modificación del nombre de la especialidad" data-content="Ingrese el nuevo nombre de la especialidad para modificarlo. No se permiten números.">
                                         <i class="icon-question-sign"></i>
              </button>';
                 

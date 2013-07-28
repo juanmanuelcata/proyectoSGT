@@ -112,38 +112,38 @@ if (isset($_POST['nombre'])) {
 
 <form class="form-horizontal" name="formi" method="POST" action="/abm/medico.php?code=a">
     <fieldset>
-        <legend>Agregar una nuevo Medico.</legend>
-        <label>Ingrese los datos personales del medico:</label>
+        <legend>Agregar una nuevo Médico.</legend>
+        <!--<label>Ingrese los datos personales del medico:</label>-->
         <div class="control-group">
             <div class="controls">             
                 <label>Nombre</label>
                 <input type="text" class="input-xlarge" id="nombre" name="nombre" placeholder="Nombre" maxlength="20" onkeypress="return soloLetras(event);">
-                <button class="btn" onclick="return false;" data-original-title="Nombre del médico" data-content="Ingrese el nombre del médico que desee agregar a la base de datos. No se permite ingresar números. La cantidad máxima de caracteres es 20 caracteres.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Nombre del médico" data-content="Ingrese el nombre del médico que desee agregar a la base de datos. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
                     <i class="icon-question-sign"></i>
                 </button>        
                 <label>Apellido</label>
                 <input type="text" class="input-xlarge" id="apellido" name="apellido" placeholder="Apellido" maxlength="20" onkeypress="return soloLetras(event);">
-                <button class="btn" onclick="return false;" data-original-title="Apellido del médico" data-content="Ingrese el apellido del médico que desee agregar a la base de datos. No se permite ingresar números. La cantidad máxima de caracteres es 20 caracteres.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Apellido del médico" data-content="Ingrese el apellido del médico que desee agregar a la base de datos. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
                     <i class="icon-question-sign"></i>
                 </button>                
                 <label>DNI</label>
                 <input type="text" class="input-xlarge" id="dni" name="dni" placeholder="12345678" maxlength="8" onkeypress="return justNumbers(event);">
-                <button class="btn" onclick="return false;" data-original-title="DNI del médico" data-content="Ingrese el DNI del médico que desee agregar a la base de datos. Solo se permiten números. La cantidad máxima de dígitos es 8.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="DNI del médico" data-content="Ingrese el DNI del médico que desee agregar a la base de datos. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
                     <i class="icon-question-sign"></i>
                 </button>                
                 <label>Matrícula</label>
                 <input type="text" class="input-xlarge" id="matricula" name="matricula" placeholder="12345678" maxlength="8" onkeypress="return justNumbers(event);">
-                <button class="btn" onclick="return false;" data-original-title="Matrícula del médico" data-content="Ingrese la matrícula del médico que desee agregar a la base de datos. Solo se permiten números. La cantidad máxima de dígitos es 8.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Matrícula del médico" data-content="Ingrese la matrícula del médico que desee agregar a la base de datos. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
                     <i class="icon-question-sign"></i>
                 </button>   
                 <label>Correo electrónico</label>
                 <input type="text" class="input-xlarge" id="mail" name="mail" placeholder="nombre@servidor.com">
-                <button class="btn" onclick="return false;" data-original-title="E-mail del médico" data-content="Ingrese el e-mail del médico que desee agregar a la base de datos. Por ejemplo: 'cuenta@gmail.com'.z">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="E-mail del médico" data-content="Ingrese el e-mail del médico que desee agregar a la base de datos. Por ejemplo: 'cuenta@gmail.com'.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Teléfono</label>
                 <input type="text" class="input-xlarge" id="tel" name="tel" placeholder="Teléfono" maxlength="10" onkeypress="return justNumbers(event);">
-                <button class="btn" onclick="return false;" data-original-title="Teléfono del médico" data-content="Ingrese el teléfono del médico que desee agregar a la base de datos. Solo se permiten números. La cantidad máxima de dígitos es 10. Es obligatorio.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Teléfono del médico" data-content="Ingrese el teléfono del médico que desee agregar a la base de datos. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 10. Es obligatorio.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Especialidad</label>
@@ -162,7 +162,7 @@ if (isset($_POST['nombre'])) {
                         echo '<option>' . $valor['nombre'] . '</option>';
                     ?>
                 </select>
-                <button class="btn" onclick="return false;" data-original-title="Especialidad del médico" data-content="Oprima sobre la especialidad del médico. Para abrir la lista de especialidades oprima sobre el campo que está a la izquierda o sobre la flecha hacia abajo. Una vez desplegada seleccione la correspondiente especialidad.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Especialidad del médico" data-content="Oprima sobre la especialidad del médico. Para abrir la lista de especialidades oprima sobre el campo que está a la izquierda o sobre la flecha hacia abajo. Una vez desplegada seleccione la correspondiente especialidad.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <input type="hidden" name="code" value="a"/><br><br> 
@@ -174,7 +174,7 @@ if (isset($_POST['nombre'])) {
 
     <!-- Bitácora del gordo: Acá comienza la exploración por el fantástico mundo de insertar obras sociales al médico -->
 
-    <legend>Obras Sociales del medico</legend>
+    <legend>Obras Sociales del médico</legend>
     <fieldset>
 
         <div id="obrasSociales">
@@ -183,7 +183,7 @@ if (isset($_POST['nombre'])) {
 
         <button class="btn btn-success" onClick="agregarObraSocial();
                         return false;">Agregar Obra Social </button>
-        <button class="btn" onclick="return false;" data-original-title="Obra/s social/es del médico" data-content="Oprima sobre el botón 'Agregar Obra Social' para desplegar el formulario. Una vez que aparezca podrá seleccionar el nombre de la lista de obra sociales (haciendo click sobre el campo o sobre la flecha hacia abajo y luego sobre el nombre). Si desea agregar otra obra social oprima nuevamente el boton 'Agregar Obra Social'.">
+        <button class="btn btn-mini" onclick="return false;" data-original-title="Obra/s social/es del médico" data-content="Oprima sobre el botón 'Agregar Obra Social' para desplegar el formulario. Si desea agregar otra obra social oprímalo nuevamente. Para eliminar una obra social oprima sobre el icono cerrar ('x').">
             <i class="icon-question-sign"></i>
         </button>
 
@@ -193,7 +193,7 @@ if (isset($_POST['nombre'])) {
     <!-- Fín bitácora del gordo  (MIRA NESTOR PUSE ASENTOS COMO TE GUSTA) -->
 
 
-    <legend>Horarios del medico</legend>
+    <legend>Horarios del médico</legend>
     <fieldset>
 
         <div id="grillahoraria">
@@ -203,9 +203,12 @@ if (isset($_POST['nombre'])) {
 
         <button class="btn btn-success" onClick="agregarHorarioMedico();
                         return false;">Agregar Horario </button>
+                    <button class="btn btn-mini" onclick="return false;" data-original-title="Horarios de atención del médico" data-content="Oprima sobre el botón 'Agregar Horario' para desplegar el formulario. Si desea agregar un nuevo horario de atencion oprímalo nuevamente. Para eliminar un horario oprima sobre el icono cerrar ('x').">
+            <i class="icon-question-sign"></i>
+        </button>
 
 
-        <input type="submit" class="btn btn-success" id="guardar" onClick="return veriformuMed();" value="Guardar Medico ">
+        <br><br><input type="submit" class="btn btn-success" id="guardar" onClick="return veriformuMed();" value="Guardar">
     </fieldset>
 
 </form>

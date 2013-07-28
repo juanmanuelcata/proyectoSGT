@@ -45,7 +45,7 @@ if (isset($_GET['os_nue'])) {
             <div class="controls">
                 <label>Nombre de la obra social</label>
                 <input type="text" class="input-xlarge" id="input01" name="os_nue" placeholder="Obra social" onkeypress="return soloLetras(event);">
-                <button class="btn" onclick="return false;" data-original-title="Nombre de la obra social" data-content="Ingrese el nombre de la obra social que desee agregar. No se permiten números.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Nombre de la obra social" data-content="Ingrese el nombre de la obra social que desee agregar. No se permiten números.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <br><br>
