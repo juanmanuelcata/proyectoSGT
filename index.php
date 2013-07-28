@@ -29,7 +29,7 @@ if ((isset($_SESSION['usuario']['logueado'])) && ($_SESSION['usuario']['logueado
             <div class="content">
                 <div class="row">
                     <div class="login-form">
-                        <h2>Bienvenido a SGT Manga de Gatos</h2>
+                        <h2>Bienvenido a SGT</h2>
                         <form name="entrar" action="./sesion/paso.php" method="POST">
                             <?php
                             include_once './fragmentos/login_logfail.php';
