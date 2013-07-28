@@ -273,11 +273,13 @@ function veriformuMed() {
 }
 
 
+
+
 function fechaNacimiento(){
         var fecha;
         var input = $('#fechaNac');
         fecha = input.prop('valueAsDate');
-        hoy = new Date();
+        var hoy = new Date();
         if (fecha <= hoy) {
           return true;
         }
@@ -358,7 +360,7 @@ function veriformuPacienteMod() {
   if (le.test(nom))
     if (le.test(ap))
       if (nu.test(dni) && dni.length == 8)
-        if (fe.test(fechaNac) && fechaNacimiento())
+        if (fe.test(fechaNac))
           if (le.test(localidad))
             if (calle != "")
               if (altura != "")
