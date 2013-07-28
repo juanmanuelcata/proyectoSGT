@@ -28,13 +28,6 @@ if (isset($_POST['ok'])) {
   }
   $idhorario = $_POST['idhorario'];
    $consulta2 = 'UPDATE horario SET activo = 1 WHERE id = "' . $idhorario . '"';
-   if ($db->query($consulta2)){
-     $res['resultado'] = 5;
-     
-   }else{
-   $res['resultado'] = 6;
-     
-   };
 } 
 
 echo json_encode($res);
