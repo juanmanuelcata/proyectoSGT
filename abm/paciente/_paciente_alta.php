@@ -62,43 +62,60 @@ if (isset($_GET['nombre'])) {
             <div class="controls">
                 <label>Nombre*</label>
                 <input type="text" tabindex="1" class="input-xlarge" id="nombre" name="nombre" placeholder="Nombre" maxlength="20" onkeypress="return soloLetras(event);">
-                <button class="btn" onclick="return false;" data-original-title="Nombre del paciente" data-content="Ingrese el nombre del paciente. No se permiten números. Es obligatorio">
+                <button class="btn" onclick="return false;" data-original-title="Nombre del paciente" data-content="Ingrese el nombre del paciente. No se permiten números. Es obligatorio.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Apellido*</label>
                 <input type="text" tabindex="2" class="input-xlarge" id="apellido" name="apellido" placeholder="Apellido" maxlength="20" onkeypress="return soloLetras(event);">
-                <button class="btn" onclick="return false;" data-original-title="Apellido del paciente" data-content="Ingrese el apellido del paciente. No se permiten números. Es obligatorio">
+                <button class="btn" onclick="return false;" data-original-title="Apellido del paciente" data-content="Ingrese el apellido del paciente. No se permiten números. Es obligatorio.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>DNI*</label>
                 <input type="text" tabindex="3" class="input-xlarge" id="dni" name="dni" placeholder="DNI" maxlength="8" onkeypress="return justNumbers(event);">
-                <button class="btn" onclick="return false;" data-original-title="DNI del paciente" data-content="Ingrese el DNI del paciente. Solo se permiten caracteres numéricos. Es obligatorio">
+                <button class="btn" onclick="return false;" data-original-title="DNI del paciente" data-content="Ingrese el DNI del paciente. Solo se permiten caracteres numéricos. Es obligatorio.">
                     <i class="icon-question-sign"></i>
                 </button>                
                 <label>Fecha de nacimiento*</label>
                 <input type="date" tabindex="4" class="input-xlarge" id="fechaNac" name="fechaNac" onkeypress="return justFecha(event);">
+                <button class="btn" onclick="return false;" data-original-title="Fecha de nacimiento del paciente" data-content="Increse la fecha de nacimiento del paciente utilizando solo caracteres numéricos. Puede también utilizar la flecha hacia abajo para desplegar el calendario y oprimiendo sobre el día correspondiente al mes y año que esten visualizados. Puede optar por seleccionar un campo de la fecha (dia, mes o año) haciendo click sobre el mismo y con las flechas hacia arriba y abajo escribir la fecha deseada. Es obligatorio.">
+                    <i class="icon-question-sign"></i>
+                </button>                
                 <label>Localidad*</label>
                 <input type="text" tabindex="5" class="input-xlarge" id="localidad" name="localidad" placeholder="Localidad"  maxlength="20">
-                <button class="btn" onclick="return false;" data-original-title="Localidad del paciente" data-content="Ingrese el nombre de la localidad en la que vive el paciente (Ej: Tolosa).">
+                <button class="btn" onclick="return false;" data-original-title="Localidad del paciente" data-content="Ingrese el nombre de la localidad en la que vive el paciente (Ej: Tolosa). Es obligatorio.">
                     <i class="icon-question-sign"></i>
                 </button>                  
                 <label>Calle*</label>
                 <input type="text" tabindex="6" class="input-xlarge" id="calle" name="calle" placeholder="Calle" maxlength="20">
-                <label>Altura</label>
+                <button class="btn" onclick="return false;" data-original-title="Calle en la que vive el paciente" data-content="Ingrese el nombre o número de la calle en la que vive el paciente. Es obligatorio.">
+                    <i class="icon-question-sign"></i>
+                </button>
+                <label>Altura*</label>
                 <input type="text" tabindex="7" class="input-xlarge" id="altura" name="altura"  placeholder="Número" maxlength="20" onkeypress="return justNumbers(event);">
-                <button class="btn" onclick="return false;" data-original-title="Altura en la que vive el paciente" data-content="Ingrese el número de la casa/altura de la vivienda del paciente.">
+                <button class="btn" onclick="return false;" data-original-title="Altura en la que vive el paciente" data-content="Ingrese el número de la casa/altura de la vivienda del paciente. Es obligatorio.">
                     <i class="icon-question-sign"></i>
                 </button>                  
                 <label>Piso</label>
                 <input type="text" tabindex="8" class="input-xlarge" id="piso" name="piso"  placeholder="Piso" maxlength="2" onkeypress="return justNumbers(event);">
+                <button class="btn" onclick="return false;" data-original-title="Piso en el que vive el paciente" data-content="Ingrese el piso en el que vive el paciente. Agregar en el caso de que viva en un departamento. El máximo de dígitos es 2.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Departamento</label>
                 <input type="text" tabindex="9" class="input-xlarge" id="depto" name="departamento"  placeholder="Departamento">
+                <button class="btn" onclick="return false;" data-original-title="Departamento en el que vive el paciente" data-content="Ingrese el departamento en el que vive el paciente. Agregar en el caso de que viva en un departamento.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Correo electrónico*</label>
                 <input type="text" tabindex="10" class="input-xlarge" id="mail" name="mail" placeholder="nombre@servidor.com" maxlength="50">
+                <button class="btn" onclick="return false;" data-original-title="E-mail del paciente" data-content="Ingrese el e-mail del paciente. Por ejemplo: 'cuenta@gmail.com'. Es obligatorio.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Teléfono*</label>
                 <input type="text" tabindex="11" class="input-xlarge" id="tel" name="tel" placeholder="Teléfono" maxlength="10" onkeypress="return justNumbers(event);">
+                <button class="btn" onclick="return false;" data-original-title="Teléfono del paciente" data-content="Ingrese el teléfono del paciente. Solo se permiten números. La cantidad máxima de dígitos es 10. Es obligatorio.">
+                    <i class="icon-question-sign"></i>
+                </button>
                 <label>Obra social</label>
-
                 <?php
                 $datab = conectaDb();
                 $consulta = "SELECT * FROM os where activo = 1";
@@ -119,7 +136,7 @@ if (isset($_GET['nombre'])) {
                     ?>
 
                 </select>
-                <button class="btn" onclick="return false;" data-original-title="Obra social del paciente" data-content="Despliegue la lista haciendo click sobre el campo; luego seleccione de la lista la Obra Social del paciente.">
+                <button class="btn" onclick="return false;" data-original-title="Obra social del paciente" data-content="Despliegue la lista haciendo click sobre el campo; luego seleccione de la lista la obra social del paciente.">
                     <i class="icon-question-sign"></i>
                 </button>  
                 <input type="hidden" name="code" value="a"/><br><br> 

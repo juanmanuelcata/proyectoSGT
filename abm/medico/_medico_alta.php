@@ -138,12 +138,12 @@ if (isset($_POST['nombre'])) {
                 </button>   
                 <label>Correo electrónico</label>
                 <input type="text" class="input-xlarge" id="mail" name="mail" placeholder="nombre@servidor.com">
-                <button class="btn" onclick="return false;" data-original-title="E-mail del médico" data-content="Ingrese el e-mail del médico que desee agregar a la base de datos. Por ejemplo: 'cuenta@gmail.com'.">
+                <button class="btn" onclick="return false;" data-original-title="E-mail del médico" data-content="Ingrese el e-mail del médico que desee agregar a la base de datos. Por ejemplo: 'cuenta@gmail.com'.z">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Teléfono</label>
                 <input type="text" class="input-xlarge" id="tel" name="tel" placeholder="Teléfono" maxlength="10" onkeypress="return justNumbers(event);">
-                <button class="btn" onclick="return false;" data-original-title="Teléfono del médico" data-content="Ingrese el teléfono del médico que desee agregar a la base de datos. Solo se permiten números. La cantidad máxima de dígitos es 10.">
+                <button class="btn" onclick="return false;" data-original-title="Teléfono del médico" data-content="Ingrese el teléfono del médico que desee agregar a la base de datos. Solo se permiten números. La cantidad máxima de dígitos es 10. Es obligatorio.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Especialidad</label>
