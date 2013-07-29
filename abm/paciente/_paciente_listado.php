@@ -55,7 +55,6 @@ if ($result->rowCount() == 0) {
             </tbody>    
         </table>
     </div>
-    <br>
     <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo()">Desmarcar todos</a>
         <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los pacientes visualizados u oprima 'Desmarcar todos' para desmarcar todos los pacientes que estén visualizados.">

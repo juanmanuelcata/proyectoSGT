@@ -62,6 +62,7 @@ include_once('sesion/login.php');
 	<dd>imprimir los reportes(todos)</dd>
 	<dd>imprimir logs</dd>
   <dd>poner un imprimir individual en detalle de paciente o medico con todos los datos </dd>
+  <dd>imprimir de licencias</dd>
   <dt>Nestor:	</dt>
   <dd>Manual(mas te vale que este genial)</dd>
 </dl>        

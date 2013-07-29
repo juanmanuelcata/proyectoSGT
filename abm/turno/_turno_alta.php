@@ -56,7 +56,7 @@
 
         </select>
         <select id="select_horario" name="horario">
-          <option value="-1">Seleccione un Horario</option>
+          <option value="-1" class="option3">Seleccione un Horario</option>
 
         </select>
 
