@@ -64,7 +64,7 @@ $db = null;
             </tbody>
         </table>
     </div>
-    <br><br><br> 
+    <br><br> 
     <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo()">Desmarcar todos</a>
     <!--ayuda-->

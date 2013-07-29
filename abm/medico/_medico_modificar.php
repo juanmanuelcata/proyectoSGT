@@ -77,6 +77,8 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
         <legend>Modificación de médico</legend>
         <div class="control-group">
             <div class="controls">
+                <?php echo '<h4>Usted está modificando el médico: ' . $a['nombre'] . '</h4>' ?>
+                <br>
                 <label>Nuevo nombre</label>
                 <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
                 <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre del médico" data-content="Ingrese el nuevo nombre del médico para modificarlo. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
@@ -290,19 +292,19 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
 
                         return false;">Agregar Horario </button>
 
-                    <br><br><input type="submit" class="btn btn-success"  onClick="return veriformuMed();" value="Guardar Medico ">
+                    <!--<br><br><input type="submit" class="btn btn-success"  onClick="return veriformuMed();" value="Guardar Medico ">-->
 
                 </fieldset>
 
-
-                <div class="form-actions">
+<!--le saqué los divs-->
+                <!--<div class="form-actions">-->
+                    <br><br>
                     <input type="hidden" name="code" value="m"/>
                     <input type="hidden" name="ok" value="1"/>
                     <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
-                    <button type="submit"  class="btn btn-success">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
+                    <button type="submit"  class="btn btn-success" onClick="return veriformuMed();">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
                     <button type="reset" class="btn btn-success">Reiniciar</button>
-
-                </div>
+                <!--</div>-->
 
             </div>
         </div>

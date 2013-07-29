@@ -46,17 +46,9 @@ include_once('sesion/login.php');
   <dd>Turno_alta, si no hay medico ponerlo en el select (o alert), lo mismo en días y horarios.</dd>
 
 <dt>Pato:</dt>
-		<dd>listado de turnos(todo)</dd>
-		<dd>faltan ayudas en paciente_alta, paciente_listado(todo)</dd>
-		<dd>listado_especialidad (boton imprimir)</dd>
-    <dd>alta_OS</dd>
-    <dd>listado_OS(todo)</dd>
-		<dd>todos los reportes</dd>
-		<dd>alta_medico(boton agregar horario)</dd>
-		<dd>listar_medico(boton imprimir)</dd>
-		<dd>alta_Usuario(todo)</dd>
-		<dd>listar_usuario(todo)</dd>
-		<dd>logs(todo)</dd>
+		<dd>Listado de turnos: todo</dd>
+                <dd>Reportes: todos</dd>
+		<dd>Logs: Campo Elegir - Imprimir y marcar todos</dd>
 		
 <dt>Juancho:</dt>
 	<dd>imprimir los reportes(todos)</dd>

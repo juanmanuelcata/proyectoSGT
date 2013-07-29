@@ -44,7 +44,8 @@ if (isset($_GET['esp_nue'])) {
         <legend>Agregar una nueva especialidad.</legend>
         <div class="control-group">
             <div class="controls">
-                <input class="span3" type="text" id="input01" name="esp_nue" onkeypress="return soloLetras(event);" placeholder="Especialidad">
+                <label>Nombre de la especialidad</label>
+                <input class="input-xlarge" type="text" id="input01" name="esp_nue" onkeypress="return soloLetras(event);" placeholder="Especialidad">
                 <button class="btn btn-mini"  id="ayuda" onclick="return false;" data-original-title="Nombre de la especialidad" data-content="Ingrese el nombre de la especialidad que desee agregar a la base de datos. No se permiten números.">
                 <i class="icon-question-sign"></i>
                 </button>

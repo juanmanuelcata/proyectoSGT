@@ -141,6 +141,7 @@ else
                     <th>Elegir</th>
                     <th>Desde</th>
                     <th>Hasta</th>
+                    <th>Borrar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -149,11 +150,17 @@ $idmedico = $_GET['id'];
 $consulta = "SELECT * from licencia where $idmedico = id_med";
 $result = $db->query($consulta);
 ?>
-                  <?php foreach ($result as $valor): ?>
+                  <?php foreach ($result as $valor):
+                    $hoy = date('Y-m-d');?>
                     <tr>
                       <td><input type="checkbox" name="<?php echo $valor['id'] ?>" value="<?php echo $valor['id'] ?>" id="<?php echo $valor['id'] ?>"></td>
                       <td><?php echo $valor['desde'] ?></td>
                       <td><?php echo $valor['hasta'] ?></td>
+                      <?php if ($valor['desde'] >= $hoy):?>
+                      <td><button class="btn btn-danger" onClick="return false;" value="<?php echo $valor['id'] ?>"><i class="icon-remove"></i></button></td>
+                      <?php else: ?>
+                       <td><button disabled="disabled" class="btn btn-danger" onClick="return false;" value="<?php echo $valor['id'] ?>"><i class="icon-remove"></i></button></td>
+                     <?php     endif;?>
                     </tr>
 <?php endforeach; ?>
                 </tbody>
@@ -177,6 +184,31 @@ $result = $db->query($consulta);
                 if (document.form.elements[i].type == "checkbox")
                   document.form.elements[i].checked = 0
             }
+            
+            $('.btn-danger').click(function() {
+                              $(this).parent().parent().remove();
+                      
+                        $.ajax({
+                          url: '_borrar_li.php',
+                          type: 'POST',
+                          data: {
+                            idli: $(this).val()
+                          },
+                          success: function(data) {
+                            var datos = eval('(' + data + ')');
+                            /* ahora usas datos como si fuera un objeto */
+                            switch (datos.resultado) {
+                              case 1:
+                                alert('Anulación exitosa.');
+                                break;
+                              case 2:
+                                alert('Falla en la anulación.');
+                                break;
+                            }
+                          }
+                        });
+                      });
+            
 
             $(document).ready(function() {
               $('#tabla1').dataTable({

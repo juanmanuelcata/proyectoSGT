@@ -57,9 +57,11 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
 
 <form class="form-horizontal" name="formi" action="./usuario.php?code=m&id=<?php echo $id ?>" method="POST">
     <fieldset>
-        <legend>Modificación de Usuario</legend>
+        <legend>Modificación de usuario</legend>
         <div class="control-group">
             <div class="controls">
+            <?php echo '<h4>Usted está modificando el usuario: ' . $a['user'] . '.<h4>'; ?>
+                <br>
                 <label>Nuevo usuario</label>
                 <input value="<?php echo $a['user'] ?>" type="text" class="input-xlarge" id="user" name="user" maxlength="20">
                 <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre de usuario" data-content="Ingrese el nuevo nombre de usuario para modificarlo.">
@@ -107,7 +109,8 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
             <button class="btn btn-mini" onclick="return false;" data-original-title="Tipo de usuario" data-content="Oprima sobre el tipo de usuario para seleccionar que tipo de permisos tendrá.">
                     <i class="icon-question-sign"></i>
                 </button>
-        </div>';
+        ';
+//                saque un </div> que estaba al final del echo
                 else
                     echo '<label class="radio">
                 <br>
@@ -119,9 +122,10 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
             <button class="btn btn-mini" onclick="return false;" data-original-title="Tipo de usuario" data-content="Oprima sobre el tipo de usuario para seleccionar que tipo de permisos tendrá.">
                     <i class="icon-question-sign"></i>
                 </button>
-        </div>';
+        '; 
+//                saque un </div> que estaba al final del echo
                 ?>
-                <br>
+                <br><br>
                 <input type="hidden" name="ok" value="1"/>
                 <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
                 <button type="submit" onclick="return veriformuUsr()" class="btn btn-success">Guardar cambios</button>

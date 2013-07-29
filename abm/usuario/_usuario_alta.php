@@ -45,7 +45,7 @@ if (isset($_POST['user_nue']) && ($_POST['user_pass'])) {
 ?>
 <form class="form-horizontal" name="formi" action="/abm/usuario.php?code=a" method="POST">
     <fieldset>
-        <legend>Agregar una nuevo usuario.</legend>
+        <legend>Agregar un nuevo usuario.</legend>
         <div class="control-group">
             <div class="controls">
                 <label>Usuario</label>
