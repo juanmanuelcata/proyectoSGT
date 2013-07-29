@@ -16,7 +16,7 @@ if (isset($_GET['ok'])) {
         $consulta = 'update especialidad set nombre = "' . $esp_nue . '", activa="' . $activa . '" where idespecialidad = "' . $id_vie . '"';
         if ($db->query($consulta)) {
             $fechita = date('Y-m-d H:i:s');
-            $detalle = 'Modificacíon de la especialidad "' . $esp_nue . '"';
+            $detalle = 'Modificación de la Especialidad "' . $esp_nue . '"';
             $user = $_SESSION['usuario']['user'];
             $id = $db->lastInsertId("seq_name");
             $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
@@ -24,7 +24,7 @@ if (isset($_GET['ok'])) {
             $db->query($log);
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
-                    <strong><h4>Se modifico correctamente la especialidad: ' . $esp_nue . '.</h4></strong>  
+                    <strong><h4>Se modificó correctamente la Especialidad: ' . $esp_nue . '.</h4></strong>  
                  </div>';
         } else {
             echo '<div class="alert alert-success">  
@@ -36,7 +36,7 @@ if (isset($_GET['ok'])) {
         echo ' <div class="alert alert-error">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <h4><strong>Error!</strong><br>
-                    La especialidad: ' . $esp_nue . ' ya se encuentra registrada.</h4>  
+                    La Especialidad: ' . $esp_nue . ' ya se encuentra registrada.</h4>  
                 </div>';
     }
 }
@@ -48,14 +48,14 @@ $esp_vie = $a['nombre'];
 
 <form class="form-horizontal" name="formi" action="./especialidad.php" method="GET">
     <fieldset>
-        <legend>Modificar especialidad</legend>
+        <legend>Modificar Especialidad</legend>
         <div class="control-group">
             <?php
             echo '<div class="controls">';
-            echo '<h4>Usted está modificando la especialidad: ' . $esp_vie . '.</h4><br>';
-            echo '<label>Nueva especialidad</label>';
+            echo '<h4>Usted está modificando la Especialidad: ' . $esp_vie . '.</h4><br>';
+            echo '<label>Nueva Especialidad</label>';
             echo '<input value="' . $esp_vie . '" type="text" class="input-xlarge" id="nombre" name="esp_nue" onkeypress="return soloLetras(event);">';
-            echo '<button class="btn btn-mini" onclick="return false;" data-original-title="Modificación del nombre de la especialidad" data-content="Ingrese el nuevo nombre de la especialidad para modificarlo. No se permiten números.">
+            echo '<button class="btn btn-mini" onclick="return false;" data-original-title="Modificación del nombre de la Especialidad" data-content="Ingrese el nuevo nombre de la Especialidad para modificarlo. No se permiten números.">
                                         <i class="icon-question-sign"></i>
              </button>';
             if ($a['activa'] == 1)
@@ -66,7 +66,7 @@ $esp_vie = $a['nombre'];
                 <input type="radio" name="activa" id="option2" value="0">
                 <p>Inactiva</p>
             </label>
-            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la especialidad" data-content="Oprima sobre alguno de los campos para modificar el estado de la especialidad.">
+            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la Especialidad" data-content="Oprima sobre alguno de los campos para modificar el estado de la Especialidad.">
                 <i class="icon-question-sign"></i>
             </button>            
         </div>';
@@ -78,7 +78,7 @@ $esp_vie = $a['nombre'];
                 <input type="radio" name="activa" id="option2" value="0" checked>
                 <p>Inactiva</p>
             </label>
-            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la especialidad" data-content="Oprima sobre alguno de los campos para modificar el estado de la especialidad.">
+            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la Especialidad" data-content="Oprima sobre alguno de los campos para modificar el estado de la Especialidad.">
                 <i class="icon-question-sign"></i>
             </button>
         </div>';

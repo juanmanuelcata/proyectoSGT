@@ -25,7 +25,7 @@ if (isset($_GET['os_nue'])) {
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <h4><strong>Muy Bien!</strong><br>
-                    Se incerto correctamente la obra social: ' . $os_nue . '.</h4>  
+                    Se insertó correctamente la Obra social: ' . $os_nue . '.</h4>  
                 </div>';
         } else {
             echo '<div class="alert alert-error">  
@@ -40,12 +40,12 @@ if (isset($_GET['os_nue'])) {
 ?>
 <form class="form-horizontal" name="formi" action="/abm/obraSocial.php" method="GET">
     <fieldset>
-        <legend>Agregar una nueva obra social.</legend>
+        <legend>Agregar una nueva Obra Social</legend>
         <div class="control-group">
             <div class="controls">
-                <label>Nombre de la obra social</label>
+                <label>Nombre de la Obra Social</label>
                 <input type="text" class="input-xlarge" id="input01" name="os_nue" placeholder="Obra social" onkeypress="return soloLetras(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Nombre de la obra social" data-content="Ingrese el nombre de la obra social que desee agregar. No se permiten números.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Nombre de la Obra Social" data-content="Ingrese el nombre de la obra social que desee agregar. No se permiten números.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <br><br>
