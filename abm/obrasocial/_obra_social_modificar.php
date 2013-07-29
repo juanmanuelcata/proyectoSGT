@@ -16,7 +16,7 @@ if (isset($_GET['ok'])) {
         $consulta = 'update os set nombre = "' . $os_nue . '", activo="' . $activa . '" where idos = "' . $id_vie . '"';
         if ($db->query($consulta)) {
             $fechita = date('Y-m-d H:i:s');
-            $detalle = 'Modificacíon de la obra social "' . $os_nue . '"';
+            $detalle = 'Modificación de la Obra Social "' . $os_nue . '"';
             $user = $_SESSION['usuario']['user'];
             $id = $db->lastInsertId("seq_name");
             $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
@@ -25,7 +25,7 @@ if (isset($_GET['ok'])) {
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <h4><strong>Muy Bien!</strong><br>
-                    Se incerto correctamente la obra social: ' . $os_nue . '.</h4>  
+                    Se modificó correctamente la Obra Social: ' . $os_nue . '.</h4>  
                 </div>';
         } else {
             echo '<div class="alert alert-error">  
@@ -39,7 +39,7 @@ if (isset($_GET['ok'])) {
         echo ' <div class="alert alert-error">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <h4><strong>Error!</strong><br>
-                    La obra social: ' . $os_nue . ' ya se encuentra registrada.</h4>  
+                    La Obra Social: ' . $os_nue . ' ya se encuentra registrada.</h4>  
                 </div>';
     }
 }
@@ -51,12 +51,12 @@ $os_vie = $a['nombre'];
 
 <form class="form-horizontal" name="formi" action="./obraSocial.php" method="GET">
     <fieldset>
-        <legend>Modificar una obra social</legend>
+        <legend>Modificar una Obra Social</legend>
         <div class="control-group">
             <div class="controls">
-            <?php echo '<h4>Usted está modificando la obra social: ' . $os_vie . '</h4>' ?>
+            <?php echo '<h4>Usted está modificando la Obra Social: ' . $os_vie . '</h4>' ?>
             <br>
-            <label>Nueva obra social</label>
+            <label>Nueva Obra Social</label>
             <?php
             // el imput de abajo era un class="input-xlarge" que es mas larga/ y span3 es cortita
             echo '<input value="' . $os_vie . '" type="text" class="input-xlarge" id="nombre" name="os_nue" onkeypress="return soloLetras(event);">';
@@ -71,7 +71,7 @@ $os_vie = $a['nombre'];
                 <input type="radio" name="activa" id="option2" value="0">
                 <p>Inactiva</p>
             </label>
-            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la obra social" data-content="Oprima sobre alguno de los campos para modificar el estado de la obra social.">
+            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la Obra Social" data-content="Oprima sobre alguno de los campos para modificar el estado de la Obra Social.">
                 <i class="icon-question-sign"></i>
             </button>
         ';
@@ -83,7 +83,7 @@ $os_vie = $a['nombre'];
                 <input type="radio" name="activa" id="option2" value="0" checked>
                 <p>Inactiva</p>
             </label>
-            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la obra social" data-content="Oprima sobre alguno de los campos para modificar el estado de la obra social.">
+            <button class="btn btn-mini" onclick="return false;" data-original-title="Estado de la Obra Social" data-content="Oprima sobre alguno de los campos para modificar el estado de la Obra Social.">
                 <i class="icon-question-sign"></i>
             </button>
         ';

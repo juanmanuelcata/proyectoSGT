@@ -9,23 +9,23 @@ if (isset($_GET['esp_nue'])) {
         echo ' <div class="alert alert-error">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <h4><strong>Error!</strong><br>
-                    La especialidad: ' . $esp_nue . ' ya se encuentra registrada.</h4>  
+                    La Especialidad: ' . $esp_nue . ' ya se encuentra registrada.</h4>  
                 </div>';
     } else {
-        $consulta = "INSERT INTO especialidad (nombre, activa) 
+        $consulta = "INSERT INTO Especialidad (nombre, activa) 
                     VALUES ('$esp_nue', '$activa')";
         if ($db->query($consulta)) {
           $fechita = date('Y-m-d H:i:s');
-          $detalle = 'Alta de la especialidad "'.$esp_nue.'"';
+          $detalle = 'Alta de la Especialidad "'.$esp_nue.'"';
           $user = $_SESSION['usuario']['user'];
           $id = $db->lastInsertId("seq_name");
           $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
-              VALUES ('$fechita', '$user', '$detalle', 'especialidad', '$id' )";
+              VALUES ('$fechita', '$user', '$detalle', 'Especialidad', '$id' )";
           $db->query($log);
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <h4><strong>Muy Bien!</strong><br>
-                    Se incerto correctamente la especialidad: ' . $esp_nue . '.</h4>  
+                    Se insertó correctamente la Especialidad: ' . $esp_nue . '.</h4>  
                 </div>';
         } else {
             echo '<div class="alert alert-error">  
@@ -41,12 +41,12 @@ if (isset($_GET['esp_nue'])) {
 
 <form class="form-horizontal" name="formi" action="./especialidad.php" method="GET">
     <fieldset>
-        <legend>Agregar una nueva especialidad.</legend>
+        <legend>Agregar una nueva Especialidad</legend>
         <div class="control-group">
             <div class="controls">
-                <label>Nombre de la especialidad</label>
+                <label>Nombre de la Especialidad</label>
                 <input class="input-xlarge" type="text" id="input01" name="esp_nue" onkeypress="return soloLetras(event);" placeholder="Especialidad">
-                <button class="btn btn-mini"  id="ayuda" onclick="return false;" data-original-title="Nombre de la especialidad" data-content="Ingrese el nombre de la especialidad que desee agregar a la base de datos. No se permiten números.">
+                <button class="btn btn-mini"  id="ayuda" onclick="return false;" data-original-title="Nombre de la Especialidad" data-content="Ingrese el nombre de la Especialidad que desee agregar a la base de datos. No se permiten números.">
                 <i class="icon-question-sign"></i>
                 </button>
             </div>                                                 

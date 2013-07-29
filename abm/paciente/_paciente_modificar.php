@@ -29,14 +29,14 @@ if (isset($_GET['ok'])) {
         if ($db->query($up) && $db->query($consulta)) {
             $id2 = $db->lastInsertId("seq_name");
             $fechita = date('Y-m-d H:i:s');
-            $detalle = 'Modificacion del paciente  "' . $dni . '"';
+            $detalle = 'Modificación del Paciente  "' . $dni . '"';
             $user = $_SESSION['usuario']['user'];
             $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
               VALUES ('$fechita', '$user', '$detalle', 'Paciente', '$id2' )";
             $db->query($log);
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
-                    <strong><h4>Muy Bien! Se modifico correctamente el paciente: ' . $nombre . '</h4>.</strong>  
+                    <strong><h4>Muy Bien! Se modificó correctamente el Paciente: ' . $nombre . '</h4>.</strong>  
                  </div>';
         } else {
             echo '<div class="alert alert-success">  
@@ -47,7 +47,7 @@ if (isset($_GET['ok'])) {
     } else {
         echo '<div class="alert alert-error">  
                 <a class="close" data-dismiss="alert">×</a>  
-                <strong><h4>Error!</h4> Ya existe un paciente con este DNI</strong>.  
+                <strong><h4>Error!</h4> Ya existe un Paciente con este DNI</strong>.  
              </div>';
     }
 }
@@ -61,64 +61,64 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
 
 <form class="form-horizontal" name="formi" action="./paciente.php" method="GET">
     <fieldset>
-        <legend>Modificación de paciente</legend>
+        <legend>Modificación de Paciente</legend>
         <div class="control-group">
             <div class="controls">
-                <?php echo '<h4>Usted está modificando el paciente: ' . $a['nombre'] . '</h4>' ?>
+                <?php echo '<h4>Usted está modificando el Paciente: ' . $a['nombre'] . '</h4>' ?>
                 <br>
                 <label>Nuevo nombre</label>
                 <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre del paciente" data-content="Ingrese el nuevo nombre del paciente para modificarlo.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre del Paciente" data-content="Ingrese el nuevo nombre del Paciente para modificarlo.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo apellido</label>
                 <input value="<?php echo $a['apellido'] ?>" type="text" class="input-xlarge" id="apellido" name="apellido" onkeypress="return soloLetras(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el apellido del paciente" data-content="Ingrese el nuevo apellido del paciente para modificarlo.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el apellido del Paciente" data-content="Ingrese el nuevo apellido del Paciente para modificarlo.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo DNI</label>
                 <input value="<?php echo $a['dni'] ?>" type="text" class="input-xlarge" id="dni" name="dni" maxlength="8" onkeypress="return justNumbers(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el DNI del paciente" data-content="Ingrese el nuevo DNI del médico para modificarlo. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el DNI del Paciente" data-content="Ingrese el nuevo DNI del médico para modificarlo. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nueva Fecha de nacimiento</label>
                 <input  value="<?php echo $a['nacimiento'] ?>"type="date" class="input-xlarge" id="fechaNac" name="fecha" onkeypress="return justFecha(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la fecha de nacimiento del paciente" data-content="Increse la nueva fecha de nacimiento del paciente utilizando solo caracteres numéricos para modificarla. Puede también utilizar la flecha hacia abajo para desplegar el calendario y oprimiendo sobre el día correspondiente al mes y año que esten visualizados. Puede optar por seleccionar un campo de la fecha (dia, mes o año) haciendo click sobre el mismo y con las flechas hacia arriba y abajo escribir la fecha deseada.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la fecha de nacimiento del Paciente" data-content="Increse la nueva fecha de nacimiento del Paciente utilizando solo caracteres numéricos para modificarla. Puede también utilizar la flecha hacia abajo para desplegar el calendario y oprimiendo sobre el día correspondiente al mes y año que esten visualizados. Puede optar por seleccionar un campo de la fecha (dia, mes o año) haciendo click sobre el mismo y con las flechas hacia arriba y abajo escribir la fecha deseada.">
                     <i class="icon-question-sign"></i>
                 </button>  
                 <label>Nueva localidad</label>
                 <input value="<?php echo $a['localidad'] ?>" type="text" class="input-xlarge" id="localidad" name="localidad">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la localidad del paciente" data-content="Ingrese el nuevo nombre de la localidad en la que vive el paciente para modificarla. Por ej: Tolosa.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la localidad del Paciente" data-content="Ingrese el nuevo nombre de la localidad en la que vive el Paciente para modificarla. Por ej: Tolosa.">
                     <i class="icon-question-sign"></i>
                 </button>   
                 <label>Nueva calle</label>
                 <input value="<?php echo $a['calle'] ?>" type="text" class="input-xlarge" id="calle" name="calle">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la calle en la que vive el paciente" data-content="Ingrese el nombre o número de la nueva calle en la que vive el paciente para modificarla.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la calle en la que vive el Paciente" data-content="Ingrese el nombre o número de la nueva calle en la que vive el Paciente para modificarla.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nueva altura</label>
                 <input value="<?php echo $a['altura'] ?>" type="text" class="input-xlarge" id="altura" name="altura" onkeypress="return justNumbers(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Moficiar la altura en la que vive el paciente" data-content="Ingrese el nuevo número de la casa/altura de la vivienda del paciente para modificarla. Solo se permiten caracteres numéricos.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Moficiar la altura en la que vive el Paciente" data-content="Ingrese el nuevo número de la casa/altura de la vivienda del Paciente para modificarla. Solo se permiten caracteres numéricos.">
                     <i class="icon-question-sign"></i>
                 </button>   
                 <label>Nuevo piso</label>
                 <input value="<?php echo $a['piso'] ?>" type="text" class="input-xlarge" id="piso" name="piso" onkeypress="return justNumbers(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el piso en el que vive el paciente" data-content="Ingrese el nuevo piso en el que vive el paciente (caso de que viva en un departamento) para modificarlo. Solo se permiten caracteres numéricos.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el piso en el que vive el Paciente" data-content="Ingrese el nuevo piso en el que vive el Paciente (caso de que viva en un departamento) para modificarlo. Solo se permiten caracteres numéricos.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo departamento</label>
                 <input value="<?php echo $a['depto'] ?>"type="text" class="input-xlarge" id="depto" name="departamento">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el departamento en el que vive el paciente" data-content="Ingrese el nuevo departamento en el que vive el paciente (en el caso de que viva en un departamento) para modificarlo.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el departamento en el que vive el Paciente" data-content="Ingrese el nuevo departamento en el que vive el Paciente (en el caso de que viva en un departamento) para modificarlo.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo correo electrónico</label>
                 <input value="<?php echo $a['mail'] ?>" type="text" class="input-xlarge" id="mail" name="mail">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el E-mail del paciente" data-content="Ingrese el nuevo e-mail del paciente para modificarlo. Por ejemplo: 'cuenta@gmail.com'.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el E-mail del Paciente" data-content="Ingrese el nuevo e-mail del Paciente para modificarlo. Por ejemplo: 'cuenta@gmail.com'.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo teléfono</label>
                 <input value="<?php echo $a['telefono'] ?>" type="text" class="input-xlarge" id="tel" name="tel" maxlength="10" onkeypress="return justNumbers(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modifciar el teléfono del paciente" data-content="Ingrese el nuevo teléfono del paciente para modificarlo. Solo se permiten caracteres numéricos.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modifciar el teléfono del Paciente" data-content="Ingrese el nuevo teléfono del Paciente para modificarlo. Solo se permiten caracteres numéricos.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nueva obra social</label>
@@ -141,7 +141,7 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
                         }
                     ?>
                 </select>
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificaar la obra social del paciente" data-content="Despliegue la lista haciendo click sobre el campo; luego seleccione de la lista la nueva obra social del paciente para modificarla.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la Obra Oocial del Paciente" data-content="Despliegue la lista haciendo click sobre el campo; luego seleccione de la lista la nueva obra social del Paciente para modificarla.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <!--la saque el div-->
