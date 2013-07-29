@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2013 a las 18:53:35
+-- Tiempo de generación: 29-07-2013 a las 01:06:28
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `especialidad` (
   `nombre` varchar(20) NOT NULL,
   `activa` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idespecialidad`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Volcado de datos para la tabla `especialidad`
@@ -48,12 +48,7 @@ INSERT INTO `especialidad` (`idespecialidad`, `nombre`, `activa`) VALUES
 (10, 'GinecologÃ­a', 1),
 (11, 'pedagogia', 1),
 (12, 'Quinesiologia', 1),
-(13, 'Cirujia', 1),
-(14, 'mate', 1),
-(15, 'churro', 1),
-(16, 'farmacologia', 1),
-(17, 'arpelin', 1),
-(18, 'bromatologia', 1);
+(13, 'Cirujia', 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `horario` (
   `activo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `id_med` (`id_med`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=227 ;
 
 --
 -- Volcado de datos para la tabla `horario`
@@ -111,8 +106,8 @@ INSERT INTO `horario` (`id`, `dia`, `desde`, `hasta`, `id_med`, `activo`) VALUES
 (62, 'lun', '17:30:00', '18:00:00', 30, 1),
 (63, 'lun', '18:00:00', '18:30:00', 30, 1),
 (64, 'lun', '18:30:00', '19:00:00', 30, 1),
-(65, 'lun', '10:00:00', '10:30:00', 31, 1),
-(66, 'lun', '10:30:00', '11:00:00', 31, 1),
+(65, 'lun', '10:00:00', '10:30:00', 31, 0),
+(66, 'lun', '10:30:00', '11:00:00', 31, 0),
 (67, 'mar', '16:00:00', '16:30:00', 31, 1),
 (68, 'mar', '16:30:00', '17:00:00', 31, 1),
 (69, 'mar', '17:00:00', '17:30:00', 31, 1),
@@ -140,7 +135,61 @@ INSERT INTO `horario` (`id`, `dia`, `desde`, `hasta`, `id_med`, `activo`) VALUES
 (91, 'vie', '16:00:00', '16:30:00', 32, 1),
 (92, 'vie', '16:30:00', '17:00:00', 32, 1),
 (93, 'vie', '17:00:00', '17:30:00', 32, 1),
-(94, 'vie', '17:30:00', '18:00:00', 32, 1);
+(94, 'vie', '17:30:00', '18:00:00', 32, 1),
+(173, 'lun', '12:00:00', '12:30:00', 47, 1),
+(174, 'lun', '12:30:00', '13:00:00', 47, 1),
+(175, 'lun', '13:00:00', '13:30:00', 47, 1),
+(176, 'lun', '13:30:00', '14:00:00', 47, 1),
+(177, 'lun', '14:00:00', '14:30:00', 47, 1),
+(178, 'lun', '14:30:00', '15:00:00', 47, 1),
+(179, 'lun', '15:00:00', '15:30:00', 47, 1),
+(180, 'lun', '15:30:00', '16:00:00', 47, 1),
+(181, 'lun', '16:00:00', '16:30:00', 47, 1),
+(182, 'lun', '16:30:00', '17:00:00', 47, 1),
+(183, 'lun', '17:00:00', '17:30:00', 47, 1),
+(184, 'lun', '17:30:00', '18:00:00', 47, 1),
+(185, 'lun', '18:00:00', '18:30:00', 47, 1),
+(186, 'lun', '18:30:00', '19:00:00', 47, 1),
+(187, 'mar', '13:00:00', '13:30:00', 47, 1),
+(188, 'mar', '13:30:00', '14:00:00', 47, 1),
+(189, 'mar', '14:00:00', '14:30:00', 47, 1),
+(190, 'mar', '14:30:00', '15:00:00', 47, 1),
+(191, 'mar', '15:00:00', '15:30:00', 47, 1),
+(192, 'mar', '15:30:00', '16:00:00', 47, 1),
+(193, 'mar', '16:00:00', '16:30:00', 47, 1),
+(194, 'mar', '16:30:00', '17:00:00', 47, 1),
+(195, 'mar', '17:00:00', '17:30:00', 47, 1),
+(196, 'mar', '17:30:00', '18:00:00', 47, 1),
+(197, 'mie', '12:00:00', '12:30:00', 47, 1),
+(198, 'mie', '12:30:00', '13:00:00', 47, 1),
+(199, 'mie', '13:00:00', '13:30:00', 47, 1),
+(200, 'mie', '13:30:00', '14:00:00', 47, 1),
+(201, 'mie', '14:00:00', '14:30:00', 47, 1),
+(202, 'mie', '14:30:00', '15:00:00', 47, 1),
+(203, 'mie', '15:00:00', '15:30:00', 47, 1),
+(204, 'mie', '15:30:00', '16:00:00', 47, 1),
+(205, 'mie', '16:00:00', '16:30:00', 47, 1),
+(206, 'mie', '16:30:00', '17:00:00', 47, 1),
+(207, 'jue', '08:00:00', '08:30:00', 47, 1),
+(208, 'jue', '08:30:00', '09:00:00', 47, 1),
+(209, 'jue', '09:00:00', '09:30:00', 47, 1),
+(210, 'jue', '09:30:00', '10:00:00', 47, 1),
+(211, 'jue', '10:00:00', '10:30:00', 47, 1),
+(212, 'jue', '10:30:00', '11:00:00', 47, 1),
+(213, 'vie', '09:00:00', '09:30:00', 47, 1),
+(214, 'vie', '09:30:00', '10:00:00', 47, 1),
+(215, 'vie', '10:00:00', '10:30:00', 47, 1),
+(216, 'vie', '10:30:00', '11:00:00', 47, 1),
+(217, 'vie', '11:00:00', '11:30:00', 47, 1),
+(218, 'vie', '11:30:00', '12:00:00', 47, 1),
+(219, 'vie', '12:00:00', '12:30:00', 47, 1),
+(220, 'vie', '12:30:00', '13:00:00', 47, 1),
+(221, 'vie', '13:00:00', '13:30:00', 47, 1),
+(222, 'vie', '13:30:00', '14:00:00', 47, 1),
+(223, 'vie', '14:00:00', '14:30:00', 47, 1),
+(224, 'vie', '14:30:00', '15:00:00', 47, 1),
+(225, 'vie', '15:00:00', '15:30:00', 47, 1),
+(226, 'vie', '15:30:00', '16:00:00', 47, 1);
 
 -- --------------------------------------------------------
 
@@ -154,18 +203,17 @@ CREATE TABLE IF NOT EXISTS `licencia` (
   `hasta` date NOT NULL,
   `id_med` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
 -- Volcado de datos para la tabla `licencia`
 --
 
 INSERT INTO `licencia` (`id`, `desde`, `hasta`, `id_med`) VALUES
-(6, '2013-07-22', '2013-07-26', 31),
-(7, '2013-07-29', '2013-08-02', 31),
-(8, '2013-08-12', '2013-08-16', 31),
-(9, '2013-08-19', '2013-08-23', 31),
-(10, '2013-07-09', '2013-07-18', 28);
+(27, '2013-06-04', '2013-06-27', 47),
+(28, '2013-05-14', '2013-05-25', 47),
+(29, '2013-08-25', '2013-08-30', 47),
+(30, '2013-07-31', '2013-08-03', 28);
 
 -- --------------------------------------------------------
 
@@ -181,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `tabla` varchar(20) NOT NULL,
   `idafectado` int(11) NOT NULL,
   PRIMARY KEY (`idlog`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=176 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=235 ;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -262,7 +310,66 @@ INSERT INTO `log` (`idlog`, `fecha`, `usuario`, `detalle`, `tabla`, `idafectado`
 (172, '2013-07-17 02:13:22', 'pochilow09', 'Modificacion del mÃ©dico  "18416545"', 'medico', 0),
 (173, '2013-07-17 02:13:59', 'pochilow09', 'Modificacion del mÃ©dico  "19156168"', 'medico', 0),
 (174, '2013-07-17 02:15:21', 'pochilow09', 'Modificacion del usuario  "pochilow09"', 'usuario', 0),
-(175, '2013-07-22 15:50:00', 'nie2', 'Alta de paciente  "39150552"', 'Paciente', 0);
+(175, '2013-07-22 15:50:00', 'nie2', 'Alta de paciente  "39150552"', 'Paciente', 0),
+(176, '2013-07-22 19:45:19', 'nie2', 'Modificacion del mÃ©dico  "6549161"', 'medico', 0),
+(177, '2013-07-22 19:53:05', 'nie2', 'Modificacion del mÃ©dico  "6549161"', 'medico', 0),
+(178, '2013-07-23 15:28:13', 'nie2', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(179, '2013-07-23 15:32:43', 'nie2', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(180, '2013-07-23 15:40:21', 'nie2', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(181, '2013-07-23 15:40:42', 'nie2', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(182, '2013-07-23 16:49:30', 'nie2', 'ModificacÃ­on de la obra social "AMEP"', 'os', 0),
+(183, '2013-07-23 16:57:41', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(184, '2013-07-23 17:32:01', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(185, '2013-07-23 17:32:23', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(186, '2013-07-23 17:35:24', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(187, '2013-07-23 17:36:40', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(188, '2013-07-23 17:36:50', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(189, '2013-07-23 17:37:00', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(190, '2013-07-23 17:37:51', 'nie2', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(191, '2013-07-23 17:40:14', 'nie2', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(192, '2013-07-23 17:51:17', 'nie2', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(193, '2013-07-23 18:34:03', 'nie2', 'Modificacion del mÃ©dico  "19156168"', 'medico', 0),
+(194, '2013-07-24 00:35:24', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(195, '2013-07-24 00:36:10', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(196, '2013-07-24 00:36:15', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(197, '2013-07-24 00:37:33', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(198, '2013-07-24 00:38:26', 'nie2', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(199, '2013-07-24 01:33:45', 'nie2', 'Modificacion del mÃ©dico  "35720028"', 'medico', 0),
+(200, '2013-07-24 01:34:06', 'nie2', 'Modificacion del mÃ©dico  "35720028"', 'medico', 0),
+(201, '2013-07-24 01:47:08', 'nie2', 'Modificacion del mÃ©dico  "35720028"', 'medico', 0),
+(202, '2013-07-24 02:40:11', 'nie2', 'Alta del medico ""', 'medico', 33),
+(203, '2013-07-24 15:12:42', 'nie2', 'Alta del medico "borrar"', 'medico', 34),
+(204, '2013-07-24 15:12:42', 'nie2', 'Alta del horario par el medico"borrar"', 'horario', 34),
+(205, '2013-07-24 15:24:18', 'nie2', 'Alta del medico "asdasd"', 'medico', 35),
+(206, '2013-07-24 15:24:18', 'nie2', 'Alta del horario par el medico"asdasd"', 'horario', 35),
+(207, '2013-07-24 15:27:52', 'nie2', 'Alta del medico "gbfgbfg"', 'medico', 36),
+(208, '2013-07-24 15:27:52', 'nie2', 'Alta del horario par el medico"gbfgbfg"', 'horario', 36),
+(209, '2013-07-24 15:34:12', 'nie2', 'Alta del medico "asdasd"', 'medico', 37),
+(210, '2013-07-24 15:34:12', 'nie2', 'Alta del horario par el medico"asdasd"', 'horario', 37),
+(211, '2013-07-24 15:37:20', 'lau', 'Alta del medico "ertertert"', 'medico', 38),
+(212, '2013-07-24 15:37:20', 'lau', 'Alta del horario par el medico"ertertert"', 'horario', 38),
+(213, '2013-07-24 15:38:38', 'lau', 'Alta del medico " sddsfvdsv"', 'medico', 39),
+(214, '2013-07-24 15:38:38', 'lau', 'Alta del horario par el medico" sddsfvdsv"', 'horario', 39),
+(215, '2013-07-24 17:35:56', 'lau', 'Modificacion del mÃ©dico  "25486485"', 'medico', 0),
+(216, '2013-07-24 20:54:40', 'lau', 'Alta de la especialidad ""', 'especialidad', 19),
+(217, '2013-07-26 15:57:41', 'lau', 'Alta del medico "asdfasdfasd"', 'medico', 40),
+(218, '2013-07-26 15:57:41', 'lau', 'Alta del horario par el medico"asdfasdfasd"', 'horario', 40),
+(219, '2013-07-26 16:03:08', 'lau', 'Alta del medico "asdasds"', 'medico', 41),
+(220, '2013-07-26 16:03:08', 'lau', 'Alta del horario par el medico"asdasds"', 'horario', 41),
+(221, '2013-07-26 20:32:49', 'lau', 'Alta del medico "asas"', 'medico', 42),
+(222, '2013-07-26 20:32:49', 'lau', 'Alta del horario par el medico"asas"', 'horario', 42),
+(223, '2013-07-26 20:35:55', 'lau', 'Alta del medico "ewrwerwe"', 'medico', 43),
+(224, '2013-07-26 20:35:55', 'lau', 'Alta del horario par el medico"ewrwerwe"', 'horario', 43),
+(225, '2013-07-26 20:37:20', 'lau', 'Alta del medico "asndaklsdklsajkl"', 'medico', 44),
+(226, '2013-07-26 20:37:21', 'lau', 'Alta del horario par el medico"asndaklsdklsajkl"', 'horario', 44),
+(227, '2013-07-26 20:49:59', 'lau', 'Alta del medico "asdasda"', 'medico', 45),
+(228, '2013-07-26 20:49:59', 'lau', 'Alta del horario par el medico"asdasda"', 'horario', 45),
+(229, '2013-07-26 21:31:20', 'lau', 'Alta del medico "fsdfsdf"', 'medico', 46),
+(230, '2013-07-26 21:31:20', 'lau', 'Alta del horario par el medico"fsdfsdf"', 'horario', 46),
+(231, '2013-07-28 19:04:30', 'lau', 'Alta del medico "Julius"', 'medico', 47),
+(232, '2013-07-28 19:04:30', 'lau', 'Alta del horario par el medico"Julius"', 'horario', 47),
+(233, '2013-07-28 19:04:51', 'lau', 'Modificacion del paciente  "35624587"', 'Paciente', 0),
+(234, '2013-07-28 22:55:45', 'lau', 'Modificacion del mÃ©dico  "32165468"', 'medico', 0);
 
 -- --------------------------------------------------------
 
@@ -283,18 +390,19 @@ CREATE TABLE IF NOT EXISTS `medico` (
   `activo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idmedico`),
   UNIQUE KEY `dni` (`dni`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
 
 --
 -- Volcado de datos para la tabla `medico`
 --
 
 INSERT INTO `medico` (`idmedico`, `dni`, `matricula`, `ingreso`, `nombre`, `apellido`, `mail`, `telefono`, `disponible`, `activo`) VALUES
-(28, '25486485', '4567', '2013-07-05 19:03:11', 'Roberto', 'Joselio', 'roberjoselio@hotm.com', '4157467486', 1, 1),
-(29, '6549161', '1231846', '2013-07-05 19:26:29', 'Javier', 'GÃ³mez', 'javi@gmail.com', '0215498789', 1, 1),
+(28, '25486485', '4567', '2013-07-05 19:03:11', 'Robertos', 'Josele', 'roberjoselio@hotm.com', '4157467486', 1, 1),
+(29, '6549161', '1231846', '2013-07-05 19:26:29', 'Javiers', 'GÃ³mezz', 'javi@gmail.com', '0215498789', 1, 1),
 (30, '18416545', '487547', '2013-07-05 19:29:21', 'Ricardo', 'Rezza', 'lauchi@jav.com', '0221856789', 1, 1),
 (31, '35720028', '65498435', '2013-07-06 02:37:49', 'Tomas', 'Seoane', 'te.seoane@gmail.com', '2214219648', 1, 1),
-(32, '19156168', '48941351', '2013-07-17 00:05:13', 'Pablo', 'Ledesma', 'pablo@ledesma.com', '0221857897', 1, 1);
+(32, '19156168', '48941351', '2013-07-17 00:05:13', 'Pablo', 'Ledesma', 'pablo@ledesma.com', '0221857897', 1, 1),
+(47, '32165468', '56456126', '2013-07-28 22:04:30', 'Julius', 'hibbert', 'hibbert@hot.com', '4654564564', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -310,7 +418,7 @@ CREATE TABLE IF NOT EXISTS `med_esp` (
   KEY `id_med` (`id_med`,`id_esp`),
   KEY `id_esp` (`id_esp`),
   KEY `id_med_2` (`id_med`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Volcado de datos para la tabla `med_esp`
@@ -321,7 +429,8 @@ INSERT INTO `med_esp` (`idmed_esp`, `id_med`, `id_esp`) VALUES
 (3, 29, 12),
 (4, 30, 8),
 (5, 31, 10),
-(6, 32, 1);
+(6, 32, 1),
+(20, 47, 1);
 
 -- --------------------------------------------------------
 
@@ -336,7 +445,7 @@ CREATE TABLE IF NOT EXISTS `med_os` (
   PRIMARY KEY (`idmed_os`),
   KEY `id_med` (`id_med`,`id_os`),
   KEY `id_os` (`id_os`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `med_os`
@@ -351,7 +460,10 @@ INSERT INTO `med_os` (`idmed_os`, `id_med`, `id_os`) VALUES
 (6, 30, 8),
 (7, 31, 13),
 (8, 31, 15),
-(9, 32, 14);
+(9, 32, 14),
+(11, 47, 5),
+(10, 47, 13),
+(12, 47, 15);
 
 -- --------------------------------------------------------
 
@@ -373,7 +485,7 @@ CREATE TABLE IF NOT EXISTS `os` (
 
 INSERT INTO `os` (`idos`, `nombre`, `activo`) VALUES
 (2, 'IOMA', 0),
-(3, 'AMEP', 1),
+(3, 'AMEP', 0),
 (4, 'Ninguna', 1),
 (5, 'Salud', 1),
 (6, 'Medical', 1),
@@ -482,18 +594,17 @@ CREATE TABLE IF NOT EXISTS `turno` (
   KEY `id_med` (`id_med`),
   KEY `id_pac_2` (`id_pac`),
   KEY `responsable_2` (`responsable`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
 -- Volcado de datos para la tabla `turno`
 --
 
 INSERT INTO `turno` (`idturno`, `id_pac`, `id_med`, `fecha`, `hora`, `id_os`, `estado`, `responsable`) VALUES
-(14, 1, 32, '2013-07-24', '10:00:00', 4, 'cancelado', 9),
-(15, 2, 31, '2013-07-23', '16:30:00', 3, 'cancelado', 9),
-(16, 6, 29, '2013-07-24', '16:30:00', 6, 'cancelado', 9),
-(17, 3, 31, '2013-07-23', '18:00:00', 6, 'cancelado', 9),
-(18, 11, 29, '2013-07-24', '16:00:00', 4, 'cancelado', 9);
+(26, 1, 31, '2013-07-29', '10:00:00', 4, 'pendiente', 1),
+(27, 5, 31, '2013-07-29', '10:30:00', 7, 'cancelado', 1),
+(28, 6, 31, '2013-07-29', '10:30:00', 6, 'pendiente', 1),
+(29, 1, 47, '2013-07-30', '14:30:00', 4, 'cancelado', 1);
 
 -- --------------------------------------------------------
 
