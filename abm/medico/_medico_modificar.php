@@ -77,6 +77,8 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
         <legend>Modificación de médico</legend>
         <div class="control-group">
             <div class="controls">
+                <?php echo '<h4>Usted está modificando el médico: ' . $a['nombre'] . '</h4>' ?>
+                <br>
                 <label>Nuevo nombre</label>
                 <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
                 <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre del médico" data-content="Ingrese el nuevo nombre del médico para modificarlo. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
