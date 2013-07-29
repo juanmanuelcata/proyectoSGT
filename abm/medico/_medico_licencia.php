@@ -26,8 +26,11 @@ else
     <script type="text/javascript" src="./../../datatables/js/jquery.js"></script>
     <script type="text/javascript" src="./../../datatables/js/jquery.dataTables.js"></script>   
     <script type="text/javascript" src="./../../js/bootstrap-alert.js"></script>
+    <script type="text/javascript" src="./../../js/bootstrap-tooltip.js"></script>
+    <script type="text/javascript" src="./../../js/bootstrap-popover.js"></script>
   </head>
 
+  
   <div class="row-fluid">
     <div class="span12">
       <img SRC="./../../img/imagenSuper.png" id="cabe1">
@@ -37,6 +40,7 @@ else
     <div class="span12">
       <div class="row-fluid">
         <div class="span10 offset1">
+
           <?php
           $db = conectaDb();
           if (isset($_GET['ok'])) {
@@ -138,10 +142,18 @@ else
               <table id="tabla1" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Elegir</th>
-                    <th>Desde</th>
-                    <th>Hasta</th>
-                    <th>Borrar</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada licencia para seleccionarla, o utilice los botones de Marcar o Desmarcar todos.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Desde <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Desde" data-content="Oprima sobre este campo para ordenar la lista por el atributo Desde, referido al inicio de la licencia. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Hasta <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Hasta" data-content="Oprima sobre este campo para ordenar la lista por el atributo Hasta, referido a la finalización de la licencia. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Borrar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Borrar" data-content="Oprima sobre el botón de cerrar ('x') correspondiente a la licencia que desee borrar.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -231,7 +243,10 @@ $result = $db->query($consulta);
               });
             });
 
-
+               
+                //            ESTA ES LA LIÑITA MAGICA
+                $(".btn").popover({trigger: "hover"});
+               
 
           </script>
         </div>                
