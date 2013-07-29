@@ -167,16 +167,16 @@ if (isset($_POST['nombre'])) {
                 </button>
                 <input type="hidden" name="code" value="a"/><br><br> 
 
-            </div>
+<!--            </div>
         </div>
-    </fieldset>
+    </fieldset>-->
 
 
     <!-- Bitácora del gordo: Acá comienza la exploración por el fantástico mundo de insertar obras sociales al médico -->
-
-    <legend>Obras Sociales del médico</legend>
+    <control->
+    <legend>Obras sociales del médico</legend>
     <fieldset>
-
+        
         <div id="obrasSociales">
 
         </div>
@@ -190,7 +190,7 @@ if (isset($_POST['nombre'])) {
     </fieldset>
 
 
-    <!-- Fín bitácora del gordo  (MIRA NESTOR PUSE ASENTOS COMO TE GUSTA) -->
+    <!-- Fín bitácora del gordo (MIRA NESTOR PUSE ASENTOS COMO TE GUSTA) -->
 
 
     <legend>Horarios del médico</legend>
@@ -209,8 +209,14 @@ if (isset($_POST['nombre'])) {
 
 
         <br><br><input type="submit" class="btn btn-success" id="guardar" onClick="return veriformuMed();" value="Guardar">
+                <button tabindex="14" type="reset" class="btn btn-success">Borrar</button>
     </fieldset>
 
+    <!--LE AGREGuÉ ESTOS TRES (div div y fieldset) para ver si se alineaba todo en el centro...cualquier cosa estan comentados mas arriba-->
+    </div>
+        </div>
+    </fieldset>
+    <!--estos trs de arriba-->
 </form>
 
 <script type="text/javascript">

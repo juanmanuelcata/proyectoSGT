@@ -84,7 +84,7 @@ if ($result->rowCount() == 0) {
                     <th>Medico <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Médico" data-content="Oprima sobre este campo para ordenar la lista por el atributo Médico (nombre y apellido) al que está asignado el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Especialidad <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Especialidad" data-content="Oprima sobre este campo para ordenar la lista por el atributo Especialidad del médico al que está asignado el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                    <th>Especia. <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Especialidad" data-content="Oprima sobre este campo para ordenar la lista por el atributo Especialidad del médico al que está asignado el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                     <th>Fecha <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Fecha" data-content="Oprima sobre este campo para ordenar la lista por el atributo Fecha del turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
@@ -93,13 +93,13 @@ if ($result->rowCount() == 0) {
                     <th>Horario <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Horario" data-content="Oprima sobre este campo para ordenar la lista por el atributo Horario (del inicio) del turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Confirmado <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Confirmado" data-content="Oprima sobre el botón 'Confirmar' para marcar un turno como confirmado, en el caso de que un paciente asista a la consulta.">
+                    <th>Confirm. <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Confirmado" data-content="Oprima sobre el botón 'Confirmar' para marcar un turno como confirmado, en el caso de que un paciente asista a la consulta.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Cancelado <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cancelado" data-content="Oprima sobre el botón 'Cancelar' para marcar un turno como cancelado, en el caso de que un paciente no asista a la consulta o la cancele previamente.">
+                    <th>Cancel. <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cancelado" data-content="Oprima sobre el botón 'Cancelar' para marcar un turno como cancelado, en el caso de que un paciente no asista a la consulta o la cancele previamente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Responsable <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Responsable" data-content="Oprima sobre este campo para ordenar la lista por el atributo Responsable (nombre y apellido) del usuario que asignó el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                    <th>Respons. <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Responsable" data-content="Oprima sobre este campo para ordenar la lista por el atributo Responsable (nombre y apellido) del usuario que asignó el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                 </tr>
