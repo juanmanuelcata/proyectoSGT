@@ -37,7 +37,8 @@ $result = $db->query($consulta);
             <tbody>
                 <?php foreach ($result as $valor) : ?>
                     <!--$direccion = "'./medico.php?code=d&id=" . $valor["idmedico"] . "'";-->
-                    <?php $direccion = "'./medico/_ver_detalle.php?id=" . $valor["idmedico"] . "'";
+                    <?php
+                    $direccion = "'./medico/_ver_detalle.php?id=" . $valor["idmedico"] . "'";
                     $direccion2 = "'./medico/_medico_licencia.php?code=li&id=" . $valor['idmedico'] . "'";
                     ?>
                     <tr>

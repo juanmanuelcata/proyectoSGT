@@ -290,19 +290,19 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
 
                         return false;">Agregar Horario </button>
 
-                    <br><br><input type="submit" class="btn btn-success"  onClick="return veriformuMed();" value="Guardar Medico ">
+                    <!--<br><br><input type="submit" class="btn btn-success"  onClick="return veriformuMed();" value="Guardar Medico ">-->
 
                 </fieldset>
 
-
-                <div class="form-actions">
+<!--le saqué los divs-->
+                <!--<div class="form-actions">-->
+                    <br><br>
                     <input type="hidden" name="code" value="m"/>
                     <input type="hidden" name="ok" value="1"/>
                     <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
-                    <button type="submit"  class="btn btn-success">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
+                    <button type="submit"  class="btn btn-success" onClick="return veriformuMed();">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
                     <button type="reset" class="btn btn-success">Reiniciar</button>
-
-                </div>
+                <!--</div>-->
 
             </div>
         </div>

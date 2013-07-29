@@ -112,7 +112,7 @@ if (isset($_POST['nombre'])) {
 
 <form class="form-horizontal" name="formi" method="POST" action="/abm/medico.php?code=a">
     <fieldset>
-        <legend>Agregar una nuevo Médico.</legend>
+        <legend>Agregar una nuevo médico.</legend>
         <!--<label>Ingrese los datos personales del medico:</label>-->
         <div class="control-group">
             <div class="controls">             
