@@ -57,7 +57,7 @@ if (isset($_GET['nombre'])) {
 ?>
 <form class="form-horizontal" name="formi" action="/abm/paciente.php" method="GET">
     <fieldset>
-        <legend>Agregar una nuevo paciente.</legend>
+        <legend>Agregar un nuevo paciente.</legend>
         <div class="control-group">
             <div class="controls">
                 <label>Nombre*</label>

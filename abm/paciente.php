@@ -34,7 +34,7 @@ include_once('../sesion/login.php');
                 "sScrollXInner": "110%",
                 "sPaginationType": "full_numbers",
                 "oLanguage": {
-                    "sLengthMenu": 'Mostrar de: <select>' +
+                    "sLengthMenu": 'Mostrar de a <select>' +
                             '<option value="10">10</option>' +
                             '<option value="20">20</option>' +
                             '<option value="30">30</option>' +

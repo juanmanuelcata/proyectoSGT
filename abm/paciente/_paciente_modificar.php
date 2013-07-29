@@ -64,6 +64,8 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
         <legend>Modificación de paciente</legend>
         <div class="control-group">
             <div class="controls">
+                <?php echo '<h4>Usted está modificando el paciente: ' . $a['nombre'] . '</h4>' ?>
+                <br>
                 <label>Nuevo nombre</label>
                 <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
                 <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre del paciente" data-content="Ingrese el nuevo nombre del paciente para modificarlo.">
@@ -141,16 +143,16 @@ $a = $result->fetch(PDO::FETCH_ASSOC);
                 </select>
                 <button class="btn btn-mini" onclick="return false;" data-original-title="Modificaar la obra social del paciente" data-content="Despliegue la lista haciendo click sobre el campo; luego seleccione de la lista la nueva obra social del paciente para modificarla.">
                     <i class="icon-question-sign"></i>
-                </button>  
-                <div class="form-actions">
-                    <input type="hidden" name="code" value="m"/>
+                </button>
+                <!--la saque el div-->
+                <!--<div class="form-actions">-->
+                    <br><br><input type="hidden" name="code" value="m"/>
                     <input type="hidden" name="ok" value="1"/>
                     <input type="hidden" name="id" value="<?php echo $id ?>"/>
                     <button type="submit" onclick="return veriformuPacienteMod()" class="btn btn-success">Guardar cambios</button>
                     <button type="reset" class="btn btn-success">Reiniciar</button>
-
-                </div>
-            </div>
+                <!--</div>-->
+                
         </div>
     </fieldset>
 </form>
