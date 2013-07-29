@@ -11,7 +11,7 @@ if (isset($_GET['esp_nue'])) {
     else
         $consulta = 'update especialidad set nombre = "' . $esp_nue . '" where nombre = "' . $esp_selec . '"';
     if ($db->query($consulta)) {
-        echo '<h4>Se modifico correctamente la especialidad: ' . $esp_selec . ' por ' . $esp_nue . '</h4>';
+        echo '<h4>Se modifico correctamente la Especialidad: ' . $esp_selec . ' por ' . $esp_nue . '</h4>';
     } else {
         echo '<fieldset  class="control-group error">
                             <span class="help-inline">Error al conectarte con la base de datos.</span>
@@ -20,13 +20,13 @@ if (isset($_GET['esp_nue'])) {
 }
 $db = null;
 ?>
-<legend>Listado de especialidades</legend>
+<legend>Listado de Especialidades</legend>
 <form class="form-horizontal" name="form" action="./especialidad/_especialidad_imprimir.php" method="GET" target="_blank">    
     <div class="control-group">
         <table id="tabla1"class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada especialidad para seleccionarla, o utilice los botones de Marcar/Desmarcar todos.">
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada Especialidad para seleccionarla, o utilice los botones de Marcar/Desmarcar todos.">
                             <i class="icon-question-sign"></i>
                         </button></th> 
                     <th>Nombre <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nombre" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
@@ -35,7 +35,7 @@ $db = null;
                     <th>Activa <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Activa" data-content="Oprima sobre este campo para ordenar la lista por el atributo Activa. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente a la especialidad que desee modificar.">
+                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente a la Especialidad que desee modificar.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                 </tr>

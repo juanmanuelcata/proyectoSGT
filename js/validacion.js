@@ -2,7 +2,7 @@ function veriFormuEspecialidad() {
   var nom = (document.getElementById('input01').value);
   var le = /([a-z]|[A-Z]\s?)/;
   if (le.test(nom)) {
-    var res = confirm("¿Seguro de agregar esta especialidad?");
+    var res = confirm("¿Seguro de agregar esta Especialidad?");
     if (res == true)
       return true;
     else
@@ -71,7 +71,7 @@ function veriformuUsr() {
           if (le.test(ap))
             if ((dni.length == 8) || (dni.length == 7))
               if (re.test(mail)) {
-                var res = confirm('¿Seguro de agregar este usuario?');
+                var res = confirm('¿Seguro de agregar este Usuario?');
                 return res;
               }
               else
@@ -86,7 +86,7 @@ function veriformuUsr() {
         else
           alert('El campo "Nombre" no puede estar vacío')
       else
-        alert('Las contraseñas deben coincidir');
+        alert('Las Contraseñas deben coincidir');
     else
     if (le.test(pass1))
       alert('El campo "Contraseña" debe tener 4 caracteres mínimo');
@@ -242,7 +242,7 @@ function veriformuMed() {
           if (re.test(mail))
             if (nu.test(telefono) && (telefono.length == 10))
               if (verificarHorario()) {
-                var res = confirm("¿Seguro de agregar este medico?");
+                var res = confirm("¿Seguro de agregar este Médico?");
                 if (res == true)
                   return true
                 else
@@ -311,7 +311,7 @@ function veriformuPaciente() {
               if (altura != "")
                 if (re.test(mail))
                   if (telefono.length == 10) {
-                    var res = confirm("¿Seguro de agregar este paciente?");
+                    var res = confirm("¿Seguro de agregar este Paciente?");
                     if (res == true)
                       return true
                     else
@@ -366,7 +366,7 @@ function veriformuPacienteMod() {
               if (altura != "")
                 if (re.test(mail))
                   if (telefono.length == 10) {
-                    var res = confirm("¿Seguro de modificar este paciente?");
+                    var res = confirm("¿Seguro de modificar este Paciente?");
                     if (res == true)
                       return true
                     else
@@ -404,14 +404,14 @@ function verifObra() {
   var le = /([a-z]|[A-Z]\s?)/;
   var continuo = false;
   if (le.test(obra)) {
-    var res = confirm("¿Seguro de agregar esta obra social?");
+    var res = confirm("¿Seguro de agregar esta Obra Social?");
     if (res == true)
       return true
     else
       return false
   }
   else
-    alert('El campo de obra social no debe estar vacio');
+    alert('El campo de Obra Social no debe estar vacio');
   return continuo;
 }
 

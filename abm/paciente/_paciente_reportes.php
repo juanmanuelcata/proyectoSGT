@@ -24,11 +24,13 @@ $result = $db->query($consulta);
                     $conAux = 'select * from turno';
                     $resultAux = $db->query($conAux);
                     $cantAux = $resultAux->rowCount();
-
-                    $porcentaje = ($cant * 100) / $cantAux;
+                    if ($cantAux > 0)
+                        $porcentaje = ($cant * 100) / $cantAux;
+                    else
+                        $porcentaje = ($cant * 100) / 1;
                     $porcentaje = round($porcentaje * 100) / 100; //esto es para redondear a 2 decimales
-                    
-                    $paciente = $valor['nombre'].' '.$valor['apellido'];
+
+                    $paciente = $valor['nombre'] . ' ' . $valor['apellido'];
                     ?>
                     <tr>
                         <td><?php echo $paciente ?></td>

@@ -3,22 +3,22 @@ $db = conectaDb();
 $consulta = "SELECT * from os";
 $result = $db->query($consulta);
 ?>
-<legend>Listado de obras sociales</legend>
+<legend>Listado de Obras Sociales</legend>
 <form class="form-horizontal" name="form" action="./obrasocial/_os_imprimir.php" method="GET" target="_blank">    
     <div class="control-group">
         <table id="tabla1"class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada obra social para seleccionarla, o utilice los botones de Marcar/Desmarcar todos.">
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada Obra Social para seleccionarla, o utilice los botones de Marcar/Desmarcar todos.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Nombre <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nombre" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                    <th>Nombre <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nombre" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre de la Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Activa <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Activa" data-content="Oprima sobre este campo para ordenar la lista por el atributo Activa. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                    <th>Activa <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Activa" data-content="Oprima sobre este campo para ordenar la lista por el atributo Activa de la Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente a la obra social que desee modificar.">
+                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente a la Obra Social que desee modificar.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                 </tr>
@@ -46,11 +46,11 @@ $result = $db->query($consulta);
     <br><br><br> 
     <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo()">Desmarcar todos</a>
-    <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todas las obras sociales visualizadas u oprima 'Desmarcar todos' para desmarcar todas las especialidades que estén visualizadas.">
+    <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todas las Obras Sociales visualizadas u oprima 'Desmarcar todos' para desmarcar todas las especialidades que estén visualizadas.">
         <i class="icon-question-sign"></i>
     </button>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
-    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione las obras sociales que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione las Obras Sociales que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
         <i class="icon-question-sign"></i>
     </button>
 
