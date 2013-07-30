@@ -4,7 +4,7 @@ $consulta = "select * from os";
 $result = $db->query($consulta);
 ?>
 
-<legend>Pacientes por obra social</legend>
+<legend>Pacientes por Obra Social</legend>
 <form class="form-horizontal" name="form1" action="./obrasocial/_os_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla1" class="table table-striped">
@@ -86,7 +86,7 @@ $result = $db->query($consulta);
 $result = $db->query($consulta);
 ?>
 
-<legend>Médicos por obra social</legend>
+<legend>Médicos por Obra Social</legend>
 <form class="form-horizontal" name="form2" action="./obrasocial/_os_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla2" class="table table-striped">
@@ -170,7 +170,7 @@ $result = $db->query($consulta);
 $result = $db->query($consulta);
 ?>
 
-<legend>Turnos por obra social</legend>
+<legend>Turnos por Obra Social</legend>
 <form class="form-horizontal" name="form3" action="./obrasocial/_os_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla3" class="table table-striped">
