@@ -276,14 +276,14 @@ $result = $db->query($conhorarios);
                                     <i class="icon-question-sign"></i>
                                 </button></th>
                             <th>Día <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Día" data-content="Oprima sobre este campo para ordenar la lista por el atributo Día de la consulta. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
-                            <i class="icon-question-sign"></i>
-                        </button></th>
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
                             <th>Desde <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Desde" data-content="Oprima sobre este campo para ordenar la lista por la hora de inicio de la consulta. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
-                            <i class="icon-question-sign"></i>
-                        </button></th>
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
                             <th>Hasta <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Hasta" data-content="Oprima sobre este campo para ordenar la lista por la hora de finalización de la consulta. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
-                            <i class="icon-question-sign"></i>
-                        </button></th>
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
                         </tr>
                     </thead>
                     <tbody>
