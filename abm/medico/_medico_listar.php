@@ -11,7 +11,7 @@ $result = $db->query($consulta);
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada médico para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Médico para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                     <th>Nombre <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Nombre" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
@@ -20,16 +20,16 @@ $result = $db->query($consulta);
                     <th>Apellido <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Apellido" data-content="Oprima sobre este campo para ordenar la lista por el atributo Apellido. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente al médico que desee modificar. Se abrirá en una pequeña ventana.">
+                    <th>Modificar <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Modificar" data-content="Oprima sobre el ícono del engranaje correspondiente al Médico que desee modificar. Se abrirá en una pequeña ventana.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Licencias <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Licencias" data-content="Oprima sobre el ícono del avión correspondiente al médico que desee ver y/o modificar la lista de licencias. Se abrirá en una pequeña ventana.">
+                    <th>Licencias <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Licencias" data-content="Oprima sobre el ícono del avión correspondiente al Médico que desee ver y/o modificar la lista de licencias. Se abrirá en una pequeña ventana.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Turnos" data-content="Oprima sobre el ícono del papel correspondiente al médico que desee ver y/o modificar la lista de turnos asignados al mismo.">
+                    <th>Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Turnos" data-content="Oprima sobre el ícono del papel correspondiente al Médico que desee ver y/o modificar la lista de turnos asignados al mismo.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Detalle <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Detalle" data-content="Oprima sobre el ícono del ojo correspondiente al médico que desee ver y/o modificar toda la información del mismo. Se abrirá en una pequeña ventana.">
+                    <th>Detalle <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Detalle" data-content="Oprima sobre el ícono del ojo correspondiente al Médico que desee ver y/o modificar toda la información del mismo. Se abrirá en una pequeña ventana.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                 </tr>
@@ -57,11 +57,11 @@ $result = $db->query($consulta);
     <br> 
     <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo()">Desmarcar todos</a>
-    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los médicos visualizados u oprima 'Desmarcar todos' para desmarcar todos los médicos que estén visualizados.">
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los Médicos visualizados u oprima 'Desmarcar todos' para desmarcar todos los Médicos que estén visualizados.">
         <i class="icon-question-sign"></i>
     </button>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
-    <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los médicos que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+    <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los Médicos que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf, el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
         <i class="icon-question-sign"></i>
     </button>
 </form>

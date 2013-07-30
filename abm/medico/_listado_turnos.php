@@ -14,11 +14,21 @@ $aux = $db->query($consulta);
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>Paciente</th>
-                    <th>DNI</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Turno para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Paciente <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Paciente" data-content="Oprima sobre este campo para ordenar la lista por el atributo Paciente (nombre y apellido) al que está asignado el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>DNI <button class="btn btn-mini" onclick="return false;" data-original-title="Campo DNI" data-content="Oprima sobre este campo para ordenar la lista por el atributo DNI del paciente al que está asignado el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Fecha <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Fecha" data-content="Oprima sobre este campo para ordenar la lista por el atributo Fecha del turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Hora <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Horario" data-content="Oprima sobre este campo para ordenar la lista por el atributo Hora (del inicio) del turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +50,13 @@ $aux = $db->query($consulta);
     <br> 
     <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo()">Desmarcar todos</a> 
+    <button class="btn btn-mini" id='ayuda' onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los turnos visualizados u oprima 'Desmarcar todos' para desmarcar todas los turnos que estén visualizados.">
+        <i class="icon-question-sign"></i>
+    </button>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los turnos que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+        <i class="icon-question-sign"></i>
+    </button>
 </form>
 
 <script>

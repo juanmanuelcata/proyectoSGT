@@ -35,14 +35,14 @@ if (isset($_GET['ok'])) {
         if ($db->query($consulta) && ($db->query($up))) {
             $id = $db->lastInsertId("seq_name");
             $fechita = date('Y-m-d H:i:s');
-            $detalle = 'Modificacion del médico  "' . $dni . '"';
+            $detalle = 'Modificacion del Médico  "' . $dni . '"';
             $user = $_SESSION['usuario']['user'];
             $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
               VALUES ('$fechita', '$user', '$detalle', 'medico', '$id' )";
             $db->query($log);
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
-                    <strong><h4>Muy Bien! Se modifico correctamente el medico: ' . $nombre . '</h4>.</strong>  
+                    <strong><h4>Muy Bien! Se modificó correctamente el Médico: ' . $nombre . '</h4>.</strong>  
             </div>';
             //reconsulta para actualizar los valores del formulario al modificar algo
             $id = $_GET['id'];
@@ -74,39 +74,39 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
 ?>
 <form class="form-horizontal" name="formi" action="./medico.php" method="GET">
     <fieldset>
-        <legend>Modificación de médico</legend>
+        <legend>Modificación de Médico</legend>
         <div class="control-group">
             <div class="controls">
-                <?php echo '<h4>Usted está modificando el médico: ' . $a['nombre'] . '</h4>' ?>
+                <?php echo '<h4>Usted está modificando el Médico: ' . $a['nombre'] . '</h4>' ?>
                 <br>
                 <label>Nuevo nombre</label>
                 <input value="<?php echo $a['nombre'] ?>" type="text" class="input-xlarge" id="nombre" name="nombre" onkeypress="return soloLetras(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre del médico" data-content="Ingrese el nuevo nombre del médico para modificarlo. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el nombre del Médico" data-content="Ingrese el nuevo nombre del Médico para modificarlo. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo apellido</label>
                 <input value="<?php echo $a['apellido'] ?>" type="text" class="input-xlarge" id="apellido" name="apellido" onkeypress="return soloLetras(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el apellido del médico" data-content="Ingrese el nuevo apellido del médico para modificarlo. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el apellido del Médico" data-content="Ingrese el nuevo apellido del Médico para modificarlo. No se permite ingresar números. La cantidad máxima de caracteres es 20.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo DNI</label>
                 <input value="<?php echo $a['dni'] ?>" type="text" class="input-xlarge" id="dni" name="dni" maxlength="8" onkeypress="return justNumbers(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el DNI del médico" data-content="Ingrese el nuevo DNI del médico para modificarlo. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el DNI del Médico" data-content="Ingrese el nuevo DNI del Médico para modificarlo. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
                     <i class="icon-question-sign"></i>
                 </button> 
                 <label>Nueva matrícula</label>
                 <input value="<?php echo $a['matricula'] ?>" type="text" class="input-xlarge" id="matricula" name="matricula" maxlength="8" onkeypress="return justNumbers(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la matrícula del médico" data-content="Ingrese la nueva matrícula del médico para modificarla. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la matrícula del Médico" data-content="Ingrese la nueva matrícula del Médico para modificarla. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 8.">
                     <i class="icon-question-sign"></i>
                 </button> 
                 <label>Nuevo mail</label>
                 <input value="<?php echo $a['mail'] ?>" type="text" class="input-xlarge" id="mail" name="mail">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el e-mail del médico" data-content="Ingrese el nuevo e-mail del médico para modificarlo. Por ejemplo: 'cuenta@gmail.com'.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el e-mail del Médico" data-content="Ingrese el nuevo e-mail del Médico para modificarlo. Por ejemplo: 'cuenta@gmail.com'.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nuevo teléfono</label>
                 <input value="<?php echo $a['telefono'] ?>" type="text" class="input-xlarge" id="tel" name="tel" maxlength="10" onkeypress="return justNumbers(event);">
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el teléfono del médico" data-content="Ingrese el nuevo teléfono del médico para modificarlo. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 10.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar el teléfono del Médico" data-content="Ingrese el nuevo teléfono del Médico para modificarlo. Solo se permiten caracteres numéricos. La cantidad máxima de dígitos es 10.">
                     <i class="icon-question-sign"></i>
                 </button>
                 <label>Nueva especialidad</label>
@@ -130,7 +130,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                         }
                     ?>
                 </select>
-                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la especialidad del médico" data-content="Oprima sobre la nueva especialidad del médico. Para abrir la lista de especialidades oprima sobre el campo que está a la izquierda o sobre la flecha hacia abajo. Una vez desplegada seleccione la nueva especialidad para modificarla.">
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la especialidad del Médico" data-content="Oprima sobre la nueva especialidad del Médico. Para abrir la lista de especialidades oprima sobre el campo que está a la izquierda o sobre la flecha hacia abajo. Una vez desplegada seleccione la nueva especialidad para modificarla.">
                     <i class="icon-question-sign"></i>
                 </button>
 
@@ -193,7 +193,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                                             endforeach;
                                             ?>
                                         </select>
-                                        <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la obra social del médico" data-content="Oprima sobre la nueva obra social del médico para modificarla o sobre la cruz para eliminarla. Para desplegar la lista de obras sociales haga click sobre el campo que está a la izquierda (o sobre la flecha hacia abajo). Una vez desplegada seleccione la nueva obra social.">
+                                        <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la obra social del Médico" data-content="Oprima sobre la nueva obra social del Médico para modificarla o sobre la cruz para eliminarla. Para desplegar la lista de obras sociales haga click sobre el campo que está a la izquierda (o sobre la flecha hacia abajo). Una vez desplegada seleccione la nueva obra social.">
                                             <i class="icon-question-sign"></i>
                                         </button>
                                     </fieldset>
@@ -210,7 +210,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
 
                 </fieldset>
 
-                <legend>Horarios del medico</legend>
+                <legend>Horarios del Médico</legend>
 
                 <fieldset>
 
@@ -244,7 +244,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                                         <?php endforeach; ?>
                                     </select>
 
-                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación del día de atención del médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de días hábiles. Elija el día haciendo click sobre el día correspondiente para modificarlo.">
+                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación del día de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de días hábiles. Elija el día haciendo click sobre el día correspondiente para modificarlo.">
                                         <i class="icon-question-sign"></i>
                                     </button>
 
@@ -259,7 +259,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                                         <?php endfor; ?>
                                     </select>
 
-                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación de la hora de atención del médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora de inicio de la consulta para modificarla.">
+                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación de la hora de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora de inicio de la consulta para modificarla.">
                                         <i class="icon-question-sign"></i>
                                     </button>
 
@@ -274,7 +274,7 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                                         <?php endfor; ?>
                                     </select>
 
-                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación de la hora de atención del médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora de finalización de la consulta para modificarla.">
+                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación de la hora de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora de finalización de la consulta para modificarla.">
                                         <i class="icon-question-sign"></i>
                                     </button>
 

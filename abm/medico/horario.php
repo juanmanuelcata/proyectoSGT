@@ -20,7 +20,7 @@
         $(".btn").popover({trigger: "hover"});
         </script>
 
-        <button class="btn" onclick="return false;" data-original-title="Seleccion del día de atención del médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de días hábiles. Haga click sobre el día correspondiente.">
+        <button class="btn" onclick="return false;" data-original-title="Seleccion del día de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de días hábiles. Haga click sobre el día correspondiente.">
             <i class="icon-question-sign"></i>
         </button>
 
@@ -34,7 +34,7 @@
             ?>
         </select>
 
-        <button class="btn" onclick="return false;" data-original-title="Seleccion de la hora de atención del médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora correspondiente al inicio de la consulta.">
+        <button class="btn" onclick="return false;" data-original-title="Seleccion de la hora de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora correspondiente al inicio de la consulta.">
             <i class="icon-question-sign"></i>
         </button>
 
@@ -49,7 +49,7 @@
             ?>
         </select>
 
-        <button class="btn" onclick="return false;" data-original-title="Seleccion de la hora de atención del médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora correspondiente a la finalización de la consulta.">
+        <button class="btn" onclick="return false;" data-original-title="Seleccion de la hora de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora correspondiente a la finalización de la consulta.">
             <i class="icon-question-sign"></i>
         </button>
 
