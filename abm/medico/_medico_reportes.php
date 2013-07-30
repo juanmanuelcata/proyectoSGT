@@ -1,16 +1,15 @@
 <?php
-
 $db = conectaDb();
 $consulta = "select * from medico";
 $result = $db->query($consulta);
 ?>
 <legend>Turnos por médico</legend>
-        <label>Fecha inicio</label>
-        <input class="fecha" type="date" tabindex="1" class="input-large" id="fechaInic" name="fechaInic">           
-        <br><br>
-        <label>Fecha fin</label>
-        <input class="fecha" type="date" tabindex="2" class="input-large" id="fechaFin" name="fechaFin" onkeypress="return justFecha(event);">
-        <br><br>
+<label>Fecha inicio</label>
+<input class="fecha" type="date" tabindex="1" class="input-large" id="fechaInic" name="fechaInic">           
+<br><br>
+<label>Fecha fin</label>
+<input class="fecha" type="date" tabindex="2" class="input-large" id="fechaFin" name="fechaFin" onkeypress="return justFecha(event);">
+<br><br>
 <form class="form-horizontal" name="form1" action="./medico/_medico_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <div id="manzana">
@@ -65,36 +64,36 @@ $result = $db->query($consulta);
 
 <script>
 
-            function seleccionar_todo1() {
-                for (i = 0; i < document.form1.elements.length; i++)
-                    if (document.form1.elements[i].type == "checkbox")
-                        document.form1.elements[i].checked = 1
-            }
+    function seleccionar_todo1() {
+        for (i = 0; i < document.form1.elements.length; i++)
+            if (document.form1.elements[i].type == "checkbox")
+                document.form1.elements[i].checked = 1
+    }
 
-            function deseleccionar_todo1() {
-                for (i = 0; i < document.form1.elements.length; i++)
-                    if (document.form1.elements[i].type == "checkbox")
-                        document.form1.elements[i].checked = 0
-            }
+    function deseleccionar_todo1() {
+        for (i = 0; i < document.form1.elements.length; i++)
+            if (document.form1.elements[i].type == "checkbox")
+                document.form1.elements[i].checked = 0
+    }
 
-            $().ready(function() {
+    $().ready(function() {
 
-                $('.fecha').change(function() {
-                    $.ajax({
-                        url: 'medico/obtener_turnos_por_cambio_fecha.php',
-                        type: 'POST',
-                        data: {
-                            fechaInic: $('#fechaInic').val(),
-                            fechaFin: $('#fechaFin').val()
-                        },
-                        success: function(data) {
+        $('.fecha').change(function() {
+            $.ajax({
+                url: 'medico/obtener_turnos_por_cambio_fecha.php',
+                type: 'POST',
+                data: {
+                    fechaInic: $('#fechaInic').val(),
+                    fechaFin: $('#fechaFin').val()
+                },
+                success: function(data) {
 
-                            $('#banana').remove();
-                            $('#manzana').append(data);
-                        }
-                    });
-                });
+                    $('#banana').remove();
+                    $('#manzana').append(data);
+                }
             });
+        });
+    });
 
 </script>
 
@@ -102,14 +101,14 @@ $result = $db->query($consulta);
 <?php $result = $db->query($consulta); ?>
 
 <legend>Turnos cancelados</legend>
+<label>Fecha inicio</label>
+<input class="fecha1" type="date" tabindex="1" class="input-large" id="fechaInic1" name="fechaInic1">           
+<br><br>
+<label>Fecha fin</label>
+<input class="fecha1" type="date" tabindex="2" class="input-large" id="fechaFin1" name="fechaFin1">
+<br><br>
 <form class="form-horizontal" name="form2" action="./medico/_medico_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
-        <label>Fecha inicio</label>
-        <input class="fecha1" type="date" tabindex="1" class="input-large" id="fechaInic1" name="fechaInic1">           
-        <br><br>
-        <label>Fecha fin</label>
-        <input class="fecha1" type="date" tabindex="2" class="input-large" id="fechaFin1" name="fechaFin1">
-        <br><br>
         <div id="manzana1">
             <div id="banana1">
                 <table id="tabla2" class="table table-striped">
@@ -140,7 +139,7 @@ $result = $db->query($consulta);
                             $medico = $valor['nombre'] . ' ' . $valor['apellido'];
                             ?>
                             <tr>
-                                <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
+                                <td><input type="checkbox" name="<?php echo $valor['idmedico'] ?>" value="<?php echo $valor['idmedico'] ?>" id="<?php echo $valor['idmedico'] ?>"></td>
                                 <td><?php echo $medico ?></td>
                                 <td><?php echo $cant ?></td>
                                 <td><?php echo $porcentaje ?></td>
@@ -156,23 +155,25 @@ $result = $db->query($consulta);
     <br>
     <a href="javascript:seleccionar_todo2()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo2()">Desmarcar todos</a>
-    <input type="hidden" name="code2" value="2"/>
+    <input type="hidden" name="code" value="2"/>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
 </form>
 
+<div><strong>Nota: </strong>el porcentaje de turnos cancelados es sobre el total del turnos del médico</div>
+<br><br>
 <script>
 
     function seleccionar_todo2() {
-                for (i = 0; i < document.form2.elements.length; i++)
-                    if (document.form2.elements[i].type == "checkbox")
-                        document.form2.elements[i].checked = 1
-            }
+        for (i = 0; i < document.form2.elements.length; i++)
+            if (document.form2.elements[i].type == "checkbox")
+                document.form2.elements[i].checked = 1
+    }
 
-            function deseleccionar_todo2() {
-                for (i = 0; i < document.form2.elements.length; i++)
-                    if (document.form2.elements[i].type == "checkbox")
-                        document.form2.elements[i].checked = 0
-            }
+    function deseleccionar_todo2() {
+        for (i = 0; i < document.form2.elements.length; i++)
+            if (document.form2.elements[i].type == "checkbox")
+                document.form2.elements[i].checked = 0
+    }
 
     $().ready(function() {
 
@@ -195,37 +196,33 @@ $result = $db->query($consulta);
 </script>
 
 
-
 <?php
-$conhorarios = "select nombre, apellido, dia, min(desde) desde, max(hasta) hasta, id_med from horario inner join medico on (horario.id_med = medico.idmedico) group by id_med, dia";
-$result2 = $db->query($conhorarios);
-;
-?>
+    $conhorarios = "select id, nombre, apellido, dia, min(desde) desde, max(hasta) hasta, id_med from horario inner join medico on (horario.id_med = medico.idmedico) group by id_med, dia";
+    $result = $db->query($conhorarios);
+    ?>
 
 <legend>Medicos por banda horaria</legend>
+<label>Horario inicio</label>
+<select class="hora" name="horario1" id="horario1" onchange="return verifHorario();">
+    <option selected="selected">Elija un horario</option>
+    <?php
+    for ($i = 8; $i < 20; $i++) {
+        echo "<option value=\"$i:00:00\">$i:00</option>";
+    }
+    ?>
+</select>
+<br><br>
+<label>Horario fin</label>
+<select class="hora" name="horario2" id="horario2" onchange="return verifHorario();">
+    <option selected="selected">Elija un horario</option>
+    <?php
+    for ($i = 8; $i < 20; $i++) {
+        echo "<option value=\"$i:00:00\">$i:00</option>";
+    }
+    ?>
+</select>
 <form class="form-horizontal" name="form3" action="./medico/_medico_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
-        <label>Horario inicio</label>
-        <select class="hora" name="horario1" id="horario1" onchange="return verifHorario();">
-            <option selected="selected">Elija un horario</option>
-            <?php
-            for ($i = 8; $i < 20; $i++) {
-                echo "<option value=\"$i:00:00\">$i:00</option>";
-            }
-            ?>
-        </select>
-        <br><br>
-        <label>Horario fin</label>
-        <select class="hora" name="horario2" id="horario2" onchange="return verifHorario();">
-            <option selected="selected">Elija un horario</option>
-            <?php
-            for ($i = 8; $i < 20; $i++) {
-                echo "<option value=\"$i:00:00\">$i:00</option>";
-            }
-            ?>
-
-
-        </select>
         <br><br>
         <div id="manzana2">
             <div id="banana2">
@@ -240,21 +237,21 @@ $result2 = $db->query($conhorarios);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($result2 as $valor2): ?> 
-                            <?php $medico = $valor2['nombre'] . ' ' . $valor2['apellido']; ?>
+                        <?php foreach ($result as $valor): ?> 
+                            <?php $medico = $valor['nombre'] . ' ' . $valor['apellido']; ?>
                             <tr>
-                                <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
+                                <td><input type="checkbox" name="<?php echo $valor['id'] ?>" value="<?php echo $valor['id'] ?>" id="<?php echo $valor['id'] ?>"></td>
                                 <td><?php echo $medico ?></td>
-                                <td><?php echo $valor2['dia'] ?></td>    
-                                <td><?php echo $valor2['desde'] ?></td>
-                                <td><?php echo $valor2['hasta'] ?></td>    
+                                <td><?php echo $valor['dia'] ?></td>    
+                                <td><?php echo $valor['desde'] ?></td>
+                                <td><?php echo $valor['hasta'] ?></td>    
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
+    </div
     <br>
     <a href="javascript:seleccionar_todo3()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo3()">Desmarcar todos</a> 
@@ -265,16 +262,16 @@ $result2 = $db->query($conhorarios);
 <script>
 
     function seleccionar_todo3() {
-                for (i = 0; i < document.form3.elements.length; i++)
-                    if (document.form3.elements[i].type == "checkbox")
-                        document.form3.elements[i].checked = 1
-            }
+        for (i = 0; i < document.form3.elements.length; i++)
+            if (document.form3.elements[i].type == "checkbox")
+                document.form3.elements[i].checked = 1
+    }
 
-            function deseleccionar_todo3() {
-                for (i = 0; i < document.form3.elements.length; i++)
-                    if (document.form3.elements[i].type == "checkbox")
-                        document.form3.elements[i].checked = 0
-            }
+    function deseleccionar_todo3() {
+        for (i = 0; i < document.form3.elements.length; i++)
+            if (document.form3.elements[i].type == "checkbox")
+                document.form3.elements[i].checked = 0
+    }
 
     function verifHorario() {
         var horario1 = $('#horario1').val();
@@ -307,7 +304,4 @@ $result2 = $db->query($conhorarios);
             });
         });
     });
-
-
-
 </script>
