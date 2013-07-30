@@ -15,7 +15,7 @@ if ($result->rowCount() == 0) {
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir" data-content="Oprima sobre cada paciente para seleccionarlo, o utilice los botones de Marcar/Desmarcar todos.">
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada paciente para seleccionarlo, o utilice los botones de Marcar/Desmarcar todos.">
                             <i class="icon-question-sign"></i>
                         </button></th>
                     <th>DNI <button class="btn btn-mini" onclick="return false;" data-original-title="Campo DNI" data-content="Oprima sobre este campo para ordenar la lista por el atributo DNI. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
