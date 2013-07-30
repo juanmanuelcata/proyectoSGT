@@ -1,5 +1,3 @@
-<script>console.log('llego1');</script> 
-
 <?php
 // Prueba de impresion
 require('../../Imprimir/fpdf/fpdf.php');

@@ -5,11 +5,12 @@ $result = $db->query($consulta);
 ?>
 
 <legend>Médicos por especialidad</legend>
-<form class="form-horizontal" name="form" action="#" method="GET" target="_blank">
+<form class="form-horizontal" name="form1" action="./especialidad/_especialiad_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
+                    <th>Elegir</th>
                     <th>Especialidad</th>
                     <th>Cantidad de médicos</th>
                     <th>% de médicos</th>
@@ -33,6 +34,7 @@ $result = $db->query($consulta);
                     $porcentaje = round($porcentaje * 100) / 100; //esto es para redondear a 2 decimales
                     ?>
                     <tr>
+                        <td><input type="checkbox" name="<?php echo $valor['idespecialidad'] ?>" value="<?php echo $valor['idespecialidad'] ?>" id="<?php echo $valor['idespecialidad'] ?>"></td>
                         <td><?php echo $valor['nombre'] ?></td>
                         <td><?php echo $cant ?></td>
                         <td><?php echo $porcentaje ?></td>
@@ -44,10 +46,25 @@ $result = $db->query($consulta);
         </table>
     </div>
     <br>
-    <!--    <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
-        <a href="javascript:deseleccionar_todo()">Desmarcar todos</a> 
-        <button type="submit" class="btn btn-success offset1">Imprimir</button>-->
+    <a href="javascript:seleccionar_todo1()">Marcar todos</a> | 
+    <a href="javascript:deseleccionar_todo1()">Desmarcar todos</a>
+    <input type="hidden" name="code" value="a"/>
+    <button type="submit" class="btn btn-success offset1">Imprimir</button>
 </form>
+
+<script>
+    function seleccionar_todo1() {
+        for (i = 0; i < document.form1.elements.length; i++)
+            if (document.form1.elements[i].type == "checkbox")
+                document.form1.elements[i].checked = 1
+    }
+
+    function deseleccionar_todo1() {
+        for (i = 0; i < document.form1.elements.length; i++)
+            if (document.form1.elements[i].type == "checkbox")
+                document.form1.elements[i].checked = 0
+    }
+</script>
 
 
 
@@ -56,11 +73,12 @@ $result = $db->query($consulta);
 ?>
 
 <legend>Turnos por especialidad</legend>
-<form class="form-horizontal" name="form" action="#" method="GET" target="_blank">
+<form class="form-horizontal" name="form2" action="./especialidad/_especialiad_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla2" class="table table-striped">
             <thead>
                 <tr>
+                    <th>Elegir</th>
                     <th>Especialidad</th>
                     <th>Cantidad de turnos</th>
                     <th>% de turnos</th>
@@ -85,6 +103,7 @@ $result = $db->query($consulta);
                     $porcentaje = round($porcentaje * 100) / 100; //esto es para redondear a 2 decimales
                     ?>
                     <tr>
+                        <td><input type="checkbox" name="<?php echo $valor['idespecialidad'] ?>" value="<?php echo $valor['idespecialidad'] ?>" id="<?php echo $valor['idespecialidad'] ?>"></td>
                         <td><?php echo $valor['nombre'] ?></td>
                         <td><?php echo $cant ?></td>
                         <td><?php echo $porcentaje ?></td>
@@ -96,7 +115,23 @@ $result = $db->query($consulta);
         </table>
     </div>
     <br>
-    <!--    <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
-        <a href="javascript:deseleccionar_todo()">Desmarcar todos</a> 
-        <button type="submit" class="btn btn-success offset1">Imprimir</button>-->
+    <a href="javascript:seleccionar_todo2()">Marcar todos</a> | 
+    <a href="javascript:deseleccionar_todo2()">Desmarcar todos</a>
+    <input type="hidden" name="code" value="b"/>
+    <button type="submit" class="btn btn-success offset1">Imprimir</button>
 </form>
+
+<script>
+    function seleccionar_todo2() {
+        for (i = 0; i < document.form2.elements.length; i++)
+            if (document.form2.elements[i].type == "checkbox")
+                document.form2.elements[i].checked = 1
+    }
+
+    function deseleccionar_todo2() {
+        for (i = 0; i < document.form2.elements.length; i++)
+            if (document.form2.elements[i].type == "checkbox")
+                document.form2.elements[i].checked = 0
+    }
+
+</script>
