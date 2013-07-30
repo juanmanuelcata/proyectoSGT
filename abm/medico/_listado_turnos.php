@@ -17,10 +17,18 @@ $aux = $db->query($consulta);
                     <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Turno para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
                             <i class="icon-question-sign"></i>
                         </button></th>
-                    <th>Paciente</th>
-                    <th>DNI</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
+                    <th>Paciente <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Paciente" data-content="Oprima sobre este campo para ordenar la lista por el atributo Paciente (nombre y apellido) al que está asignado el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>DNI <button class="btn btn-mini" onclick="return false;" data-original-title="Campo DNI" data-content="Oprima sobre este campo para ordenar la lista por el atributo DNI del paciente al que está asignado el turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Fecha <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Fecha" data-content="Oprima sobre este campo para ordenar la lista por el atributo Fecha del turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Hora <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Horario" data-content="Oprima sobre este campo para ordenar la lista por el atributo Hora (del inicio) del turno. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                 </tr>
             </thead>
             <tbody>
