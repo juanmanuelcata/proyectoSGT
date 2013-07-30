@@ -10,10 +10,18 @@ $result = $db->query($consulta);
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>Obra Social</th>
-                    <th>Cantidad de pacientes</th>
-                    <th>% de pacientes</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Obra Social <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Obra Social" data-content="Oprima sobre este campo para ordenar la lista por el nombre de la Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Cantidad de Pacientes <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cantidad de Pacientes" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Pacientes que están afiliados a la cada Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>% de Pacientes <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Pacientes" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Pacientes que están afiliados a la cada Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,8 +56,14 @@ $result = $db->query($consulta);
     <br>
     <a href="javascript:seleccionar_todo1()">Marcar todos</a> |
     <a href="javascript:deseleccionar_todo1()">Desmarcar todos</a>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los Reportes visualizados u oprima 'Desmarcar todos' para desmarcar todos los Médicos que estén visualizados.">
+        <i class="icon-question-sign"></i>
+    </button>
     <input type="hidden" name="code" value="a"/>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los Reportes que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf, el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+        <i class="icon-question-sign"></i>
+    </button>
 </form>
 
 <script>
@@ -78,10 +92,18 @@ $result = $db->query($consulta);
         <table id="tabla2" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>Obra Social</th>
-                    <th>Cantidad de médicos</th>
-                    <th>% de médicos</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Obra Social <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Obra Social" data-content="Oprima sobre este campo para ordenar la lista por el nombre de la Obra Social, teniendo en cuenta que un Médico puede atender por más de una Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Cantidad de Médicos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cantidad de Médicos" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Médicos que atienden por una Obra Social, teniendo en cuenta que un Médico puede atender por más de una Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>% de Médicos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Médicos" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Médicos que atienden por una Obra Social, teniendo en cuenta que un Médico puede atender por más de una Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
                 </tr>
             </thead>
             <tbody>
@@ -114,8 +136,14 @@ $result = $db->query($consulta);
     </div>
     <a href="javascript:seleccionar_todo2()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo2()">Desmarcar todos</a> 
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los Reportes visualizados u oprima 'Desmarcar todos' para desmarcar todos los Médicos que estén visualizados.">
+        <i class="icon-question-sign"></i>
+    </button>
     <input type="hidden" name="code" value="b"/>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los Reportes que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf, el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+        <i class="icon-question-sign"></i>
+    </button>
 </form>
 <p><strong>Nota: </strong> un medico puede atender por mas de una obra social</p>
 
@@ -148,10 +176,18 @@ $result = $db->query($consulta);
         <table id="tabla3" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>Obra Social</th>
-                    <th>Cantidad de turnos</th>
-                    <th>% de turnos</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Obra Social <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Obra Social" data-content="Oprima sobre este campo para ordenar la lista por el nombre de la Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Cantidad de Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cantidad de Turnos" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Turnos que están asignados a un Médico que trabaja para una Obra Social, teniendo en cuenta que un Médico puede atender por más de una Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>% de Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Turnos" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Turnos que están asignados a un Médico que trabaja para una Obra Social, teniendo en cuenta que un Médico puede atender por más de una Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
                 </tr>
             </thead>
             <tbody>
@@ -184,9 +220,16 @@ $result = $db->query($consulta);
     </div>
     <br>
     <a href="javascript:seleccionar_todo3()">Marcar todos</a> | 
-    <a href="javascript:deseleccionar_todo3()">Desmarcar todos</a> 
+    <a href="javascript:deseleccionar_todo3()">Desmarcar todos</a>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los Reportes visualizados u oprima 'Desmarcar todos' para desmarcar todos los Médicos que estén visualizados.">
+        <i class="icon-question-sign"></i>
+    </button>
     <input type="hidden" name="code" value="c"/>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los Reportes que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf, el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+        <i class="icon-question-sign"></i>
+    </button>
+    <br><br><br>
 </form>
 
 

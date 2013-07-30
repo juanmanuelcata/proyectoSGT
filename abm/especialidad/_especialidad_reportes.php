@@ -4,16 +4,24 @@ $consulta = "select * from especialidad";
 $result = $db->query($consulta);
 ?>
 
-<legend>Médicos por especialidad</legend>
+<legend>Médicos por Especialidad</legend>
 <form class="form-horizontal" name="form1" action="./especialidad/_especialiad_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>Especialidad</th>
-                    <th>Cantidad de médicos</th>
-                    <th>% de médicos</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Especialidad <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Especialidad" data-content="Oprima sobre este campo para ordenar la lista por el nombre de la Especialidad. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Cantidad de Médicos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo cantidad de Médicos" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Médicos que están capacitados en una Especialidad. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>% de Médicos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Médicos" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Médicos que están capacidatos en una Especialidad. El porcentaje de Médicos es sobre el total de Médicos. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
                 </tr>
             </thead>
             <tbody>
@@ -48,8 +56,14 @@ $result = $db->query($consulta);
     <br>
     <a href="javascript:seleccionar_todo1()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo1()">Desmarcar todos</a>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los Reportes visualizados u oprima 'Desmarcar todos' para desmarcar todos los Médicos que estén visualizados.">
+        <i class="icon-question-sign"></i>
+    </button>
     <input type="hidden" name="code" value="a"/>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los Reportes que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf, el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+        <i class="icon-question-sign"></i>
+    </button>
 </form>
 
 <script>
@@ -72,16 +86,24 @@ $result = $db->query($consulta);
 $result = $db->query($consulta);
 ?>
 
-<legend>Turnos por especialidad</legend>
+<legend>Turnos por Especialidad</legend>
 <form class="form-horizontal" name="form2" action="./especialidad/_especialiad_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <table id="tabla2" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>Especialidad</th>
-                    <th>Cantidad de turnos</th>
-                    <th>% de turnos</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Especialidad <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Especialidad" data-content="Oprima sobre este campo para ordenar la lista por el nombre de la Especialidad. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>Cantidad de Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo cantidad de Turnos" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Turnos que están asignados a un Médico que posee una Especialidad. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
+                    <th>% de Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Turnos" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Turnos que están asignados a un Médico que posee una Especialidad. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                                    <i class="icon-question-sign"></i>
+                                </button></th>
                 </tr>
             </thead>
             <tbody>
@@ -117,8 +139,15 @@ $result = $db->query($consulta);
     <br>
     <a href="javascript:seleccionar_todo2()">Marcar todos</a> | 
     <a href="javascript:deseleccionar_todo2()">Desmarcar todos</a>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los Reportes visualizados u oprima 'Desmarcar todos' para desmarcar todos los Médicos que estén visualizados.">
+        <i class="icon-question-sign"></i>
+    </button>
     <input type="hidden" name="code" value="b"/>
     <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los Reportes que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf, el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+        <i class="icon-question-sign"></i>
+    </button>
+    <br><br><br>
 </form>
 
 <script>

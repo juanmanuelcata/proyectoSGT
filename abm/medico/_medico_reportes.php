@@ -23,7 +23,7 @@ $result = $db->query($consulta);
                 <table id="tabla1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Médico para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                            <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
                                     <i class="icon-question-sign"></i>
                                 </button></th>
                             <th>Médico <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Médico" data-content="Oprima sobre este campo para ordenar la lista por el Nombre y Apellido del Médico. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
@@ -140,7 +140,7 @@ $result = $db->query($consulta);
                 <table id="tabla2" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Médico para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                            <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
                                     <i class="icon-question-sign"></i>
                                 </button></th>
                             <th>Médico <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Médico" data-content="Oprima sobre este campo para ordenar la lista por el Nombre y Apellido del Médico. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
@@ -269,7 +269,7 @@ $result = $db->query($conhorarios);
                 <table id="tabla3" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Médico para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
+                            <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Reporte para seleccionarlo, o utilice los botones de Marcar o Desmarcar todos.">
                                     <i class="icon-question-sign"></i>
                                 </button></th>
                             <th>Médico <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Médico" data-content="Oprima sobre este campo para ordenar la lista por el Nombre y Apellido del Médico. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
