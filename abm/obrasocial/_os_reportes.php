@@ -16,10 +16,10 @@ $result = $db->query($consulta);
                     <th>Obra Social <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Obra Social" data-content="Oprima sobre este campo para ordenar la lista por el nombre de la Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                                     <i class="icon-question-sign"></i>
                                 </button></th>
-                    <th>Cantidad de Pacientes <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cantidad de Pacientes" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Pacientes que están afiliados a la cada Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                    <th>Cantidad de Pacientes <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cantidad de Pacientes" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Pacientes que están afiliados a cada Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                                     <i class="icon-question-sign"></i>
                                 </button></th>
-                    <th>% de Pacientes <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Pacientes" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Pacientes que están afiliados a la cada Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                    <th>% de Pacientes <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Pacientes" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Pacientes que están afiliados a cada Obra Social. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
                                     <i class="icon-question-sign"></i>
                                 </button</th>
                 </tr>
