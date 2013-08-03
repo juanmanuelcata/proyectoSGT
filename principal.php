@@ -36,7 +36,7 @@ include_once('sesion/login.php');
           
    <h4 class="text-center">Pagina en construccion</h4>
 <dl>
-<dt>Falta asignar: </dt>
+<!--<dt>Falta asignar: </dt>
 <dd>editar el formato a botones para simplificar la vista
 	<dd>superpocicion de licencias</dd>
 
@@ -61,7 +61,7 @@ include_once('sesion/login.php');
    <br>
 
 
-Por el momento esto es lo que se me ocurre que falta, cualquier cosa agreguen a la lista de “falta asignar”
+Por el momento esto es lo que se me ocurre que falta, cualquier cosa agreguen a la lista de “falta asignar”-->
         </div>
       </div>
     </div>

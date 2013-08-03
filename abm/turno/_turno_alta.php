@@ -101,7 +101,25 @@ if (isset($_GET['id'])) {
                                 }
                             });
                         });
-
+                        
+                        
+//                        //nuevo
+//                        $('#select_especialidades').change(function() {
+//                            $.ajax({
+//                                url: 'turno/obtener_dias_por_especialidad.php',
+//                                type: 'POST',
+//                                data: {
+//                                    idEspecialidad: $(this).val()
+//                                },
+//                                success: function(data) {
+//                                    $('.option2').remove();
+//                                    $('#select_dia').append(data);
+//                                }
+//                            });
+//                        });
+//                        //fin nuevo
+                        
+                        
                         $('#select_medicos').change(function() {
                             $.ajax({
                                 url: 'turno/obtener_dias_por_medico.php',
