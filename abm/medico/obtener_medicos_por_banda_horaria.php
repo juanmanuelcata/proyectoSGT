@@ -37,6 +37,7 @@ $hora2 = $_POST['hora2'];
                 $conhorarios = "select nombre, apellido, dia, min(desde) desde, max(hasta) hasta, id_med from horario inner join medico on (horario.id_med = medico.idmedico)
                         where desde >= '$hora1' and hasta <= '$hora2' group by id_med, dia";
                 $result2 = $db->query($conhorarios);
+                $cantMed = $result2->rowCount();
             } else {
                 $conhorarios = "select nombre, apellido, dia, min(desde) desde, max(hasta) hasta, id_med from horario inner join medico on (horario.id_med = medico.idmedico) group by id_med, dia";
                 $result2 = $db->query($conhorarios);
@@ -54,6 +55,10 @@ $hora2 = $_POST['hora2'];
             <?php endforeach; ?>
         </tbody>
     </table>
+    <br><br><br>
+    <?php if (isset($cantMed)): ?>
+        <p><strong>Total: </strong></label><?php echo $cantMed ?> médicos</p>
+    <?php endif; ?>
 </div>
 <script type="text/javascript">
                     $(document).ready(function() {

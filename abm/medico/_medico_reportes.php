@@ -239,6 +239,7 @@ $result = $db->query($consulta);
 <?php
 $conhorarios = "select id, nombre, apellido, dia, min(desde) desde, max(hasta) hasta, id_med from horario inner join medico on (horario.id_med = medico.idmedico) group by id_med, dia";
 $result = $db->query($conhorarios);
+$cantMed = $result->rowCount();
 ?>
 
 <legend>Medicos por banda horaria</legend>
@@ -292,13 +293,18 @@ $result = $db->query($conhorarios);
                             <tr>
                                 <td><input type="checkbox" name="<?php echo $valor['id'] ?>" value="<?php echo $valor['id'] ?>" id="<?php echo $valor['id'] ?>"></td>
                                 <td><?php echo $medico ?></td>
-                                <td><?php echo $valor['dia'] ?></td>    
+                                <td><?php echo $valor['dia'] ?></td>
                                 <td><?php echo $valor['desde'] ?></td>
                                 <td><?php echo $valor['hasta'] ?></td>    
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <br><br><br>
+
+                <?php if (isset($cantMed)): ?>
+                    <p><strong>Total: </strong><?php echo $cantMed ?> médicos</p>
+                <?php endif; ?>
             </div>
         </div>
     </div
