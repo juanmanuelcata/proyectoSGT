@@ -21,8 +21,6 @@ if (isset($_GET['id'])) {
                 <input type="text" tabindex="1" readonly="readonly" class="input-medium"
                        id="nombre" name="nombre" placeholder="Nombre" maxlength="20" value="<?php echo '' . $nombre . ' ' . $apellido . '.'; ?>">
                 <br><br>
-                <legend><h4>Médico</h4></legend>
-                <label>Especialidad</label>
                 <?php
                 $datab = conectaDb();
                 $consulta = "SELECT * FROM especialidad where activa = 1";
@@ -66,7 +64,7 @@ if (isset($_GET['id'])) {
                 </button>
 
                 <select id="select_horario" name="horario">
-                    <option value="-1" class="option3">Seleccione un Horario</option>
+                    <option value="-1" class="option3">Seleccione un horario</option>
 
                 </select>
                 <button class="btn btn-mini" onclick="return false;" data-original-title="Horario de la consulta" data-content="Despliegue la lista de Horarios disponibles del Médico el día seleccionado haciendo click sobre el campo a la izquierda, luego seleccione de la lista el Horario al que se le desea asignar un Turno.">

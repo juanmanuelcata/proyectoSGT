@@ -16,9 +16,9 @@ $tmp = $db->query($consulta2);
 
 foreach ($tmp as $valor){  
       //para las licencias
-
-      $con= "select max(desde) desde, hasta, id_med from licencia where id_med = '".$valor['idmedico']."'";
-      $tmp = $db->query($con);
+//no entiendo que haces aca, estas "reemplazando" tmp?
+//      $con= "select max(desde) desde, hasta, id_med from licencia where id_med = '".$valor['idmedico']."'";
+//      $tmp = $db->query($con);
 
       //fin para las licencias
 
