@@ -29,24 +29,29 @@ if (isset($_GET['idpaciente'])) {
 //insercion de turno
     $auxx = new DateTime($fecha->getDia());
     $fechaYanki = $auxx->format('Y-m-d');
-    $consultaInsertarTurno = "insert into turno (id_pac, id_med, fecha, hora, id_os, responsable ) 
+
+    $verifConsul = "select idturno from turno where id_pac = '$idpaciente' and id_med = '$idmedico' and fecha = '" . $fechaYanki . "' and hora = '$horario'";
+    $resulVerif = $db->query($verifConsul);
+    if ($resulVerif->rowCount() == 0) {
+        $consultaInsertarTurno = "insert into turno (id_pac, id_med, fecha, hora, id_os, responsable ) 
                                          value ('$idpaciente', '$idmedico', '" . $fechaYanki . "', '$horario', '$idos', '$responsable')";
 
-    $result = $db->query($consultaInsertarTurno);
-    if ($result) {
-        echo '<div class="alert alert-success">  
+        $result = $db->query($consultaInsertarTurno);
+        if ($result) {
+            echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
                     <strong><h4>El turno se dio de alta correctamente</h4>.</strong>  
                  </div>';
-    } else {
-        echo '<div class="alert alert-error">  
+        } else {
+            echo '<div class="alert alert-error">  
                 <a class="close" data-dismiss="alert">×</a>  
                 <strong><h4>Error!</h4> Error al conectarse a la base de datos</strong>.  
              </div>';
-    }
+        }
 
-    $inhabilitarHorarioDisponible = "update horario set activo=0 where id='$idhorario'";
-    $result = $db->query($inhabilitarHorarioDisponible);
+        $inhabilitarHorarioDisponible = "update horario set activo=0 where id='$idhorario'";
+        $result = $db->query($inhabilitarHorarioDisponible);
+    }
 }
 $db = conectaDb();
 $consulta = "SELECT idturno, turno.fecha fecha, turno.hora hora, turno.estado estado,
