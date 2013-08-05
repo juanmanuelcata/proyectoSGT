@@ -36,32 +36,23 @@ include_once('sesion/login.php');
           
    <h4 class="text-center">Pagina en construccion</h4>
 <dl>
-<!--<dt>Falta asignar: </dt>
-<dd>editar el formato a botones para simplificar la vista
-	<dd>superpocicion de licencias</dd>
-
-<dt>Lautaro:</dt>
-	<dd>Definir el alcance de los permisos de secretaria…</dd>
-  <dd>agregar "quienes somos" y "agradecimientos" a la pagina</dd>
-  <dd>Turno_alta, si no hay medico ponerlo en el select (o alert), lo mismo en días y horarios.</dd>
-
-<dt>Pato:</dt>
-		<dd>Listado de turnos: todo</dd>
-                <dd>Reportes: todos</dd>
-		<dd>Logs: Campo Elegir - Imprimir y marcar todos</dd>
-		
-<dt>Juancho:</dt>
-	<dd>imprimir los reportes(todos)</dd>
-	<dd>imprimir logs</dd>
-  <dd>poner un imprimir individual en detalle de paciente o medico con todos los datos </dd>
-  <dd>imprimir de licencias</dd>
-  <dt>Nestor:	</dt>
-  <dd>Manual(mas te vale que este genial)</dd>
-</dl>        
-   <br>
-
-
-Por el momento esto es lo que se me ocurre que falta, cualquier cosa agreguen a la lista de “falta asignar”-->
+              <?php 
+              require_once('./fragmentos/Dia.php');
+              
+              
+              $hoy=date('d-m-Y');
+              $dia = new Dia($hoy);
+              echo $dia->getDia();
+              echo $dia->getNombre();
+              
+              
+              $hoy2 = new Dia('dom');
+              echo $hoy2->getDia();
+              echo $hoy2->getNombre();
+              
+              
+              ?>
+              <input type="date"/>
         </div>
       </div>
     </div>

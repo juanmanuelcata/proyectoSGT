@@ -34,7 +34,7 @@ foreach ($tmp as $valor):
 
     if ( $desde->getDia() <  $aux->getDia() && $aux->getDia() > $hasta->getDia()):
       ?>
-
+  
       <option class="option2" name="fecha" value="<?php echo $aux->getNombre() ?>">
         <?php echo $valor['dia'] . '--' . $aux->getDia() ?></option>
 
@@ -58,5 +58,6 @@ foreach ($semana as $d):
   <option class="option2" name="fecha" value="-1">
   <?php echo $d . '-Lleno-' . $aux2->getDia() ?></option>
 <?php endforeach; ?>
+
 
  
