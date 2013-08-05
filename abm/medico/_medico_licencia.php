@@ -57,6 +57,9 @@ else
                         $consulta2 = "select * from medico where '$idmedico' = idmedico";
                         $verif1 = $db->query($consulta2);
                         $seg = $verif1->fetch(PDO::FETCH_ASSOC);
+                        print_r($seg);
+                        echo "<br>";
+                        echo $consulta2;
                         echo '<legend>Listado de licencias del Médico "' . $seg['nombre'] . '  ' . $seg['apellido'] . '"</legend>';
 //mi codigo laucha
                         $hoy = date('Y-m-d');
@@ -103,9 +106,8 @@ else
                     } else {
                         if (isset($_GET['id'])) {
                             $idmedico = $_GET['id'];
-                            $consulta = "SELECT * from medico inner join licencia on ( '$idmedico' = id_med)";
+                            $consulta = "SELECT * from medico inner join licencia on ( idmedico = id_med) where '$idmedico' = id_med";
                             $result = $db->query($consulta);
-
                             if (!$result->rowCount()) {
                                 $consulta2 = "select * from medico where idmedico = $idmedico";
                                 $consul = $db->query($consulta2);
