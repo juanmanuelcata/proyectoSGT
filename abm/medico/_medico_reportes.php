@@ -242,7 +242,7 @@ $result = $db->query($conhorarios);
 $cantMed = $result->rowCount();
 ?>
 
-<legend>Medicos por banda horaria</legend>
+<legend>Médicos por banda horaria</legend>
 <label>Horario inicio</label>
 <select class="hora" name="horario1" id="horario1" onchange="return verifHorario();">
     <option selected="selected">Elija un horario</option>
@@ -252,6 +252,9 @@ $cantMed = $result->rowCount();
     }
     ?>
 </select>
+<button class="btn btn-mini" onclick="return false;" data-original-title="Horario de inicio de consulta de Médicos" data-content="Oprima sobre el horario de inicio de consulta para filtrar los reportes por la banda horaria. Para abrir la lista de horarios oprima sobre el campo que está a la izquierda o sobre la flecha hacia abajo. Una vez desplegada seleccione el correspondiente horario.">
+                    <i class="icon-question-sign"></i>
+</button>
 <br><br>
 <label>Horario fin</label>
 <select class="hora" name="horario2" id="horario2" onchange="return verifHorario();">
@@ -262,6 +265,9 @@ $cantMed = $result->rowCount();
     }
     ?>
 </select>
+<button class="btn btn-mini" onclick="return false;" data-original-title="Horario de finalización de consulta de Médicos " data-content="Oprima sobre el horario de finalización de consulta para filtrar los reportes por la banda horaria. Para abrir la lista de horarios oprima sobre el campo que está a la izquierda o sobre la flecha hacia abajo. Una vez desplegada seleccione el correspondiente horario.">
+                    <i class="icon-question-sign"></i>
+</button>
 <form class="form-horizontal" name="form3" action="./medico/_medico_imprimir_reportes.php" method="GET" target="_blank">
     <div class="control-group">
         <br><br>
