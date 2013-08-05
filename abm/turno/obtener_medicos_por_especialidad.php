@@ -17,7 +17,7 @@ $tmp = $db->query($consulta2);
 foreach ($tmp as $valor){  
       //para las licencias
 
-      $con= "select max(desde) desde, hasta, id_med from licencia where id_med = '".$valor['idmedico']."'";
+      $con= "select min(desde) desde, hasta, id_med from licencia where id_med = '".$valor['idmedico']."'";
       $tmp = $db->query($con);
 
       //fin para las licencias
