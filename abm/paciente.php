@@ -82,6 +82,7 @@ include_once('../sesion/login.php');
                                 ?>
                     </div>                
                 </div>
+                <br><br><br>
             </div>
         </div>
         <script>

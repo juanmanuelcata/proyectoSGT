@@ -9,10 +9,18 @@ $result = $db->query($consulta);
         <table id="tabla1" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Elegir</th>
-                    <th>Paciente</th>
-                    <th>Cantidad de turnos</th>
-                    <th>% de turnos</th>
+                    <th>Elegir <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Elegir para impresión" data-content="Oprima sobre cada Paciente para seleccionarlo, o utilice los botones de Marcar/Desmarcar todos.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Paciente <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Paciente" data-content="Oprima sobre este campo para ordenar la lista por el atributo Nombre y Apellido de cada Paciente. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>Cantidad de Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo Cantidad de Turnos" data-content="Oprima sobre este campo para ordenar la lista por la cantidad de Turnos que le fueron asignados a cada Paciente. Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
+                    <th>% de Turnos <button class="btn btn-mini" onclick="return false;" data-original-title="Campo % de Turnos" data-content="Oprima sobre este campo para ordenar la lista por el porcentaje de Turnos que le fueron asignados a cada Paciente (sobre el total de Turnos asignados). Cada vez que se oprime cambiará entre forma ascendente y descendente.">
+                            <i class="icon-question-sign"></i>
+                        </button></th>
                 </tr>
             </thead>
             <tbody>
@@ -46,22 +54,28 @@ $result = $db->query($consulta);
         </table>
     </div>
     <br>
-            <a href="javascript:seleccionar_todo1()">Marcar todos</a> | 
-            <a href="javascript:deseleccionar_todo1()">Desmarcar todos</a>
-            <input type="hidden" name="code" value="a"/>
-            <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <a href="javascript:seleccionar_todo1()">Marcar todos</a> | 
+    <a href="javascript:deseleccionar_todo1()">Desmarcar todos</a>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Opciones de marcado" data-content="Oprima 'Marcar todos' para seleccionar todos los Pacientes visualizados u oprima 'Desmarcar todos' para desmarcar todos los pacientes que estén visualizados.">
+        <i class="icon-question-sign"></i>
+    </button>
+    <input type="hidden" name="code" value="a"/>
+    <button type="submit" class="btn btn-success offset1">Imprimir</button>
+    <button class="btn btn-mini" onclick="return false;" data-original-title="Imprimir" data-content="Seleccione los Pacientes que desee imprimir haciendo click sobre el campo 'Elegir' de cada uno o utilizando el botón de 'Marcar todos'. Una vez hecho esto oprima el botón 'Imprimir' y se abrirá una nueva ventana con un documento pdf, el cual podrá imprimir utilizando las opciones del navegador que esté usando.">
+        <i class="icon-question-sign"></i>
+    </button>
 </form>
 
 <script>
-    function seleccionar_todo1() {
-        for (i = 0; i < document.form1.elements.length; i++)
-            if (document.form1.elements[i].type == "checkbox")
-                document.form1.elements[i].checked = 1
-    }
+                        function seleccionar_todo1() {
+                            for (i = 0; i < document.form1.elements.length; i++)
+                                if (document.form1.elements[i].type == "checkbox")
+                                    document.form1.elements[i].checked = 1
+                        }
 
-    function deseleccionar_todo1() {
-        for (i = 0; i < document.form1.elements.length; i++)
-            if (document.form1.elements[i].type == "checkbox")
-                document.form1.elements[i].checked = 0
-    }
+                        function deseleccionar_todo1() {
+                            for (i = 0; i < document.form1.elements.length; i++)
+                                if (document.form1.elements[i].type == "checkbox")
+                                    document.form1.elements[i].checked = 0
+                        }
 </script>
