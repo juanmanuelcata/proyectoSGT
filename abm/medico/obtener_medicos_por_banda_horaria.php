@@ -60,6 +60,10 @@ $hora2 = $_POST['hora2'];
         <p><strong>Total: </strong></label><?php echo $cantMed ?> médicos</p>
     <?php endif; ?>
 </div>
+        <script>
+            //            ESTA ES LA LIÑITA MAGICA
+            $(".btn").popover({trigger: "hover"});
+        </script>
 <script type="text/javascript">
                     $(document).ready(function() {
                         $('#tabla3').dataTable({

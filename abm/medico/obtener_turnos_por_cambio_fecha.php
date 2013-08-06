@@ -77,6 +77,10 @@ $fechaFin = $_POST['fechaFin'];
             </tbody>    
         </table>
 </div>
+        <script>
+            //            ESTA ES LA LIÑITA MAGICA
+            $(".btn").popover({trigger: "hover"});
+        </script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#tabla1').dataTable({
