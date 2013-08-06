@@ -42,7 +42,7 @@ $result = $db->query($consulta);
                     $direccion2 = "'./medico/_medico_licencia.php?code=li&id=" . $valor['idmedico'] . "'";
                     ?>
                     <tr>
-                        <td><input type="checkbox" name="' . $valor['idmedico'] . '" value="' . $valor['idmedico'] . '" id="' . $valor['idmedico'] . '"></td>
+                        <td><input type="checkbox" name="<?php echo $valor['idmedico'] ?>" value="<?php echo $valor['idmedico'] ?>" id="<?php echo $valor['idmedico'] ?>"></td>
                         <td><?php echo $valor['nombre'] ?></td>
                         <td><?php echo $valor['apellido'] ?></td>
                         <td><a href="./medico.php?code=m&id=<?php echo $valor['idmedico'] ?>"><i class="icon-cog"></i></a></td>

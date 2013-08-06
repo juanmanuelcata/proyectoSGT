@@ -30,7 +30,7 @@ class Dia {
 //devuelve la fecha del dia dado un nombre (dentro de los proximos 7 dias
   function calcFecha($d) {
     $hoy = $this->calcDia(date('d-m-Y'));
-    if ($this->semana[$d] > $this->semana[$hoy])
+    if ($this->semana[$d] >= $this->semana[$hoy])
       $prox = date('d-m-Y', strtotime('+' . $this->semana[$d] - $this->semana[$hoy] . ' day'));
     else
       $prox = date('d-m-Y', strtotime('+' . $this->semana[$d] + $this->semana[$hoy] - 1 . ' day'));

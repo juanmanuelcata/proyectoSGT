@@ -42,7 +42,7 @@ if (isset($_GET['ok'])) {
             $db->query($log);
             echo '<div class="alert alert-success">  
                     <a class="close" data-dismiss="alert">×</a>  
-                    <strong><h4>Muy Bien! Se modificó correctamente el Médico: ' . $nombre . '</h4>.</strong>  
+                    <strong><h4>Muy Bien! Se modificó correctamente el Médico: ' . $nombre . '</h4></strong>  
             </div>';
             //reconsulta para actualizar los valores del formulario al modificar algo
             $id = $_GET['id'];
@@ -134,225 +134,26 @@ INNER JOIN especialidad ON idespecialidad = id_esp WHERE idmedico = ' . $a['idme
                     <i class="icon-question-sign"></i>
                 </button>
 
+                <br><br><br>
+                <a href="./medico.php?code=osmod&id=<?php echo $id ?>" class="btn btn-success">Obras Sociales</a>
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar Obra/s social/es del Médico" data-content="Oprima sobre el botón 'Obras Sociales' para modificar las Obras Sociales con las que trabaja el Médico. Se abrirá en una nueva sección. Dentro de la nueva sección deberá regresar a ésta página (Modificar Médico) para continuar.">
+                    <i class="icon-question-sign"></i>
+                </button>
+                
+                <br><br>
+
+                <a href="./medico.php?code=hsmod&id=<?php echo $id ?>" class="btn btn-success">Horarios</a>
+                <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar Horarios del Médico" data-content="Oprima sobre el botón 'Horarios' para modificar los Horarios en los que trabaja el Médico. Se abrirá en una nueva sección. Dentro de la nueva sección deberá regresar a ésta página (Modificar Médico) para continuar.">
+                    <i class="icon-question-sign"></i>
+                </button>
 
 
-
-                <!--comienzo del codigo para os y horarios modif-->
-
-
-                <legend>Obras socialies del medico</legend>
-
-                <fieldset>
-
-                    <div id="obrasSociales">
-
-                        <?php
-                        $r = 1;
-                        $consulos = "SELECT os.nombre nombre 
-                          FROM os
-                          INNER JOIN med_os ON ( id_os = idos ) 
-                          INNER JOIN medico ON ( idmedico = id_med
-                          AND idmedico =31 ) ";
-                        $pdoos = $db->query($consulos);
-                        if (!$pdoos)
-                            echo "algo malo paso";
-                        else
-                            foreach ($pdoos as $filaos):
-                                ?>
-                                <div id="os_div_<?php echo $r; ?>">
-                                    <legend><button onClick="borrarOs(<?php echo $r; ?>);
-                                return false;"><i class="icon-remove"></i></button>Obra social numero <?php echo $r ?></legend>
-                                    <fieldset>
-                                        <?php
-                                        $db = conectaDb();
-                                        $consulta = "SELECT * FROM os where activo = 1";
-                                        $result = $db->query($consulta);
-                                        if (!$result)
-                                            print ("<p>error en la consulta<p>");
-                                        else
-                                            
-                                            ?>
-                                        <select tabindex="12" class="select-xlarge" name="os_select[<?php echo $r; ?>][nombre]" >
-                                            <?php
-                                            $consulta = "SELECT * FROM os where activo = 1";
-                                            $result = $db->query($consulta);
-                                            if (!$result)
-                                                print ("<p>error en la consulta<p>");
-                                            foreach ($result as $valor):
-                                                if ($valor['nombre'] == $filaos['nombre']):
-                                                    ?>
-
-                                                    <option Selected="Selected"><?php echo $valor['nombre'] ?></option>
-
-                                                <?php else: ?>
-
-                                                    <option><?php echo $valor['nombre'] ?></option>
-
-                                                <?php
-                                                endif;
-                                            endforeach;
-                                            ?>
-                                        </select>
-                                        <button class="btn btn-mini" onclick="return false;" data-original-title="Modificar la obra social del Médico" data-content="Oprima sobre la nueva obra social del Médico para modificarla o sobre la cruz para eliminarla. Para desplegar la lista de obras sociales haga click sobre el campo que está a la izquierda (o sobre la flecha hacia abajo). Una vez desplegada seleccione la nueva obra social.">
-                                            <i class="icon-question-sign"></i>
-                                        </button>
-                                    </fieldset>
-                                    <br>
-                                </div>
-                                <?php
-                                $r++;
-                            endforeach;
-                        ?>
-                    </div>
-
-                    <button class="btn btn-success" onClick="agregarObraSocial();
-                        return false;">Agregar Obra Social </button>
-
-                </fieldset>
-
-                <legend>Horarios del Médico</legend>
-
-                <fieldset>
-
-                    <div id="grillahoraria">
-                        <?php
-                        $i = 1;
-                        $consulhorarios = "SELECT dia, MIN(desde) desde, MAX(hasta) hasta, id_med
-                              FROM horario
-                              INNER JOIN medico ON ( id_med = '$id' )
-                              group by id_med, dia ";
-                        $pdoHorario = $db->query($consulhorarios);
-                        foreach ($pdoHorario as $filaHorario):
-                            ?>
-
-                            <div id="horario_div_<?php echo $i; ?>">
-                                <legend><button onClick="borrarHorario(<?php echo $i; ?>);
-                            return false;"><i class="icon-remove"></i></button>Horario numero <?php echo $i; ?></legend>
-                                <fieldset>
-                                    <?php
-                                    $n = $i;
-                                    $semana = array("lun", "mar", "mie", "jue", "vie");
-                                    ?>
-                                    <label>Día</label>
-                                    <select class="span5" name="horario[<?php echo $i; ?>][dia]" id="dia<?php echo $n; ?>" >
-                                        <?php foreach ($semana as $k): ?>
-                                            <?php if ($k == $filaHorario["dia"]): ?>
-                                                <option value="<?php echo $k ?>" selected="selected"><?php echo $k ?></option>
-                                            <?php else: ?>
-                                                <option value="<?php echo $k ?>" ><?php echo $k ?></option>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </select>
-
-                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación del día de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de días hábiles. Elija el día haciendo click sobre el día correspondiente para modificarlo.">
-                                        <i class="icon-question-sign"></i>
-                                    </button>
-
-                                    <label>Desde</label>
-                                    <select class="span5" name="horario[<?php echo $i; ?>][desde]" id="horarios<?php echo $n; ?>">
-                                        <?php for ($p = 8; $p < 20; $p++): ?>
-                                            <?php if ($p . ':00:00' == $filaHorario['desde']): ?>
-                                                <option value="<?php echo $p ?>:00:00" selected="selected"><?php echo $p ?>:00</option>
-                                            <?php else: ?>
-                                                <option value="<?php echo $p ?>:00:00" ><?php echo $p ?>:00</option>
-                                            <?php endif; ?>                        
-                                        <?php endfor; ?>
-                                    </select>
-
-                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación de la hora de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora de inicio de la consulta para modificarla.">
-                                        <i class="icon-question-sign"></i>
-                                    </button>
-
-                                    <label>Hasta</label>
-                                    <select class="span5" name="horario[<?php echo $i; ?>][hasta]" id="horariosHasta<?php echo $n; ?>" onchange="verificarHorario(numeroHorario - 1)">
-                                        <?php for ($p = 8; $p < 20; $p++): ?>
-                                            <?php if ($p . ':00:00' == $filaHorario['hasta']): ?>
-                                                <option value="<?php echo $p ?>:00:00" selected="selected"><?php echo $p ?>:00</option>
-                                            <?php else: ?>
-                                                <option value="<?php echo $p ?>:00:00" ><?php echo $p ?>:00</option>
-                                            <?php endif; ?>                        
-                                        <?php endfor; ?>
-                                    </select>
-
-                                    <button class="btn btn-mini" onclick="return false;" data-original-title="Modificación de la hora de atención del Médico" data-content="Oprima sobre el botón el campo a la izquierda (o sobre la flecha hacia abajo) para desplegar la lista de horas hábiles. Haga click sobre la hora de finalización de la consulta para modificarla.">
-                                        <i class="icon-question-sign"></i>
-                                    </button>
-
-                                </fieldset>
-                                <br>
-                            </div>
-                            <?php
-                            $i++;
-                        endforeach;
-                        ?>
-                    </div>
-
-                    <button class="btn btn-success" onClick="agregarHorarioMedico();
-
-
-                        return false;">Agregar Horario </button>
-
-                    <!--<br><br><input type="submit" class="btn btn-success"  onClick="return veriformuMed();" value="Guardar Medico ">-->
-
-                </fieldset>
-
-<!--le saqué los divs-->
-                <!--<div class="form-actions">-->
-                    <br><br>
-                    <input type="hidden" name="code" value="m"/>
-                    <input type="hidden" name="ok" value="1"/>
-                    <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
-                    <button type="submit"  class="btn btn-success" onClick="return veriformuMed();">Guardar cambios</button> <!-- Agregarle la funcion de validacion -->
-                    <button type="reset" class="btn btn-success">Reiniciar</button>
-                <!--</div>-->
-
+                <br><br><br>
+                <input type="hidden" name="code" value="m"/>
+                <input type="hidden" name="ok" value="1"/>
+                <input type="hidden" name="id" value="<?php echo "$id" ?>"/>
+                <button type="submit"  class="btn btn-success" onClick="return veriformuMed();">Guardar cambios</button>
             </div>
         </div>
     </fieldset>
 </form>
-<script>
-                    var numeroHorario = <?php echo $i ?>;
-                    var numeroOs = <?php echo $r ?>;
-
-                    function agregarHorarioMedico()
-                    {
-                        $.ajax({
-                            url: 'medico/horario.php',
-                            type: 'POST',
-                            data: {
-                                numeroHorario: numeroHorario++
-                            },
-                            success: function(data) {
-                                console.warn(numeroHorario);
-                                $('#grillahoraria').append(data);
-                            }
-                        });
-                    }
-
-                    function agregarObraSocial()
-                    {
-                        $.ajax({
-                            url: 'medico/addOs.php',
-                            type: 'POST',
-                            data: {
-                                numeroOs: numeroOs++
-                            },
-                            success: function(data) {
-                                $('#obrasSociales').append(data);
-                            }
-                        });
-                    }
-                    function borrarOs(numeroDiv)
-                    {
-                        $('#os_div_' + numeroDiv).remove();
-                        var hidden = '<input type="hidden" name="horario' + numeroDiv + '" value="' + numeroDiv + '"/>';
-                        $('#obrasSociales').append(hidden);
-                    }
-                    function borrarHorario(numeroDiv)
-                    {
-                        $('#horario_div_' + numeroDiv).remove();
-                        var hidden = '<input type="hidden" name="horario' + numeroDiv + '" value="' + numeroDiv + '"/>';
-                        $('#grillahoraria').append(hidden);
-                    }
-
-</script>

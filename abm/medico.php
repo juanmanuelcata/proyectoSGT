@@ -80,10 +80,15 @@ else
                                 include_once('./medico/_medico_listar.php');
                             if ($_GET['code'] == 'r')
                                 include_once('./medico/_medico_reportes.php');
+                            if ($_GET['code'] == 'osmod')
+                                include_once('./medico/_medico_os_modif.php');
+                            if ($_GET['code'] == 'hsmod')
+                                include_once('./medico/_medico_horario_modif.php');
                         }
                         ?>
                     </div>                
                 </div>
+                <br><br>
             </div>
         </div>
         <script>

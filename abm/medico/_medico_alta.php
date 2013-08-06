@@ -49,23 +49,20 @@ if (isset($_POST['nombre'])) {
             $consulta = "INSERT INTO med_esp (id_med, id_esp) VALUES ('$idmed', '$idesp')";
             if (!$db->query($consulta))
                 print ("Error al conectase a la base de datos");
-            else
-
 
 
 
             /* Agregamos los horarios para un medico */
-                $rs = $db->query("SELECT MAX(idmedico) as id FROM medico");
+            $rs = $db->query("SELECT MAX(idmedico) as id FROM medico");
             $arr = $rs->fetch(PDO::FETCH_ASSOC);
             $id = $arr['id'];
 
             $fechita = date('Y-m-d H:i:s');
-            $detalle = 'Alta del horario par el Médico"' . $nombre_med . '"';
+            $detalle = 'Alta del horario para el Médico"' . $nombre_med . '"';
             $user = $_SESSION['usuario']['user'];
             $log = "INSERT INTO log ( fecha, usuario, detalle, tabla, idafectado)              
                         VALUES ('$fechita', '$user', '$detalle', 'horario', '$id2' )";
             $db->query($log);
-
 
 
 
@@ -94,8 +91,9 @@ if (isset($_POST['nombre'])) {
             if (isset($_POST['os_select'])) {
                 foreach ($_POST['os_select'] as $os) {
                     $consulta = 'SELECT idos FROM os WHERE "' . $os['nombre'] . '" = nombre ';
-
+          
                     $conidos = $db->query($consulta);
+                    
                     $arridos = $conidos->fetch(PDO::FETCH_ASSOC);
                     $idos = $arridos['idos'];
 
@@ -167,53 +165,53 @@ if (isset($_POST['nombre'])) {
                 </button>
                 <input type="hidden" name="code" value="a"/><br><br> 
 
-<!--            </div>
-        </div>
-    </fieldset>-->
+                <!--            </div>
+                        </div>
+                    </fieldset>-->
 
 
-    <!-- Bitácora del gordo: Acá comienza la exploración por el fantástico mundo de insertar obras sociales al médico -->
-    <control->
-    <legend>Obras sociales del Médico</legend>
-    <fieldset>
-        
-        <div id="obrasSociales">
+                <!-- Bitácora del gordo: Acá comienza la exploración por el fantástico mundo de insertar obras sociales al médico -->
+                <control->
+                    <legend>Obras Sociales del Médico</legend>
+                    <fieldset>
 
-        </div>
+                        <div id="obrasSociales">
 
-        <button class="btn btn-success" onClick="agregarObraSocial();
+                        </div>
+
+                        <button class="btn btn-success" onClick="agregarObraSocial();
                         return false;">Agregar Obra Social </button>
-        <button class="btn btn-mini" onclick="return false;" data-original-title="Obra/s social/es del Médico" data-content="Oprima sobre el botón 'Agregar Obra Social' para desplegar el formulario. Si desea agregar otra obra social oprímalo nuevamente. Para eliminar una obra social oprima sobre el icono cerrar ('x').">
-            <i class="icon-question-sign"></i>
-        </button>
+                        <button class="btn btn-mini" onclick="return false;" data-original-title="Obra/s social/es del Médico" data-content="Oprima sobre el botón 'Agregar Obra Social' para desplegar el formulario. Si desea agregar otra obra social oprímalo nuevamente. Para eliminar una obra social oprima sobre el icono cerrar ('x').">
+                            <i class="icon-question-sign"></i>
+                        </button>
 
-    </fieldset>
-
-
-    <!-- Fín bitácora del gordo (MIRA NESTOR PUSE ASENTOS COMO TE GUSTA) -->
+                    </fieldset>
 
 
-    <legend>Horarios del Médico</legend>
-    <fieldset>
-
-        <div id="grillahoraria">
-
-        </div>
+                    <!-- Fín bitácora del gordo (MIRA NESTOR PUSE ASENTOS COMO TE GUSTA) -->
 
 
-        <button class="btn btn-success" onClick="agregarHorarioMedico();
+                    <legend>Horarios del Médico</legend>
+                    <fieldset>
+
+                        <div id="grillahoraria">
+
+                        </div>
+
+
+                        <button class="btn btn-success" onClick="agregarHorarioMedico();
                         return false;">Agregar Horario </button>
-                    <button class="btn btn-mini" onclick="return false;" data-original-title="Horarios de atención del Médico" data-content="Oprima sobre el botón 'Agregar Horario' para desplegar el formulario. Si desea agregar un nuevo horario de atencion oprímalo nuevamente. Para eliminar un horario oprima sobre el icono cerrar ('x').">
-            <i class="icon-question-sign"></i>
-        </button>
+                        <button class="btn btn-mini" onclick="return false;" data-original-title="Horarios de atención del Médico" data-content="Oprima sobre el botón 'Agregar Horario' para desplegar el formulario. Si desea agregar un nuevo horario de atencion oprímalo nuevamente. Para eliminar un horario oprima sobre el icono cerrar ('x').">
+                            <i class="icon-question-sign"></i>
+                        </button>
 
 
-        <br><br><input type="submit" class="btn btn-success" id="guardar" onClick="return veriformuMed();" value="Guardar">
-                <button tabindex="14" type="reset" class="btn btn-success">Borrar</button>
-    </fieldset>
+                        <br><br><input type="submit" class="btn btn-success" id="guardar" onClick="return veriformuMed();" value="Guardar">
+                        <button tabindex="14" type="reset" class="btn btn-success">Borrar</button>
+                    </fieldset>
 
-    <!--LE AGREGuÉ ESTOS TRES (div div y fieldset) para ver si se alineaba todo en el centro...cualquier cosa estan comentados mas arriba-->
-    </div>
+                    <!--LE AGREGuÉ ESTOS TRES (div div y fieldset) para ver si se alineaba todo en el centro...cualquier cosa estan comentados mas arriba-->
+            </div>
         </div>
     </fieldset>
     <!--estos trs de arriba-->

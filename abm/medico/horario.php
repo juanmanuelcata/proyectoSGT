@@ -12,6 +12,8 @@
             <option value="mie">Miércoles</option>
             <option value="jue">Jueves</option>
             <option value="vie">Viernes</option>
+            <option value="sab">Sábado</option>
+            <option value="dom">Domingo</option>
 
         </select>
 
