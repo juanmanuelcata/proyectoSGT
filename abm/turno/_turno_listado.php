@@ -192,30 +192,26 @@ if ($result->rowCount() == 0) {
                             });
                         });
                         $('.btn-danger').click(function() {
-                            $(this).parent().parent().remove();
-                            $.ajax({
-                                url: 'turno/_conf_canc.php',
-                                type: 'POST',
-                                data: {
-                                    idturno: $(this).val(),
-                                    ok: 0,
-                                    idhorario: $(this).attr('id')
-                                },
-                                success: function(data) {
-                                    var datos = eval('(' + data + ')');
+                            if (confirm("Seguro que desea borrar el turno?")) {
+                                $(this).parent().parent().remove();
+                                $.ajax({
+                                    url: 'turno/_conf_canc.php',
+                                    type: 'POST',
+                                    data: {
+                                        idturno: $(this).val(),
+                                        ok: 0,
+                                        idhorario: $(this).attr('id')
+                                    },
+                                    success: function(data) {
+                                        var datos = eval('(' + data + ')');
 
-                                    /* ahora usas datos como si fuera un objeto */
+                                        /* ahora usas datos como si fuera un objeto */
 
-                                    switch (datos.resultado) {
-                                        case 3:
-                                            alert('Cancelación exitosa.');
-                                            break;
-                                        case 4:
-                                            alert('Falla en la cancelacion.');
-                                            break;
+                                        switch (datos.resultado) {
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
                         });
 
 
