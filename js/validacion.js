@@ -159,11 +159,6 @@ function superpocicion(arregloDiv, n) {//resive un arreglo de divs que cada uno 
 //funcion que se llama al presionar "enviar"
 function verificarHorario() {
   var n = $('#grillahoraria').find('div').length;//obtener la cantidad de "div_horarios"
-  if (n == 0) {
-    control = false;
-    alert("Por favor defina al menos un horario, sino no, no tiene sentido dar de alta un medico que no atiende nunca, chanta!!!! ñoqui!!!");
-  }
-  else{
   var arregloDiv = new Array(n); //creo arreglo del largo de los divs
   for (var k = 0; k < n; k++) //para cada posicion del arreglo de divs creo un 
     arregloDiv[k] = new Array(3);//arreglo de 3 para el dia, desde y hasta
@@ -177,7 +172,7 @@ function verificarHorario() {
     var oID = $(this).attr("id");//obtengo el id del div en el que estoy actualmente
     if (n == 1) { //si solo hay un horario verifico que sea valido
       if (!individual(oID)) { //si desde > hasta
-        alert("Solo ingreso un horario y lo hizo mal... por favor... puede hacerlo mejor ¬¬ inutil!!! >.<")
+        alert("Solo ingreso un horario")
         control = false;
         return false;//devuelve false y corta
       }
@@ -200,7 +195,7 @@ function verificarHorario() {
   if (control) {
     //si hay mas de un horario
     return superpocicion(arregloDiv, n);//retorno lo que devuelva la funcion superpocicion
-  }}
+  }
   return control;
 }
 //se llama siempre que cambia un select horario

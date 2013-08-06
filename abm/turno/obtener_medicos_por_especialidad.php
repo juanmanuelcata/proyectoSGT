@@ -15,13 +15,6 @@ $consulta2 = 'select idmedico, nombre, apellido
 $tmp = $db->query($consulta2);
 
 foreach ($tmp as $valor){  
-      //para las licencias
-//no entiendo que haces aca, estas "reemplazando" tmp?
-//      $con= "select max(desde) desde, hasta, id_med from licencia where id_med = '".$valor['idmedico']."'";
-//      $tmp = $db->query($con);
-
-      //fin para las licencias
-
         echo '<option class="option1" value="'.$valor['idmedico'].'">'.$valor['nombre'].' '.$valor['apellido'].'</option>';
 }
 ?>

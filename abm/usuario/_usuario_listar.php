@@ -3,6 +3,8 @@ $db = conectaDb();
 $consulta = "SELECT * from usuario";
 $result = $db->query($consulta);
 ?>
+
+<legend>Listado de Obras Sociales</legend>
 <form class="form-horizontal" name="form" action="./usuario/_usuario_imprimir.php" method="GET" target="_blank">
 
     <table id="tabla1" class="table table-striped">
@@ -33,7 +35,7 @@ $result = $db->query($consulta);
                     <td><?php echo $valor['dni'] ?></td>
                     <td><a href="./usuario.php?code=m&id=<?php echo $valor['idusuario'] ?>"><i class="icon-cog"></i></a></td>
                     <td><a href="javascript:abrir('./usuario/_ver_detalle.php?id=<?php echo $valor['idusuario'] ?>')"><i class=" icon-eye-open"></i></a></td>
-                <?php endforeach; ?>;
+                <?php endforeach; ?>
         </tbody>    
     </table>
     <br><br><br> 

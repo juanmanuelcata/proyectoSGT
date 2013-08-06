@@ -34,25 +34,9 @@ include_once('sesion/login.php');
         </div>
         <div class="span9">
           
-   <h4 class="text-center">Pagina en construccion</h4>
+   <h4 class="text-center">Bienvenido al sistema de gestión de turnos de la Clinica Salud</h4>
 <dl>
-              <?php 
-              require_once('./fragmentos/Dia.php');
-              
-              
-              $hoy=date('d-m-Y');
-              $dia = new Dia($hoy);
-              echo $dia->getDia();
-              echo $dia->getNombre();
-              
-              
-              $hoy2 = new Dia('dom');
-              echo $hoy2->getDia();
-              echo $hoy2->getNombre();
-              
-              
-              ?>
-              <input type="date"/>
+
         </div>
       </div>
     </div>
