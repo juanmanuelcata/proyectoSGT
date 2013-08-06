@@ -2,7 +2,7 @@
 
 class Dia {
 
-  var $semana = array("dom" => "0", "lun" => "1", "mar" => "2", "mie" => "3", "jue" => "4", "vie" => "5", "sab" => "6");
+  var $semana = array("lun" => "1", "mar" => "2", "mie" => "3", "jue" => "4", "vie" => "5", "sab" => "6", "dom" => "7");
   var $nombre;
   var $dia;
 
@@ -33,7 +33,7 @@ class Dia {
     if ($this->semana[$d] >= $this->semana[$hoy])
       $prox = date('d-m-Y', strtotime('+' . $this->semana[$d] - $this->semana[$hoy] . ' day'));
     else
-      $prox = date('d-m-Y', strtotime('+' . $this->semana[$d] + $this->semana[$hoy] - 1 . ' day'));
+     $prox = date('d-m-Y', strtotime('+' . $this->semana[$d] - $this->semana[$hoy]  + '7' . ' day'));
     return $prox;
   }
 

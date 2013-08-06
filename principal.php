@@ -40,16 +40,36 @@ include_once('sesion/login.php');
               require_once('./fragmentos/Dia.php');
               
               
-              $hoy=date('d-m-Y');
-              $dia = new Dia($hoy);
+              $dia = new Dia('lun');
               echo $dia->getDia();
               echo $dia->getNombre();
+              echo '<br>';
               
-              
-              $hoy2 = new Dia('dom');
+              $hoy2 = new Dia('mar');
               echo $hoy2->getDia();
               echo $hoy2->getNombre();
+                echo '<br>';
+              $hoy3 = new Dia('mie');
+              echo $hoy3->getDia();
+              echo $hoy3->getNombre();
+                echo '<br>';
+              $dia4 = new Dia('jue');
+              echo $dia4->getDia();
+              echo $dia4->getNombre();
+              echo '<br>';
               
+              $hoy5 = new Dia('vie');
+              echo $hoy5->getDia();
+              echo $hoy5->getNombre();
+                echo '<br>';
+              $hoy6 = new Dia('sab');
+              echo $hoy6->getDia();
+              echo $hoy6->getNombre();
+                echo '<br>';
+              $hoy7 = new Dia('dom');
+              echo $hoy7->getDia();
+              echo $hoy7->getNombre();
+                echo '<br>';
               
               ?>
               <input type="date"/>

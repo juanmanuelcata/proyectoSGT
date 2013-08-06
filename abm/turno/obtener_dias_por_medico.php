@@ -17,11 +17,16 @@ foreach ($tmp1 as $valor1) {
 }
 
 //para las licencias
-$con = "select max(desde) desde, hasta, id_med from licencia where id_med = '" . $idmed . "'";
+$con = "select max(desde) desde, max(hasta) hasta, id_med from licencia where id_med '" . $idmed . "'";
 $licPdo = $db->query($con);
+if($licPdo){
 $lic = $licPdo->fetch(PDO::FETCH_ASSOC);
 $desde = new Dia($lic['desde']);
 $hasta = new Dia($lic['hasta']);
+}else{
+  $desde = new Dia('00-00-0000');
+  $hasta = new Dia('00-00-0000');
+}
 //fin para las licencias 
 
 $consulta2 = 'select dia from horario where (id_med  = "' . $idmed . '") and (activo = 1) group by dia ';
