@@ -57,9 +57,6 @@ else
                         $consulta2 = "select * from medico where '$idmedico' = idmedico";
                         $verif1 = $db->query($consulta2);
                         $seg = $verif1->fetch(PDO::FETCH_ASSOC);
-                        print_r($seg);
-                        echo "<br>";
-                        echo $consulta2;
                         echo '<legend>Listado de licencias del Médico "' . $seg['nombre'] . '  ' . $seg['apellido'] . '"</legend>';
 //mi codigo laucha
                         $hoy = date('Y-m-d');
