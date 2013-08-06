@@ -77,7 +77,6 @@ $db = null;
         <i class="icon-question-sign"></i>
     </button>
 </form>
-
 <script>
                                 function seleccionar_todo() {
                                     for (i = 0; i < document.form.elements.length; i++)
