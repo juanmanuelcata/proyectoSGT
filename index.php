@@ -6,6 +6,9 @@ if ((isset($_SESSION['usuario']['logueado'])) && ($_SESSION['usuario']['logueado
 ?>
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
