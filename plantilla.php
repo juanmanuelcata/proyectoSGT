@@ -32,8 +32,7 @@ include_once('sesion/login.php');
                     </div>
                     <div class="span9">
                         <p class="text-center">Contenido</p>
-                        
-                    </div>                
+                    </div>
                 </div>
             </div>
         </div>
