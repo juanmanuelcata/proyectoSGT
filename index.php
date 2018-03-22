@@ -4,6 +4,7 @@ if ((isset($_SESSION['usuario']['logueado'])) && ($_SESSION['usuario']['logueado
     header('Location: principal.php');
 }
 ?>
+<!-- -->
 <!DOCTYPE html>
 <html lang="es">
     <head>
