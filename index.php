@@ -24,6 +24,7 @@ if ((isset($_SESSION['usuario']['logueado'])) && ($_SESSION['usuario']['logueado
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 
     </head>
+    <!-- -->
     <body>
         <div class="row-fluid">
             <div class="span12" id="cabecera2">
